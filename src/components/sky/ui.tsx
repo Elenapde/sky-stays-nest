@@ -125,9 +125,7 @@ export function SectionHead({
         className,
       )}
     >
-      {kicker ? (
-        <Kicker className={invert ? "text-nude" : undefined}>{kicker}</Kicker>
-      ) : null}
+      {kicker ? <Kicker className={invert ? "text-nude" : ""}>{kicker}</Kicker> : null}
       <h2
         className={cn(
           "mt-5 text-3xl leading-[1.12] md:text-[2.75rem]",
