@@ -46,12 +46,9 @@ export function CtaLink({
   variant,
   size,
   className,
-  to,
   ...props
 }: CtaProps & ComponentProps<typeof Link>) {
-  return (
-    <Link className={cn(ctaVariants({ variant, size }), className)} to={to} {...props} />
-  );
+  return <Link className={cn(ctaVariants({ variant, size }), className)} {...props} />;
 }
 
 export function CtaAnchor({
