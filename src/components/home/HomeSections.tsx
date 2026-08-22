@@ -1,4 +1,6 @@
+import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
+
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
@@ -584,8 +586,15 @@ export function Reviews() {
             <p className="kicker mt-1 text-muted-foreground">evaluaciones</p>
           </div>
           <div className="border-l border-border pl-8">
-            <p className="kicker text-primary-soft">{social.badge}</p>
+            <img
+              src={superhostLogo.url}
+              alt="Airbnb Superhost — Superanfitrión de Airbnb"
+              className="h-10 w-auto"
+              loading="lazy"
+            />
+            <p className="kicker mt-2 text-primary-soft">{social.badge}</p>
           </div>
+
         </div>
       </div>
 
