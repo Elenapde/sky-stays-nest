@@ -1,7 +1,13 @@
+import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
+import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
+
+import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { StaySearch } from "@/components/sky/StaySearch";
+import { SuperhostBadge } from "@/components/sky/SuperhostBadge";
+
 import {
   Cta,
   CtaAnchor,
@@ -28,14 +34,17 @@ export function Hero() {
   return (
     <>
       <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-primary">
-        {/* Reemplazar por el video real de Sky Stays y Asunción */}
-        <div className="absolute inset-0 animate-pan">
-          <PhotoSlot
-            label="Hero audiovisual · Asunción → edificio → ingreso → departamento → vista → piscina → gastronomía → coworking → ciudad de noche"
-            tone="carbon"
-            className="h-full"
-          />
-        </div>
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src={heroVideo.url}
+          poster={heroPoster.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-carbon/85 via-carbon/45 to-carbon/35" />
 
         <div className="relative mx-auto w-full max-w-[80rem] px-6 pt-32 pb-16 md:px-10 md:pb-24">
@@ -51,21 +60,16 @@ export function Hero() {
               Estadías flexibles en algunos de los mejores edificios y ubicaciones de
               Asunción.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-5">
               <CtaAnchor href="#buscador" variant="nude" size="lg">
                 Ver disponibilidad
               </CtaAnchor>
-              <div className="flex items-center gap-3 text-nude/80">
-                <Stars className="text-sm text-nude" />
-                <span className="text-xs tracking-wide">
-                  {social.rating} · +{social.reviews} evaluaciones ·{" "}
-                  <span className="whitespace-nowrap">{social.badge}</span>
-                </span>
-              </div>
+              <SuperhostBadge invert size="md" />
             </div>
           </Reveal>
         </div>
       </section>
+
 
       <Section tone="cream" className="py-0 md:py-0">
         <div className="-mt-14 pb-20 md:-mt-20 md:pb-28">
@@ -582,8 +586,15 @@ export function Reviews() {
             <p className="kicker mt-1 text-muted-foreground">evaluaciones</p>
           </div>
           <div className="border-l border-border pl-8">
-            <p className="kicker text-primary-soft">{social.badge}</p>
+            <img
+              src={superhostLogo.url}
+              alt="Airbnb Superhost — Superanfitrión de Airbnb"
+              className="h-10 w-auto"
+              loading="lazy"
+            />
+            <p className="kicker mt-2 text-primary-soft">{social.badge}</p>
           </div>
+
         </div>
       </div>
 
