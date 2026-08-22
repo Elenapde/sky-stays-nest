@@ -1,3 +1,4 @@
+import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
@@ -120,6 +121,8 @@ export function WhatIsSkyStays() {
             ratio="4/3"
             tone="carbon"
             className="col-span-2"
+            src={cocina.url}
+            alt="Cocina equipada y ambiente integrado de un departamento Sky Stays en Asunción"
           />
         </Reveal>
       </div>
