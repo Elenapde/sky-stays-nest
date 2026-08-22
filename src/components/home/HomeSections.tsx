@@ -60,8 +60,7 @@ export function Hero() {
             </h1>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-nude/75">
               La comodidad de un departamento, con servicios hoteleros y atención 24/7.
-              Estadías flexibles en algunos de los mejores edificios y ubicaciones de
-              Asunción.
+              Estadías flexibles en las mejores ubicaciones de Asunción.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-5">
               <CtaAnchor href="#buscador" variant="nude" size="lg">
