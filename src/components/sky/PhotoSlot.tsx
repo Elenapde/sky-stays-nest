@@ -13,6 +13,7 @@ export function PhotoSlot({
   ratio,
   src,
   alt,
+  objectPosition = "center",
 }: {
   label: string;
   className?: string;
@@ -20,6 +21,7 @@ export function PhotoSlot({
   ratio?: string;
   src?: string;
   alt?: string;
+  objectPosition?: string;
 }) {
   const tones = {
     burgundy: "bg-primary text-nude",
