@@ -62,7 +62,7 @@ export function PhotoSlot({
       )}
       <figcaption
         className={cn(
-          "relative w-full px-4 pb-5 pt-4 text-[0.5625rem] leading-relaxed font-semibold tracking-[0.2em] uppercase opacity-95",
+          "relative w-full px-4 pb-4 pt-4 text-[0.625rem] leading-snug font-semibold tracking-[0.12em] break-words hyphens-none uppercase opacity-95 sm:text-[0.6875rem] sm:tracking-[0.16em]",
           captionColor,
         )}
       >
