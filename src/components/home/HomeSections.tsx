@@ -50,21 +50,20 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-[80rem] px-6 pt-32 pb-16 md:px-10 md:pb-24">
           <Reveal>
             <Kicker className="text-nude">Hospedaje temporal en Asunción</Kicker>
-            <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] text-nude md:text-6xl lg:text-[4.25rem]">
+            <h1 className="mt-5 max-w-2xl text-3xl leading-[1.1] text-nude md:text-4xl lg:text-5xl">
               Hospedaje temporal en Asunción.
               <br />
               <span className="italic">Vivilo como si fuera tuyo.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-[0.9375rem] leading-relaxed text-nude/75">
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-nude/75">
               La comodidad de un departamento, con servicios hoteleros y atención 24/7.
               Estadías flexibles en algunos de los mejores edificios y ubicaciones de
               Asunción.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-5">
+            <div className="mt-7 flex flex-wrap items-center gap-5">
               <CtaAnchor href="#buscador" variant="nude" size="lg">
                 Ver disponibilidad
               </CtaAnchor>
-              <SuperhostBadge invert size="md" />
             </div>
           </Reveal>
         </div>
