@@ -112,7 +112,7 @@ export function WhatIsSkyStays() {
         </Reveal>
         <Reveal delay={120} className="grid grid-cols-2 gap-4">
           <PhotoSlot
-            label="Escritorio · trabajo y nómadas digitales"
+            label="TU DÍA - A TU MANERA "
             ratio="3/4"
             src={escritorio.url}
             alt="Escritorio equipado en un departamento Sky Stays, ideal para trabajo y nómadas digitales"
@@ -120,7 +120,7 @@ export function WhatIsSkyStays() {
           />
           <PhotoSlot label="Check-in digital · ingreso" ratio="3/4" tone="nude" />
           <PhotoSlot
-            label="Cocina equipada"
+            label="TODO LISTO - DESDE QUE LLEGÁS"
             ratio="4/3"
             tone="carbon"
             className="col-span-2"
