@@ -118,7 +118,7 @@ export function WhatIsSkyStays() {
             alt="Escritorio equipado en un departamento Sky Stays, ideal para trabajo y nómadas digitales"
             className="col-span-1 mt-10"
           />
-          <PhotoSlot label="LLEGÁ A TU RITMO · CHECK-IN DIGITA" ratio="3/4" tone="nude" />
+          <PhotoSlot label="LLEGÁ A TU RITMO · CHECK-IN DIGITAL" ratio="3/4" tone="nude" />
           <PhotoSlot
             label="TODO LISTO - DESDE QUE LLEGÁS"
             ratio="4/3"
