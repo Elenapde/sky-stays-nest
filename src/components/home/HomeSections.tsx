@@ -122,6 +122,7 @@ export function WhatIsSkyStays() {
             ratio="3/4"
             src={checkin.url}
             alt="Huésped haciendo check-in digital con su celular en la puerta del departamento"
+            objectPosition="88% center"
           />
           <PhotoSlot
             label="Todo listo · desde que llegás"

@@ -13,6 +13,7 @@ export function PhotoSlot({
   ratio,
   src,
   alt,
+  objectPosition = "center",
 }: {
   label: string;
   className?: string;
@@ -20,6 +21,7 @@ export function PhotoSlot({
   ratio?: string;
   src?: string;
   alt?: string;
+  objectPosition?: string;
 }) {
   const tones = {
     burgundy: "bg-primary text-nude",
@@ -48,6 +50,7 @@ export function PhotoSlot({
             src={src}
             alt={alt ?? label}
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition }}
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/25 to-transparent" />
