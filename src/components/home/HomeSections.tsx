@@ -1,4 +1,5 @@
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
+import escritorio from "@/assets/sky-stays-escritorio.jpg.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
@@ -111,8 +112,10 @@ export function WhatIsSkyStays() {
         </Reveal>
         <Reveal delay={120} className="grid grid-cols-2 gap-4">
           <PhotoSlot
-            label="Living del departamento"
+            label="Escritorio · trabajo y nómadas digitales"
             ratio="3/4"
+            src={escritorio.url}
+            alt="Escritorio equipado en un departamento Sky Stays, ideal para trabajo y nómadas digitales"
             className="col-span-1 mt-10"
           />
           <PhotoSlot label="Check-in digital · ingreso" ratio="3/4" tone="nude" />

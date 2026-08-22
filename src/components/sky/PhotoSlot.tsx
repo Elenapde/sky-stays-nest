@@ -50,7 +50,7 @@ export function PhotoSlot({
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-carbon/80 via-carbon/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/25 to-transparent" />
         </>
       ) : (
         <img
@@ -62,7 +62,7 @@ export function PhotoSlot({
       )}
       <figcaption
         className={cn(
-          "relative w-full p-4 text-[0.5625rem] leading-relaxed font-semibold tracking-[0.2em] uppercase opacity-90",
+          "relative w-full px-4 pb-5 pt-4 text-[0.5625rem] leading-relaxed font-semibold tracking-[0.2em] uppercase opacity-95",
           captionColor,
         )}
       >
