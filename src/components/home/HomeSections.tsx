@@ -120,6 +120,8 @@ export function WhatIsSkyStays() {
             ratio="4/3"
             tone="carbon"
             className="col-span-2"
+            src={cocina.url}
+            alt="Cocina equipada y ambiente integrado de un departamento Sky Stays en Asunción"
           />
         </Reveal>
       </div>
