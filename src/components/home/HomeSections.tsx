@@ -1,4 +1,5 @@
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
+import escritorio from "@/assets/sky-stays-escritorio.jpg.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
