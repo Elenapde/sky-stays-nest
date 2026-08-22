@@ -110,24 +110,29 @@ export function WhatIsSkyStays() {
             ))}
           </dl>
         </Reveal>
-        <Reveal delay={120} className="grid grid-cols-2 gap-4">
+        <Reveal delay={120} className="grid grid-cols-2 items-stretch gap-4">
           <PhotoSlot
-            label="TU DÍA - A TU MANERA "
+            label="Tu día · a tu manera"
             ratio="3/4"
             src={escritorio.url}
             alt="Escritorio equipado en un departamento Sky Stays, ideal para trabajo y nómadas digitales"
-            className="col-span-1 mt-10"
           />
-          <PhotoSlot label="LLEGÁ A TU RITMO · CHECK-IN DIGITAL" ratio="3/4" tone="nude" />
           <PhotoSlot
-            label="TODO LISTO - DESDE QUE LLEGÁS"
-            ratio="4/3"
+            label="Llegá a tu ritmo · check-in digital"
+            ratio="3/4"
+            src={checkin.url}
+            alt="Huésped haciendo check-in digital con su celular en la puerta del departamento"
+          />
+          <PhotoSlot
+            label="Todo listo · desde que llegás"
+            ratio="16/9"
             tone="carbon"
             className="col-span-2"
             src={cocina.url}
             alt="Cocina equipada y ambiente integrado de un departamento Sky Stays en Asunción"
           />
         </Reveal>
+
       </div>
     </Section>
   );
