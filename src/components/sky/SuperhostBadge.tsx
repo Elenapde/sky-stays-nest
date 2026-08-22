@@ -34,7 +34,7 @@ export function SuperhostBadge({
         className={cn("w-auto shrink-0", logoHeight)}
         loading="lazy"
       />
-      <span className="border-l border-current/20 pl-4 leading-tight">
+      <span className="border-l border-primary/20 pl-4 leading-tight">
         <span className="flex items-center gap-2">
           <Stars className="text-[0.625rem] text-primary" />
           <span className="font-display text-base text-primary">{social.rating}</span>
