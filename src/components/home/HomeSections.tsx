@@ -14,6 +14,7 @@ import negociosPhoto from "@/assets/sky-stays-negocios.png.asset.json";
 import escapadasPhoto from "@/assets/sky-stays-escapadas.png.asset.json";
 import familiaPhoto from "@/assets/sky-stays-familia.png.asset.json";
 import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
+import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
@@ -493,7 +494,13 @@ export function Locations() {
                             alt: "Terraza gastronómica en Villa Morra, Asunción",
                             objectPosition: "center",
                           }
-                        : {})}
+                        : l.id === "recoleta"
+                          ? {
+                              src: recoletaPhoto.url,
+                              alt: "Patio de cafés en Recoleta, Asunción",
+                              objectPosition: "center",
+                            }
+                          : {})}
                     />
                   </div>
                 </div>
