@@ -7,6 +7,7 @@ import quincho from "@/assets/sky-stays-quincho.webp.asset.json";
 import gimnasio from "@/assets/sky-stays-gimnasio.png.asset.json";
 import minimarket from "@/assets/sky-stays-minimarket.png.asset.json";
 import gastronomia from "@/assets/sky-stays-gastronomia.png.asset.json";
+import skyRooms from "@/assets/sky-stays-sky-rooms.png.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
