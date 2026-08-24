@@ -7,6 +7,7 @@ import quincho from "@/assets/sky-stays-quincho.webp.asset.json";
 import gimnasio from "@/assets/sky-stays-gimnasio.png.asset.json";
 import minimarket from "@/assets/sky-stays-minimarket.png.asset.json";
 import gastronomia from "@/assets/sky-stays-gastronomia.png.asset.json";
+import skyRooms from "@/assets/sky-stays-sky-rooms.png.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
@@ -204,6 +205,8 @@ export function RoomsAndSuites() {
       ideal: "Ideal para turismo, trabajo y estadías prácticas.",
       cta: "Descubrir Sky Rooms",
       tone: "nude" as const,
+      src: skyRooms.url,
+      alt: "Departamento Sky Stays categoría Sky Rooms, equipado y estratégicamente ubicado en Asunción",
     },
     {
       id: "sky-suites",
@@ -227,6 +230,7 @@ export function RoomsAndSuites() {
                 label={`${c.name} · departamento y detalle de acondicionamiento`}
                 ratio="16/10"
                 tone={c.tone}
+                {...(c.src ? { src: c.src, alt: c.alt, objectPosition: "center" } : {})}
               />
               <div className="flex flex-1 flex-col border border-t-0 border-border bg-card p-8">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.24em] uppercase text-primary-soft">
