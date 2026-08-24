@@ -217,6 +217,8 @@ export function RoomsAndSuites() {
       ideal: "Ideal para escapadas y estadías especiales.",
       cta: "Descubrir Sky Suites",
       tone: "burgundy" as const,
+      src: skySuites.url,
+      alt: "Departamento Sky Stays categoría Sky Suites, con mayor foco en diseño, espacio y experiencia en Asunción",
     },
   ];
 
