@@ -49,23 +49,8 @@ export const journeys = [
     cta: "Encontrá tu próxima escapada",
     photo: "Pareja en terraza · piscina al atardecer",
   },
-  {
-    id: "conoce-asuncion",
-    label: "Conocé Asunción",
-    title: "Quedate cerca de todo lo que querés descubrir.",
-    text: "Barrios, gastronomía y lo mejor de la ciudad, a minutos de tu estadía.",
-    cta: "Descubrí dónde hospedarte",
-    photo: "Asunción de noche · costanera · centro histórico",
-  },
-  {
-    id: "long-stay",
-    label: "Long Stay",
-    title: "Sentite en casa, aunque estés lejos de ella.",
-    text: "Condiciones especiales para estadías prolongadas.",
-    cta: "Descubrí Long Stay",
-    photo: "Departamento con cocina equipada · living amplio",
-  },
 ];
+
 
 export const properties = [
   {
