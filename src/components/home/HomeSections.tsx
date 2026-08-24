@@ -10,6 +10,7 @@ import gastronomia from "@/assets/sky-stays-gastronomia.png.asset.json";
 import skyRooms from "@/assets/sky-stays-sky-rooms.jpg.asset.json";
 import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
+import negociosPhoto from "@/assets/sky-stays-negocios.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
