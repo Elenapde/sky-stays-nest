@@ -333,9 +333,16 @@ export function ExperienceSection() {
           <Reveal as="li" key={e.name} delay={i * 60}>
             <div className="group relative overflow-hidden">
               <PhotoSlot
-                label={`${e.name} · fotografía real del edificio`}
+                label={
+                  e.name === "Coworking"
+                    ? "Coworking · workspace en el edificio"
+                    : `${e.name} · fotografía real del edificio`
+                }
                 ratio="5/4"
                 tone={i % 2 === 0 ? "carbon" : "nude"}
+                src={e.name === "Coworking" ? coworking.url : undefined}
+                alt="Coworking en edificio de Sky Stays"
+                objectPosition="center"
               />
               <div className="border border-t-0 border-nude/15 p-5">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-nude">
