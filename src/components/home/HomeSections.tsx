@@ -12,6 +12,7 @@ import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import negociosPhoto from "@/assets/sky-stays-negocios.png.asset.json";
 import escapadasPhoto from "@/assets/sky-stays-escapadas.png.asset.json";
+import familiaPhoto from "@/assets/sky-stays-familia.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
@@ -178,13 +179,19 @@ export function YourTrip() {
                           alt: "Ejecutivos trabajando en sala de reuniones de un edificio Sky Stays en Asunción",
                           objectPosition: "62% center",
                         }
-                      : j.id === "escapadas"
+                      : j.id === "familia"
                         ? {
-                            src: escapadasPhoto.url,
-                            alt: "Pareja relajándose en la piscina rooftop de un edificio Sky Stays al atardecer en Asunción",
-                            objectPosition: "58% center",
+                            src: familiaPhoto.url,
+                            alt: "Niños jugando en sala de juegos infantil de un departamento Sky Stays en Asunción",
+                            objectPosition: "65% center",
                           }
-                        : {})}
+                        : j.id === "escapadas"
+                          ? {
+                              src: escapadasPhoto.url,
+                              alt: "Pareja relajándose en la piscina rooftop de un edificio Sky Stays al atardecer en Asunción",
+                              objectPosition: "58% center",
+                            }
+                          : {})}
                   />
                 </div>
               </div>
