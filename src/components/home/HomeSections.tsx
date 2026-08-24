@@ -155,9 +155,9 @@ export function YourTrip() {
         title="¿Qué te trae a Asunción?"
         lead="Hay muchas formas de venir a la ciudad. Tenemos una estadía para cada una."
       />
-      <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="edge-fade mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {journeys.map((j, i) => (
-          <Reveal as="li" key={j.id} delay={i * 70}>
+          <Reveal as="li" key={j.id} delay={i * 70} className="w-[18rem] shrink-0 snap-start sm:w-[22rem]">
             <a
               href={`/tu-viaje/${j.id}`}
               className="group flex h-full flex-col bg-card shadow-soft transition-shadow duration-500 ease-brand hover:shadow-lift"
@@ -185,6 +185,9 @@ export function YourTrip() {
           </Reveal>
         ))}
       </ul>
+      <p className="kicker mt-2 text-muted-foreground">
+        Deslizá para ver más perfiles de viaje
+      </p>
     </Section>
   );
 }
