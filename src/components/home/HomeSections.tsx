@@ -505,6 +505,15 @@ export function CorporateLongStay() {
 
   return (
     <Section tone="dark">
+      <Reveal className="mb-12 overflow-hidden">
+        <img
+          src={coworking.url}
+          alt="Espacio coworking equipado para profesionales y nómadas digitales en Sky Stays"
+          className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[440px]"
+          style={{ objectPosition: "center" }}
+          loading="lazy"
+        />
+      </Reveal>
       <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
         <Reveal>
           <SectionHead
