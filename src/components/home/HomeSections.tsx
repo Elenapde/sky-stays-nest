@@ -205,6 +205,8 @@ export function RoomsAndSuites() {
       ideal: "Ideal para turismo, trabajo y estadías prácticas.",
       cta: "Descubrir Sky Rooms",
       tone: "nude" as const,
+      src: skyRooms.url,
+      alt: "Departamento Sky Stays categoría Sky Rooms, equipado y estratégicamente ubicado en Asunción",
     },
     {
       id: "sky-suites",
