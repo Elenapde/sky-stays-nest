@@ -2,6 +2,7 @@ import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import coworking from "@/assets/sky-stays-coworking.png.asset.json";
 import escritorio from "@/assets/sky-stays-escritorio.jpg.asset.json";
+import piscina from "@/assets/sky-stays-piscina.png.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
@@ -333,9 +334,20 @@ export function ExperienceSection() {
           <Reveal as="li" key={e.name} delay={i * 60}>
             <div className="group relative overflow-hidden">
               <PhotoSlot
-                label={`${e.name} · fotografía real del edificio`}
+                label={
+                  e.name === "Coworking"
+                    ? "Coworking · workspace en el edificio"
+                    : e.name === "Piscinas"
+                      ? "Piscinas · rooftop con vista a Asunción"
+                      : `${e.name} · fotografía real del edificio`
+                }
                 ratio="5/4"
                 tone={i % 2 === 0 ? "carbon" : "nude"}
+                {...(e.name === "Coworking"
+                  ? { src: coworking.url, alt: "Coworking en edificio de Sky Stays", objectPosition: "center" }
+                  : e.name === "Piscinas"
+                    ? { src: piscina.url, alt: "Piscina rooftop en edificio de Sky Stays", objectPosition: "left center" }
+                    : {})}
               />
               <div className="border border-t-0 border-nude/15 p-5">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-nude">
