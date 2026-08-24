@@ -13,6 +13,7 @@ import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import negociosPhoto from "@/assets/sky-stays-negocios.png.asset.json";
 import escapadasPhoto from "@/assets/sky-stays-escapadas.png.asset.json";
 import familiaPhoto from "@/assets/sky-stays-familia.png.asset.json";
+import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
@@ -482,7 +483,18 @@ export function Locations() {
               <a href={`/ubicaciones/${l.id}`} className="group block h-full">
                 <div className="overflow-hidden">
                   <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
-                    <PhotoSlot label={l.photo} ratio="3/4" tone="burgundy" />
+                    <PhotoSlot
+                      label={l.photo}
+                      ratio="3/4"
+                      tone="burgundy"
+                      {...(l.id === "villa-morra"
+                        ? {
+                            src: villaMorraPhoto.url,
+                            alt: "Terraza gastronómica en Villa Morra, Asunción",
+                            objectPosition: "center",
+                          }
+                        : {})}
+                    />
                   </div>
                 </div>
                 <h3 className="mt-4 text-xl text-primary">{l.name}</h3>
