@@ -170,7 +170,7 @@ export function YourTrip() {
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.04]">
                   <PhotoSlot
-                    label={j.photo}
+                    label=""
                     ratio="4/5"
                     tone={i % 3 === 1 ? "carbon" : "burgundy"}
                     {...(j.id === "negocios"
