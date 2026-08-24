@@ -230,6 +230,7 @@ export function RoomsAndSuites() {
                 label={`${c.name} · departamento y detalle de acondicionamiento`}
                 ratio="16/10"
                 tone={c.tone}
+                {...(c.src ? { src: c.src, alt: c.alt, objectPosition: "center" } : {})}
               />
               <div className="flex flex-1 flex-col border border-t-0 border-border bg-card p-8">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.24em] uppercase text-primary-soft">
