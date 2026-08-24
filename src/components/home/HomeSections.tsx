@@ -494,7 +494,13 @@ export function Locations() {
                             alt: "Terraza gastronómica en Villa Morra, Asunción",
                             objectPosition: "center",
                           }
-                        : {})}
+                        : l.id === "recoleta"
+                          ? {
+                              src: recoletaPhoto.url,
+                              alt: "Patio de cafés en Recoleta, Asunción",
+                              objectPosition: "center",
+                            }
+                          : {})}
                     />
                   </div>
                 </div>
