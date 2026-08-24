@@ -340,17 +340,17 @@ export function ExperienceSection() {
               <PhotoSlot
                 label={
                   e.name === "Coworking"
-                    ? "Coworking · workspace en el edificio"
+                    ? "TU DÍA TAMBIÉN PUEDE EMPEZAR ACÁ"
                     : e.name === "Piscinas"
-                      ? "Piscinas · rooftop con vista a Asunción"
+                      ? "ASUNCIÓN DESDE ARRIBA\u00a0"
                       : e.name === "Quinchos"
-                        ? "Quinchos · asador con vista a la ciudad"
+                        ? "MOMENTOS PARA COMPARTIR\u00a0"
                         : e.name === "Fitness"
-                          ? "Fitness · gimnasio del edificio"
+                          ? "SEGUÍ CON TU RUTINA DONDE ESTÉS"
                           : e.name === "Minimarket 24 h"
-                            ? "Minimarket 24 h · conveniencia en el edificio"
+                            ? "TODO A MANO LAS 24H"
                             : e.name === "Gastronomía"
-                              ? "Gastronomía · restaurant con vista a la ciudad"
+                              ? "UNA MESA CON VISTA A LA CIUDAD"
                               : `${e.name} · fotografía real del edificio`
                 }
                 ratio="5/4"
