@@ -175,7 +175,7 @@ export function YourTrip() {
                       ? {
                           src: negociosPhoto.url,
                           alt: "Ejecutivos trabajando en sala de reuniones de un edificio Sky Stays en Asunción",
-                          objectPosition: "center",
+                          objectPosition: "62% center",
                         }
                       : {})}
                   />
