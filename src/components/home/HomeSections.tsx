@@ -340,9 +340,9 @@ export function ExperienceSection() {
                 }
                 ratio="5/4"
                 tone={i % 2 === 0 ? "carbon" : "nude"}
-                src={e.name === "Coworking" ? coworking.url : undefined}
-                alt="Coworking en edificio de Sky Stays"
-                objectPosition="center"
+                {...(e.name === "Coworking"
+                  ? { src: coworking.url, alt: "Coworking en edificio de Sky Stays", objectPosition: "center" }
+                  : {})}
               />
               <div className="border border-t-0 border-nude/15 p-5">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-nude">
