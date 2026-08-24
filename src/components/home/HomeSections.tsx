@@ -171,6 +171,13 @@ export function YourTrip() {
                     label={j.photo}
                     ratio="4/5"
                     tone={i % 3 === 1 ? "carbon" : "burgundy"}
+                    {...(j.id === "negocios"
+                      ? {
+                          src: negociosPhoto.url,
+                          alt: "Ejecutivos trabajando en sala de reuniones de un edificio Sky Stays en Asunción",
+                          objectPosition: "center",
+                        }
+                      : {})}
                   />
                 </div>
               </div>
