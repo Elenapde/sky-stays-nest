@@ -6,6 +6,7 @@ import piscina from "@/assets/sky-stays-piscina.png.asset.json";
 import quincho from "@/assets/sky-stays-quincho.webp.asset.json";
 import gimnasio from "@/assets/sky-stays-gimnasio.png.asset.json";
 import minimarket from "@/assets/sky-stays-minimarket.png.asset.json";
+import gastronomia from "@/assets/sky-stays-gastronomia.png.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 
@@ -348,7 +349,9 @@ export function ExperienceSection() {
                           ? "Fitness · gimnasio del edificio"
                           : e.name === "Minimarket 24 h"
                             ? "Minimarket 24 h · conveniencia en el edificio"
-                            : `${e.name} · fotografía real del edificio`
+                            : e.name === "Gastronomía"
+                              ? "Gastronomía · restaurant con vista a la ciudad"
+                              : `${e.name} · fotografía real del edificio`
                 }
                 ratio="5/4"
                 tone={i % 2 === 0 ? "carbon" : "nude"}
@@ -362,7 +365,9 @@ export function ExperienceSection() {
                         ? { src: gimnasio.url, alt: "Gimnasio en edificio de Sky Stays", objectPosition: "center" }
                         : e.name === "Minimarket 24 h"
                           ? { src: minimarket.url, alt: "Minimarket 24 h en edificio de Sky Stays", objectPosition: "center" }
-                          : {})}
+                          : e.name === "Gastronomía"
+                            ? { src: gastronomia.url, alt: "Restaurant con vista a la ciudad en edificio de Sky Stays", objectPosition: "center" }
+                            : {})}
               />
               <div className="border border-t-0 border-nude/15 p-5">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-nude">
