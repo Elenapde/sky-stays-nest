@@ -340,7 +340,9 @@ export function ExperienceSection() {
                     ? "Coworking · workspace en el edificio"
                     : e.name === "Piscinas"
                       ? "Piscinas · rooftop con vista a Asunción"
-                      : `${e.name} · fotografía real del edificio`
+                      : e.name === "Quinchos"
+                        ? "Quinchos · asador con vista a la ciudad"
+                        : `${e.name} · fotografía real del edificio`
                 }
                 ratio="5/4"
                 tone={i % 2 === 0 ? "carbon" : "nude"}
@@ -348,7 +350,9 @@ export function ExperienceSection() {
                   ? { src: coworking.url, alt: "Coworking en edificio de Sky Stays", objectPosition: "center" }
                   : e.name === "Piscinas"
                     ? { src: piscina.url, alt: "Piscina rooftop en edificio de Sky Stays", objectPosition: "left center" }
-                    : {})}
+                    : e.name === "Quinchos"
+                      ? { src: quincho.url, alt: "Quincho con vista a la ciudad en edificio de Sky Stays", objectPosition: "center" }
+                      : {})}
               />
               <div className="border border-t-0 border-nude/15 p-5">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-nude">
