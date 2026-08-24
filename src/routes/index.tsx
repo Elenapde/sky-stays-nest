@@ -11,7 +11,6 @@ import {
   FinalCta,
   Hero,
   Locations,
-  PetraTower,
   Reviews,
   RoomsAndSuites,
   WhatIsSkyStays,
@@ -50,7 +49,6 @@ function Index() {
         <RoomsAndSuites />
         <FeaturedProperties />
         <ExperienceSection />
-        <PetraTower />
         <Locations />
         <DayStay />
         <CorporateLongStay />
