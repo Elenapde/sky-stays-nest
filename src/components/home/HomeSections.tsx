@@ -18,6 +18,7 @@ import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
+import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
@@ -780,13 +781,19 @@ export function AsuncionGuide() {
         </CtaAnchor>
       </div>
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {guide.map((g, i) => (
+        {guide.map((g, i) => {
+          const srcMap: Record<string, string> = {
+            "mejores-barrios-para-hospedarse": barriosPhoto.url,
+          };
+          return (
           <Reveal as="li" key={g.id} delay={i * 70}>
             <a href={`/guia-de-asuncion/${g.id}`} className="group block h-full">
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
                     label={g.photo}
+                    {...(srcMap[g.id] ? { src: srcMap[g.id] } : {})}
+                    alt={g.title}
                     ratio="4/3"
                     tone={i % 2 === 0 ? "burgundy" : "carbon"}
                   />
@@ -796,7 +803,8 @@ export function AsuncionGuide() {
               <h3 className="mt-2 text-lg leading-snug text-primary">{g.title}</h3>
             </a>
           </Reveal>
-        ))}
+          );
+        })}
       </ul>
     </Section>
   );
