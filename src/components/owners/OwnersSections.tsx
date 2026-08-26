@@ -3,7 +3,7 @@ import { useState } from "react";
 import longStay from "@/assets/sky-stays-long-stay.png.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
-import coworking from "@/assets/sky-stays-coworking.png.asset.json";
+
 import skyRooms from "@/assets/sky-stays-sky-rooms.jpg.asset.json";
 import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
@@ -394,57 +394,6 @@ export function OwnersProcess() {
           </Reveal>
         ))}
       </ol>
-    </Section>
-  );
-}
-
-/* ------------------------------- Requisitos ------------------------------- */
-
-export function OwnersRequirements() {
-  return (
-    <Section tone="light">
-      <div className="grid items-center gap-14 lg:grid-cols-[1fr_1fr]">
-        <PhotoSlot
-          src={coworking.url}
-          alt="Área de coworking en un edificio con departamentos Sky Stays"
-          label="Edificios con amenities"
-          ratio="16 / 11"
-          className="rounded-xs"
-        />
-        <div>
-          <SectionHead
-            kicker="Qué buscamos"
-            title="Departamentos que podamos operar con nuestro estándar."
-          />
-          <ul className="mt-8 space-y-5">
-            {[
-              {
-                k: "Ubicación",
-                v: "Villa Morra, Ycuá Satí, Recoleta y zonas del eje corporativo de Asunción.",
-              },
-              {
-                k: "Edificio",
-                v: "Con amenities y reglamento que permita alquiler temporal.",
-              },
-              {
-                k: "Tipología",
-                v: "Studios, uno y dos dormitorios en buen estado, amoblados o a amoblar con nosotros.",
-              },
-              {
-                k: "Disponibilidad",
-                v: "Mínimo 12 meses de administración para sostener la estrategia de ocupación.",
-              },
-            ].map((r) => (
-              <li key={r.k} className="border-t border-border pt-5">
-                <p className="kicker text-primary-soft">{r.k}</p>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted-foreground">
-                  {r.v}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
     </Section>
   );
 }
