@@ -137,9 +137,13 @@ export function SiteHeader() {
             </div>
           ))}
           <div className="grid gap-3 py-5">
+            <a href="/corporate-long-stay" className="kicker text-nude">
+              Corporate & Long Stay
+            </a>
             <a href="/guia-de-asuncion" className="kicker text-nude">
               Guía de Asunción
             </a>
+
             <a href="/propietarios" className="kicker text-nude">
               Propietarios
             </a>
