@@ -20,6 +20,7 @@ import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
+import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
@@ -784,6 +785,7 @@ export function AsuncionGuide() {
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {guide.map((g, i) => {
           const srcMap: Record<string, string> = {
+            "asuncion-48-horas": costaneraPhoto.url,
             "mejores-barrios-para-hospedarse": barriosPhoto.url,
             "asuncion-viajes-de-negocios": negociosAerialPhoto.url,
           };
