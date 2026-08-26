@@ -26,6 +26,7 @@ import shoppingPhoto from "@/assets/sky-stays-shopping.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
+import { AsuncionMap } from "@/components/sky/AsuncionMap";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { StaySearch } from "@/components/sky/StaySearch";
