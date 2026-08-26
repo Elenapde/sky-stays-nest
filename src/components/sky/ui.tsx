@@ -16,7 +16,7 @@ export const ctaVariants = cva(
         outline:
           "border border-border-strong text-primary hover:bg-primary hover:text-primary-foreground",
         ghostLight:
-          "border border-nude/45 text-nude-foreground/95 hover:bg-nude hover:text-nude-foreground",
+          "border border-nude/45 text-nude hover:bg-nude hover:text-nude-foreground",
         link: "gap-3 text-primary hover:gap-4 hover:text-primary-soft",
         linkLight: "gap-3 text-nude hover:gap-4",
       },

@@ -11,10 +11,16 @@ export const social = {
 };
 
 export const whatsappNumber = "595981000000";
+export const ownersEmail = "propietarios@skystays.com.py";
 
 export function wa(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+export function mailto(subject: string, body: string) {
+  return `mailto:${ownersEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 
 export const journeys = [
   {
