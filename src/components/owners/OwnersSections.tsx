@@ -78,7 +78,7 @@ const pillars = [
   },
   {
     name: "Operación hotelera",
-    text: "Check-in digital, limpieza profesional, ropa blanca, amenities y mantenimiento preventivo con proveedores propios.",
+    text: "Check-in digital, limpieza profesional, ropa blanca, amenities y mantenimiento.",
   },
   {
     name: "Cuidado del activo",
