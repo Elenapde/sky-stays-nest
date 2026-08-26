@@ -792,7 +792,7 @@ export function AsuncionGuide() {
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
                     label={g.photo}
-                    src={srcMap[g.id] ? srcMap[g.id] : undefined}
+                    {...(srcMap[g.id] ? { src: srcMap[g.id] } : {})}
                     alt={g.title}
                     ratio="4/3"
                     tone={i % 2 === 0 ? "burgundy" : "carbon"}
