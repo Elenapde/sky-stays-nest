@@ -260,7 +260,7 @@ export function OwnersLines() {
                   href={wa(line.waMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant={line.premium ? "nude" : "ghost"}
+                  variant={line.premium ? "nude" : "outline"}
                   className="w-full justify-center"
                 >
                   {line.cta} →
