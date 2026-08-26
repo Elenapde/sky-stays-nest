@@ -141,14 +141,14 @@ const CATEGORIES: { id: Category; label: string; color: string }[] = [
 
 declare global {
   interface Window {
-    google?: typeof google;
+    google?: any;
     initSkyStaysMap?: () => void;
   }
 }
 
-let mapsPromise: Promise<typeof google> | null = null;
+let mapsPromise: Promise<any> | null = null;
 
-function loadMapsSdk(): Promise<typeof google> {
+function loadMapsSdk(): Promise<any> {
   if (typeof window === "undefined") return Promise.reject(new Error("no window"));
   if (window.google?.maps) return Promise.resolve(window.google);
   if (mapsPromise) return mapsPromise;
@@ -157,10 +157,10 @@ function loadMapsSdk(): Promise<typeof google> {
     const cb = "initSkyStaysMap";
     window[cb] = () => {
       delete window[cb];
-      resolve(window.google!);
+      resolve(window.google);
     };
-    const key = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY;
-    const channel = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_TRACKING_ID ?? "lovable";
+    const key = import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"];
+    const channel = import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_TRACKING_ID"] ?? "lovable";
     const s = document.createElement("script");
     s.src = `https://maps.googleapis.com/maps/api/js?key=${key}&loading=async&callback=${cb}&channel=${channel}`;
     s.async = true;
@@ -174,7 +174,7 @@ function loadMapsSdk(): Promise<typeof google> {
 
 /* ------------------------------ Icono de pin ----------------------------- */
 
-function pinIcon(googleLib: typeof google, fill: string) {
+function pinIcon(googleLib: any, fill: string) {
   const pin = "M0-23c-7.4 0-13.4 6-13.4 13.4 0 9.5 13.4 22.6 13.4 22.6s13.4-13.1 13.4-22.6C13.4-17 7.4-23 0-23z";
   return {
     path: pin,
@@ -184,7 +184,7 @@ function pinIcon(googleLib: typeof google, fill: string) {
     strokeWeight: 2,
     scale: 0.62,
     anchor: new googleLib.maps.Point(0, 12),
-  } as google.maps.Icon;
+  };
 }
 
 /* ------------------------------- Componente ------------------------------ */
