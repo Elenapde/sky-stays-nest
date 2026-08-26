@@ -1,4 +1,4 @@
-import logo from "@/assets/sky-stays-logo.png.asset.json";
+import logo from "@/assets/sky-stays-logo-beige.png.asset.json";
 import { nav, social, wa } from "@/data/sky";
 import { CtaAnchor, Stars } from "./ui";
 
