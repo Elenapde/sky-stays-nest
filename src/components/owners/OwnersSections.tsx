@@ -140,7 +140,7 @@ export function OwnersService() {
             <PhotoSlot
               src={cocina.url}
               alt="Cocina equipada de un departamento Sky Stays"
-              label="Equipamiento completo"
+              label="LISTO PARA RECIBIR A LOS HUÉSPEDES"
               ratio="4 / 5"
               className="rounded-xs"
             />
