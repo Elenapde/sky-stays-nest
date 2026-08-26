@@ -781,7 +781,11 @@ export function AsuncionGuide() {
         </CtaAnchor>
       </div>
       <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {guide.map((g, i) => (
+        {guide.map((g, i) => {
+          const srcMap: Record<string, string> = {
+            "mejores-barrios-para-hospedarse": barriosPhoto.url,
+          };
+          return (
           <Reveal as="li" key={g.id} delay={i * 70}>
             <a href={`/guia-de-asuncion/${g.id}`} className="group block h-full">
               <div className="overflow-hidden">
