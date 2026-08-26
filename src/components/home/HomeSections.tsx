@@ -535,12 +535,12 @@ export function Locations() {
           <div className="max-w-xl">
             <p className="kicker rule-line text-primary-soft">Mapa de Asunción</p>
             <h3 className="mt-3 text-2xl text-primary md:text-3xl">
-              Qué tenés alrededor de cada edificio.
+              Asunción, a tu alrededor.
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Nuestros edificios y los puntos que más importan durante tu
-              estadía: torres corporativas, shoppings y entretenimiento,
-              restaurantes y cafés.
+              Nuestros alojamientos están cerca de los lugares que hacen que la
+              ciudad valga la pena. Explorá el mapa y descubrí qué hacer
+              alrededor de cada Sky Stays.
             </p>
 
           </div>
