@@ -171,7 +171,7 @@ export function YourTrip() {
       />
       <ul className="edge-fade mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {journeys.map((j, i) => (
-          <Reveal as="li" key={j.id} delay={i * 70} className="w-[18rem] shrink-0 snap-start sm:w-[22rem]">
+          <Reveal as="li" key={j.id} delay={i * 70} className="w-[78%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-3rem)/3)]">
             <a
               href={`/tu-viaje/${j.id}`}
               className="group flex h-full flex-col bg-card shadow-soft transition-shadow duration-500 ease-brand hover:shadow-lift"
