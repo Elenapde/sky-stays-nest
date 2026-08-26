@@ -7,7 +7,7 @@ import {
   OwnersHero,
   OwnersLines,
   OwnersProcess,
-  OwnersRequirements,
+  
   OwnersService,
   OwnersValue,
 } from "@/components/owners/OwnersSections";
@@ -44,7 +44,6 @@ function OwnersPage() {
         <OwnersLines />
         <OwnersProcess />
 
-        <OwnersRequirements />
         <OwnersForm />
         <OwnersFaq />
         <OwnersCta />
