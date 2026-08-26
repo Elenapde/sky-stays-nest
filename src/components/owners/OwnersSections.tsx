@@ -257,7 +257,7 @@ export function OwnersLines() {
               src={line.src}
               alt={line.alt}
               label={line.name}
-              ratio="16 / 10"
+              ratio="21 / 9"
             />
             <div className="p-8">
               <p className="kicker text-primary-soft">{line.tag}</p>
