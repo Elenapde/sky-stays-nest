@@ -363,10 +363,11 @@ export function AsuncionMap({
             </button>
 
             <div className="pointer-events-none absolute left-3 top-3 z-10 hidden items-center gap-2 border border-border bg-card/95 px-3 py-2 md:inline-flex">
-              <span
+              <img
+                src={isologoAsset.url}
+                alt=""
                 aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: BUILDING_COLOR }}
+                className="h-5 w-5 object-contain"
               />
               <span className="kicker text-primary">Edificios Sky Stays</span>
             </div>
