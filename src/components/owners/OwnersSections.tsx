@@ -308,19 +308,18 @@ const steps = [
 
 export function OwnersProcess() {
   return (
-    <Section tone="dark">
+    <Section tone="light">
       <SectionHead
         kicker="Cómo funciona"
         title="De la primera conversación a la primera reserva."
         lead="Un proceso claro, sin sorpresas y con tiempos definidos."
-        invert
       />
-      <ol className="mt-14 grid gap-px overflow-hidden rounded-xs bg-nude/15 md:grid-cols-2 lg:grid-cols-4">
+      <ol className="mt-14 grid gap-px overflow-hidden rounded-xs bg-border md:grid-cols-2 lg:grid-cols-4">
         {steps.map((s, i) => (
-          <Reveal as="li" key={s.name} delay={i * 70} className="bg-carbon p-8">
-            <p className="kicker text-nude/55">Paso 0{i + 1}</p>
-            <h3 className="mt-4 text-lg text-nude">{s.name}</h3>
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-nude/70">{s.text}</p>
+          <Reveal as="li" key={s.name} delay={i * 70} className="bg-secondary p-8">
+            <p className="kicker text-primary-soft">Paso 0{i + 1}</p>
+            <h3 className="mt-4 text-lg text-primary">{s.name}</h3>
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">{s.text}</p>
           </Reveal>
         ))}
       </ol>
