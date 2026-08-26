@@ -803,7 +803,8 @@ export function AsuncionGuide() {
               <h3 className="mt-2 text-lg leading-snug text-primary">{g.title}</h3>
             </a>
           </Reveal>
-        ))}
+          );
+        })}
       </ul>
     </Section>
   );
