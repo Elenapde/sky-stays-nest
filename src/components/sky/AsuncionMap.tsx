@@ -191,9 +191,9 @@ function pinIcon(googleLib: any, fill: string) {
 
 export function AsuncionMap({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<google.maps.Map | null>(null);
-  const markersRef = useRef<{ marker: google.maps.Marker; category: Category }[]>([]);
-  const infoRef = useRef<google.maps.InfoWindow | null>(null);
+  const mapRef = useRef<any>(null);
+  const markersRef = useRef<{ marker: any; category: Category }[]>([]);
+  const infoRef = useRef<any>(null);
 
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [active, setActive] = useState<Record<Category, boolean>>({
