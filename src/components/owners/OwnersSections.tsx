@@ -331,20 +331,20 @@ export function OwnersProcess() {
 
 export function OwnersPetra() {
   return (
-    <Section tone="dark" className="text-center">
+    <Section tone="light" className="text-center">
       <div className="mx-auto flex max-w-3xl flex-col items-center">
-        <p className="kicker rule-line text-nude">Respaldo</p>
-        <h2 className="mt-6 text-2xl leading-snug text-nude md:text-[2rem]">
+        <p className="kicker rule-line text-primary-soft">Respaldo</p>
+        <h2 className="mt-6 text-2xl leading-snug text-primary md:text-[2rem]">
           Una operación respaldada por Grupo Petra.
         </h2>
-        <p className="mt-5 max-w-xl text-[0.9375rem] leading-relaxed text-nude/70">
+        <p className="mt-5 max-w-xl text-[0.9375rem] leading-relaxed text-muted-foreground">
           Sky Stays forma parte del ecosistema de Grupo Petra, integrando
           experiencia inmobiliaria, operación, mantenimiento y hospitalidad.
         </p>
         <img
           src={grupoPetraLogo.url}
           alt="Logo de Grupo Petra"
-          className="mt-10 h-12 w-auto opacity-90 md:h-14"
+          className="mt-10 h-12 w-auto md:h-14"
         />
       </div>
     </Section>
