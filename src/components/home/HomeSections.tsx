@@ -18,6 +18,7 @@ import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
+import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
@@ -787,6 +788,8 @@ export function AsuncionGuide() {
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
                     label={g.photo}
+                    src={g.src}
+                    alt={g.title}
                     ratio="4/3"
                     tone={i % 2 === 0 ? "burgundy" : "carbon"}
                   />
