@@ -535,12 +535,14 @@ export function Locations() {
           <div className="max-w-xl">
             <p className="kicker rule-line text-primary-soft">Mapa de Asunción</p>
             <h3 className="mt-3 text-2xl text-primary md:text-3xl">
-              Barrios, alojamientos y puntos de interés.
+              Qué tenés alrededor de cada edificio.
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Explorá las zonas donde operamos, nuestros alojamientos y los
-              lugares cercanos: shoppings, gastronomía y el eje corporativo.
+              Nuestros edificios y los puntos que más importan durante tu
+              estadía: torres corporativas, shoppings y entretenimiento,
+              restaurantes y cafés.
             </p>
+
           </div>
           <CtaAnchor
             href={wa("Hola Sky Stays, quiero una recomendación de zona para hospedarme en Asunción.")}
