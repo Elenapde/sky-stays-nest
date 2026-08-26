@@ -86,7 +86,7 @@ const pillars = [
   },
   {
     name: "Transparencia",
-    text: "Reporte mensual con ocupación, ingresos, gastos y liquidación. Acceso a la información cuando la necesités.",
+    text: "Reporte mensual con ocupación, ingresos, gastos y liquidación. Acceso a la información cuando la necesites.",
   },
 ];
 
