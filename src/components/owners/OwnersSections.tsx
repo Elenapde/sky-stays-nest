@@ -25,9 +25,9 @@ export function OwnersHero() {
             Tu departamento, administrado como un hotel.
           </h1>
           <p className="mt-6 max-w-lg text-[0.9375rem] leading-relaxed text-nude/75">
-            Nos encargamos de todo: operación, huéspedes, limpieza y
-            mantenimiento. Vos recibís reportes claros y una renta estable, sin
-            ocuparte del día a día.
+            Nos encargamos de la operación, los huéspedes, la limpieza y el
+            mantenimiento. Vos recibís reportes claros y una gestión orientada
+            a maximizar el potencial de tu propiedad, sin ocuparte del día a día.
           </p>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-nude/20 pt-8">
             {[
