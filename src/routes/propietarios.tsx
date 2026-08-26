@@ -44,6 +44,7 @@ function OwnersPage() {
         <OwnersService />
         <OwnersLines />
         <OwnersProcess />
+        <OwnersPetra />
 
         <OwnersForm />
         <OwnersFaq />
