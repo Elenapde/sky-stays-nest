@@ -3,7 +3,7 @@ import { useState } from "react";
 import longStay from "@/assets/sky-stays-long-stay.png.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
-import coworking from "@/assets/sky-stays-coworking.png.asset.json";
+
 import skyRooms from "@/assets/sky-stays-sky-rooms.jpg.asset.json";
 import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
