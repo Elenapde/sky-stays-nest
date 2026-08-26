@@ -31,7 +31,7 @@ export function OwnersHero() {
           </p>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-nude/20 pt-8">
             {[
-              { k: "Ocupación gestionada", v: "24/7" },
+              { k: "OPERACIÓN", v: "24/7" },
               { k: "Reputación", v: social.badge },
               { k: "Calificación promedio", v: `${social.rating} / 5` },
             ].map((item) => (
