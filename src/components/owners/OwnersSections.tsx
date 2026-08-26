@@ -293,7 +293,7 @@ const steps = [
   },
   {
     name: "Propuesta",
-    text: "Recibís una proyección de ingresos, el esquema de comisión y las condiciones del contrato de administración.",
+    text: "Recibís una estimación de desempeño, el esquema de comisión y las condiciones de administración.",
   },
   {
     name: "Puesta a punto",
