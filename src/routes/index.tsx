@@ -44,6 +44,7 @@ function Index() {
       <SiteHeader />
       <main>
         <Hero />
+        <CorporateLongStay />
         <WhatIsSkyStays />
         <YourTrip />
         <RoomsAndSuites />
@@ -51,7 +52,6 @@ function Index() {
         <ExperienceSection />
         <Locations />
         <DayStay />
-        <CorporateLongStay />
         <Reviews />
         <DirectBooking />
         <AsuncionGuide />
