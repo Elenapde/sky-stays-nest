@@ -178,29 +178,76 @@ const lines = [
     name: "Sky Rooms",
     src: skyRooms.url,
     alt: "Departamento equipado con la línea Sky Rooms",
-    lead: "Equipamiento funcional y contemporáneo, pensado para estadías cortas y viajes de trabajo.",
+    tag: "Inversión inicial más accesible",
+    lead: "Equipamiento completo, funcional y contemporáneo. Todo lo necesario para operar con estándar hotelero desde el primer día.",
+    ideal: "Ideal si querés poner el departamento en operación rápido, con una inversión medida y sin resignar confort.",
     items: [
-      "Sommiers con estándar hotelero y blanquería completa",
-      "Living con sofá, mesa de comedor y rack de TV",
-      "Smart TV, heladera, microondas, cafetera de goteo y grillera",
-      "Bazar completo: vajilla, ollas, copas y utensilios",
-      "Decoración esencial: alfombra, espejo, cuadros y plantas",
-      "Escritorio independiente según tipología",
+      "Selección de mobiliario estándar en melamina símil madera y textiles de lino",
+      "Sommiers de estándar hotelero, blanquería, edredón y toallas",
+      "Sofá o asientos, mesa de comedor, sillas y rack de TV",
+      "Smart TV, heladera, microondas, hervidora, grillera y cafetera de goteo",
+      "Bazar completo: vajilla, ollas, copas, vasos y utensilios",
+      "Decoración esencial: alfombra, espejo, cuadros, plantas y almohadas deco",
     ],
   },
   {
     name: "Sky Suites",
     src: skySuites.url,
     alt: "Departamento equipado con la línea Sky Suites",
-    lead: "Interiorismo de autor, materiales nobles y artesanía paraguaya para una experiencia superior.",
+    tag: "Propuesta premium de interiorismo",
+    lead: "Diseño interior de autor, materiales nobles y detalles de artesanía paraguaya para posicionar la unidad en el segmento alto.",
+    ideal: "Ideal si buscás diferenciar tu departamento, apuntar a un huésped más exigente y sostener una tarifa superior.",
     items: [
-      "Diseño interior a medida con mobiliario de líneas curvas y texturas suaves",
-      "Cabecera con mesas de luz, poltrona o sofá y sillas tapizadas",
+      "Proyecto de interiorismo a medida, con mobiliario de líneas curvas y texturas suaves",
+      "Cabecera con mesas de luz, poltrona o sofá y sillas de comedor tapizadas",
       "Cortinas blackout + traslúcido en todos los ambientes",
       "Doble Smart TV (sala y habitación) y cafetera multicápsula",
-      "Blanquería premium: duvet, edredón, mantas y set completo de toallas",
-      "Decoración con barro artesanal paraguayo y deco de baño",
+      "Blanquería premium: duvet, edredón, mantas de pie de cama y set completo de toallas",
+      "Decoración con barro artesanal paraguayo, deco de baño y piezas de autor",
     ],
+  },
+];
+
+const comparison = [
+  {
+    k: "Enfoque de diseño",
+    rooms: "Diseño funcional con paleta neutra y materiales estándar de calidad.",
+    suites: "Proyecto de interiorismo personalizado, con identidad y capas de detalle.",
+  },
+  {
+    k: "Mobiliario",
+    rooms: "Línea estándar: melamina símil madera, sofá o asientos y sillas.",
+    suites: "Piezas seleccionadas: poltronas, tapizados, mesas ratonas y recibidor.",
+  },
+  {
+    k: "Dormitorio",
+    rooms: "Sommier hotelero, blanquería y cortinas.",
+    suites: "Cabecera con mesas de luz, portamaletas, mantas deco y TV propia.",
+  },
+  {
+    k: "Cortinados",
+    rooms: "Cortinas de lino en tonos claros.",
+    suites: "Doble sistema blackout + traslúcido en todos los ambientes.",
+  },
+  {
+    k: "Cocina y bazar",
+    rooms: "Bazar completo con cafetera de goteo y grillera.",
+    suites: "Bazar seleccionado con cafetera multicápsula.",
+  },
+  {
+    k: "Decoración",
+    rooms: "Set esencial: alfombra, espejo, cuadros y plantas.",
+    suites: "Curaduría con artesanía en barro paraguayo y deco de baño.",
+  },
+  {
+    k: "Huésped objetivo",
+    rooms: "Viajes de trabajo, escapadas y estadías cortas.",
+    suites: "Huésped corporativo senior, estadías largas y viajeros de alto perfil.",
+  },
+  {
+    k: "Tiempo de puesta a punto",
+    rooms: "Proceso más ágil con selección predefinida.",
+    suites: "Anteproyecto y ejecución con desarrollo de diseño a medida.",
   },
 ];
 
@@ -209,8 +256,8 @@ export function OwnersLines() {
     <Section tone="light">
       <SectionHead
         kicker="Dos líneas de equipamiento"
-        title="Sky Rooms o Sky Suites, según el potencial de tu departamento."
-        lead="Ambas líneas comparten el mismo estándar de hospitalidad. Cambian el nivel de interiorismo, el mobiliario y los detalles de cada ambiente."
+        title="Sky Rooms o Sky Suites: vos elegís hasta dónde llevar tu departamento."
+        lead="Las dos líneas se operan con el mismo estándar de hospitalidad. La diferencia está en el nivel de interiorismo, el mobiliario y la inversión que quieras hacer en la puesta a punto."
       />
       <div className="mt-14 grid gap-px overflow-hidden rounded-xs bg-border md:grid-cols-2">
         {lines.map((line, i) => (
@@ -222,9 +269,13 @@ export function OwnersLines() {
               ratio="16 / 10"
             />
             <div className="p-8">
-              <h3 className="text-2xl text-primary">{line.name}</h3>
+              <p className="kicker text-primary-soft">{line.tag}</p>
+              <h3 className="mt-4 text-2xl text-primary">{line.name}</h3>
               <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {line.lead}
+              </p>
+              <p className="mt-5 border-l-2 border-primary-soft pl-4 text-[0.9375rem] leading-relaxed text-foreground">
+                {line.ideal}
               </p>
               <ul className="mt-7 space-y-4 border-t border-border pt-7">
                 {line.items.map((item) => (
@@ -243,6 +294,46 @@ export function OwnersLines() {
           </Reveal>
         ))}
       </div>
+
+      <div className="mt-16">
+        <h3 className="text-xl text-primary md:text-2xl">
+          En qué se diferencian
+        </h3>
+        <div className="mt-8 overflow-hidden rounded-xs border border-border">
+          <div className="hidden grid-cols-[1fr_1.3fr_1.3fr] bg-secondary md:grid">
+            <p className="kicker px-6 py-4 text-primary-soft">Aspecto</p>
+            <p className="kicker px-6 py-4 text-primary">Sky Rooms</p>
+            <p className="kicker px-6 py-4 text-primary">Sky Suites</p>
+          </div>
+          <dl>
+            {comparison.map((row, i) => (
+              <div
+                key={row.k}
+                className={cn(
+                  "grid gap-x-6 gap-y-3 px-6 py-6 md:grid-cols-[1fr_1.3fr_1.3fr] md:items-start md:py-5",
+                  i % 2 === 1 && "bg-secondary/45",
+                  i > 0 && "border-t border-border",
+                )}
+              >
+                <dt className="kicker text-primary-soft">{row.k}</dt>
+                <dd className="text-[0.9375rem] leading-relaxed text-foreground">
+                  <span className="mr-2 font-semibold text-primary md:hidden">
+                    Sky Rooms ·
+                  </span>
+                  {row.rooms}
+                </dd>
+                <dd className="text-[0.9375rem] leading-relaxed text-foreground">
+                  <span className="mr-2 font-semibold text-primary md:hidden">
+                    Sky Suites ·
+                  </span>
+                  {row.suites}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+
       <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
         El equipamiento presentado es ilustrativo y referencial. La disposición,
         cantidad y selección final del mobiliario pueden variar según la
@@ -252,6 +343,7 @@ export function OwnersLines() {
     </Section>
   );
 }
+
 
 
 
