@@ -211,44 +211,34 @@ const lines = [
 
 const comparison = [
   {
-    k: "Enfoque de diseño",
-    rooms: "Diseño funcional con paleta neutra y materiales estándar de calidad.",
-    suites: "Proyecto de interiorismo personalizado, con identidad y capas de detalle.",
+    k: "Concepto",
+    rooms: "Funcional, cómodo y eficiente",
+    suites: "Diseño y experiencia superior",
   },
   {
-    k: "Mobiliario",
-    rooms: "Línea estándar: melamina símil madera, sofá o asientos y sillas.",
-    suites: "Piezas seleccionadas: poltronas, tapizados, mesas ratonas y recibidor.",
+    k: "Interiorismo",
+    rooms: "Línea de diseño estandarizada",
+    suites: "Proyecto personalizado",
   },
   {
-    k: "Dormitorio",
-    rooms: "Sommier hotelero, blanquería y cortinas.",
-    suites: "Cabecera con mesas de luz, portamaletas, mantas deco y TV propia.",
-  },
-  {
-    k: "Cortinados",
-    rooms: "Cortinas de lino en tonos claros.",
-    suites: "Doble sistema blackout + traslúcido en todos los ambientes.",
-  },
-  {
-    k: "Cocina y bazar",
-    rooms: "Bazar completo con cafetera de goteo y grillera.",
-    suites: "Bazar seleccionado con cafetera multicápsula.",
-  },
-  {
-    k: "Decoración",
-    rooms: "Set esencial: alfombra, espejo, cuadros y plantas.",
-    suites: "Curaduría con artesanía en barro paraguayo y deco de baño.",
+    k: "Equipamiento",
+    rooms: "Selección funcional completa",
+    suites: "Selección superior y detalles especiales",
   },
   {
     k: "Huésped objetivo",
-    rooms: "Viajes de trabajo, escapadas y estadías cortas.",
-    suites: "Huésped corporativo senior, estadías largas y viajeros de alto perfil.",
+    rooms: "Turismo, negocios y estadías cortas",
+    suites: "Corporate, long stay y huésped de mayor categoría",
   },
   {
-    k: "Tiempo de puesta a punto",
-    rooms: "Proceso más ágil con selección predefinida.",
-    suites: "Anteproyecto y ejecución con desarrollo de diseño a medida.",
+    k: "Inversión",
+    rooms: "Optimizada",
+    suites: "Superior",
+  },
+  {
+    k: "Puesta a punto",
+    rooms: "Más ágil",
+    suites: "Desarrollo a medida",
   },
 ];
 
@@ -332,6 +322,23 @@ export function OwnersLines() {
               </div>
             ))}
           </dl>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <CtaAnchor
+            href={wa(
+              "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Rooms.",
+            )}
+          >
+            Ver qué incluye Sky Rooms →
+          </CtaAnchor>
+          <CtaAnchor
+            href={wa(
+              "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Suites.",
+            )}
+          >
+            Ver qué incluye Sky Suites →
+          </CtaAnchor>
         </div>
       </div>
 
