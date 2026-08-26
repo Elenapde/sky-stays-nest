@@ -6,7 +6,7 @@ import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
 
 import skyRooms from "@/assets/sky-stays-sky-rooms.jpg.asset.json";
 import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
-import grupoPetraLogo from "@/assets/grupo-petra-logo.png.asset.json";
+import grupoPetraLogo from "@/assets/grupo-petra-logo-color.png.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { Cta, CtaAnchor, Section, SectionHead } from "@/components/sky/ui";
