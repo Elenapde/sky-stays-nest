@@ -82,7 +82,7 @@ const pillars = [
   },
   {
     name: "Cuidado del activo",
-    text: "Selección de huéspedes, inventario fotográfico, revisiones post-estadía y reporte de cualquier incidencia.",
+    text: "Selección de huéspedes, control de inventario, revisiones post-estadía y seguimiento de incidencias.",
   },
   {
     name: "Transparencia",
