@@ -73,7 +73,7 @@ export function OwnersHero() {
 
 const pillars = [
   {
-    name: "Renta previsible",
+    name: "Estrategia de Rentabilidad",
     text: "Precios dinámicos y combinación de estadías cortas, corporativas y long stay para optimizar ocupación e ingresos.",
   },
   {
