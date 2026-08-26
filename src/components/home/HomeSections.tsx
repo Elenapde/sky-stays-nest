@@ -12,6 +12,7 @@ import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
 import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
 import negociosPhoto from "@/assets/sky-stays-negocios.png.asset.json";
 import escapadasPhoto from "@/assets/sky-stays-escapadas.png.asset.json";
+import longStayPhoto from "@/assets/sky-stays-long-stay.png.asset.json";
 import familiaPhoto from "@/assets/sky-stays-familia.png.asset.json";
 import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
@@ -590,8 +591,8 @@ export function CorporateLongStay() {
     <Section tone="dark">
       <Reveal className="mb-12 overflow-hidden">
         <img
-          src={coworking.url}
-          alt="Espacio coworking equipado para profesionales y nómadas digitales en Sky Stays"
+          src={longStayPhoto.url}
+          alt="Departamento equipado y espacioso para estadías corporativas y prolongadas en Sky Stays"
           className="h-[280px] w-full object-cover sm:h-[360px] lg:h-[440px]"
           style={{ objectPosition: "center" }}
           loading="lazy"
@@ -607,8 +608,8 @@ export function CorporateLongStay() {
           />
           <p className="mt-8 flex flex-wrap gap-3 text-xs tracking-[0.14em] text-nude/70 uppercase">
             <span className="border border-nude/20 px-3 py-1.5">7+ noches</span>
-            <span className="border border-nude/20 px-3 py-1.5">14+ noches</span>
             <span className="border border-nude/20 px-3 py-1.5">30+ noches</span>
+            <span className="border border-nude/20 px-3 py-1.5">60+ noches</span>
           </p>
         </Reveal>
         <Reveal delay={100} className="grid gap-6">
