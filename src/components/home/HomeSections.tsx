@@ -21,6 +21,7 @@ import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
+import shoppingPhoto from "@/assets/sky-stays-shopping.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
@@ -198,7 +199,13 @@ export function YourTrip() {
                               alt: "Pareja relajándose en la piscina rooftop de un edificio Sky Stays al atardecer en Asunción",
                               objectPosition: "58% center",
                             }
-                          : {})}
+                          : j.id === "shopping-asuncion"
+                            ? {
+                                src: shoppingPhoto.url,
+                                alt: "Interior de un shopping moderno en Asunción con tiendas, escaleras y zonas de descanso",
+                                objectPosition: "center",
+                              }
+                            : {})}
                   />
                 </div>
               </div>
