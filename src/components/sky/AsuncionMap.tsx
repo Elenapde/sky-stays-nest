@@ -3,7 +3,6 @@ import { ArrowRight, Maximize2, Minimize2, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
-  BUILDING_COLOR,
   buildingById,
   buildings,
   categories,
@@ -57,18 +56,16 @@ function loadMapsSdk(): Promise<any> {
 
 /* ------------------------------ Pines de marca ---------------------------- */
 
-const PIN_PATH =
-  "M0-23c-7.4 0-13.4 6-13.4 13.4 0 9.5 13.4 22.6 13.4 22.6s13.4-13.1 13.4-22.6C13.4-17 7.4-23 0-23z";
+import isologoAsset from "@/assets/sky-stays-isologo-bordo.png.asset.json";
 
+/** Isologo de Sky Stays como pin de los edificios. */
 function buildingIcon(g: any, highlighted: boolean) {
+  const size = highlighted ? 46 : 38;
   return {
-    path: PIN_PATH,
-    fillColor: BUILDING_COLOR,
-    fillOpacity: 1,
-    strokeColor: "#F3EDE8",
-    strokeWeight: 2.4,
-    scale: highlighted ? 0.9 : 0.78,
-    anchor: new g.maps.Point(0, 12),
+    url: isologoAsset.url,
+    scaledSize: new g.maps.Size(size, size),
+    anchor: new g.maps.Point(size / 2, size / 2),
+    labelOrigin: new g.maps.Point(size / 2, size / 2),
   };
 }
 
@@ -365,10 +362,11 @@ export function AsuncionMap({
             </button>
 
             <div className="pointer-events-none absolute left-3 top-3 z-10 hidden items-center gap-2 border border-border bg-card/95 px-3 py-2 md:inline-flex">
-              <span
+              <img
+                src={isologoAsset.url}
+                alt=""
                 aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: BUILDING_COLOR }}
+                className="h-5 w-5 object-contain"
               />
               <span className="kicker text-primary">Edificios Sky Stays</span>
             </div>
