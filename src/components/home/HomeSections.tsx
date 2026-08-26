@@ -17,6 +17,7 @@ import familiaPhoto from "@/assets/sky-stays-familia.png.asset.json";
 import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
+import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
@@ -541,9 +542,12 @@ export function DayStay() {
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <PhotoSlot
-            label="Day Stay · piscina y descanso durante el día"
+            label="Day Stay · descanso y desconexión durante el día"
             ratio="4/3"
             tone="burgundy"
+            src={dayStayPhoto.url}
+            alt="Pareja disfrutando un desayuno tranquilo en un departamento Sky Stays durante una estadía de día"
+            objectPosition="center"
           />
         </Reveal>
         <Reveal delay={100}>
