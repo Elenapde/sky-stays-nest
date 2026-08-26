@@ -313,7 +313,7 @@ export function FeaturedProperties() {
         {properties.map((p) => (
           <li
             key={p.id}
-            className="w-[19rem] shrink-0 snap-start bg-card shadow-soft sm:w-[22rem]"
+            className="w-[78%] shrink-0 snap-start bg-card shadow-soft sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-3rem)/3)]"
           >
             <article className="flex h-full flex-col">
               <PhotoSlot label={p.photo} ratio="4/3" />
