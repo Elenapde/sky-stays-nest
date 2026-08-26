@@ -250,9 +250,6 @@ export function AsuncionMap({ className }: { className?: string }) {
             </button>
           );
         })}
-        <span className="kicker ml-auto text-muted-foreground">
-          {visibleCount} {visibleCount === 1 ? "punto" : "puntos"}
-        </span>
       </div>
 
       {/* Contenedor del mapa */}
