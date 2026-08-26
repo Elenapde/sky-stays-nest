@@ -491,63 +491,69 @@ export function Locations() {
         title="Quedate donde Asunción sucede."
         lead="No importa si venís por trabajo, compras, gastronomía o simplemente a disfrutar la ciudad. Tenemos un Sky Stays cerca."
       />
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
-        <ul className="grid gap-6 sm:grid-cols-3">
-          {locations.map((l, i) => (
-            <Reveal as="li" key={l.id} delay={i * 80}>
-              <a href={`/ubicaciones/${l.id}`} className="group block h-full">
-                <div className="overflow-hidden">
-                  <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
-                    <PhotoSlot
-                      label={l.photo}
-                      ratio="3/4"
-                      tone="burgundy"
-                      {...(l.id === "villa-morra"
+      <ul className="mt-12 grid gap-6 sm:grid-cols-3">
+        {locations.map((l, i) => (
+          <Reveal as="li" key={l.id} delay={i * 80}>
+            <a href={`/ubicaciones/${l.id}`} className="group block h-full">
+              <div className="overflow-hidden">
+                <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
+                  <PhotoSlot
+                    label={l.photo}
+                    ratio="3/4"
+                    tone="burgundy"
+                    {...(l.id === "villa-morra"
+                      ? {
+                          src: villaMorraPhoto.url,
+                          alt: "Terraza gastronómica en Villa Morra, Asunción",
+                          objectPosition: "center",
+                        }
+                      : l.id === "recoleta"
                         ? {
-                            src: villaMorraPhoto.url,
-                            alt: "Terraza gastronómica en Villa Morra, Asunción",
+                            src: recoletaPhoto.url,
+                            alt: "Patio de cafés en Recoleta, Asunción",
                             objectPosition: "center",
                           }
-                        : l.id === "recoleta"
+                        : l.id === "ycua-sati"
                           ? {
-                              src: recoletaPhoto.url,
-                              alt: "Patio de cafés en Recoleta, Asunción",
+                              src: ycuaSatiPhoto.url,
+                              alt: "Torres y eje corporativo de Ycuá Satí, Asunción",
                               objectPosition: "center",
                             }
-                          : l.id === "ycua-sati"
-                            ? {
-                                src: ycuaSatiPhoto.url,
-                                alt: "Torres y eje corporativo de Ycuá Satí, Asunción",
-                                objectPosition: "center",
-                              }
-                            : {})}
-                    />
-                  </div>
+                          : {})}
+                  />
                 </div>
-                <h3 className="mt-4 text-xl text-primary">{l.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{l.text}</p>
-              </a>
-            </Reveal>
-          ))}
-        </ul>
-        <Reveal
-          delay={120}
-          className="trama relative min-h-72 border border-border bg-secondary text-primary"
-        >
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-            <img src={monogram.url} alt="" aria-hidden className="h-12 w-auto opacity-40" />
-            <p className="font-display text-xl text-primary">
-              Mapa interactivo de Asunción
+              </div>
+              <h3 className="mt-4 text-xl text-primary">{l.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{l.text}</p>
+            </a>
+          </Reveal>
+        ))}
+      </ul>
+
+      <Reveal delay={120} className="mt-10">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+          <div className="max-w-xl">
+            <p className="kicker rule-line text-primary-soft">Mapa de Asunción</p>
+            <h3 className="mt-3 text-2xl text-primary md:text-3xl">
+              Barrios, alojamientos y puntos de interés.
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Explorá las zonas donde operamos, nuestros alojamientos y los
+              lugares cercanos: shoppings, gastronomía y el eje corporativo.
             </p>
-            <p className="max-w-xs text-xs text-muted-foreground">
-              Zonas, edificios y distancias a shoppings, gastronomía y eje corporativo.
-            </p>
-            <CtaAnchor href="/ubicaciones" variant="outline" size="sm">
-              Ver el mapa
-            </CtaAnchor>
           </div>
-        </Reveal>
-      </div>
+          <CtaAnchor
+            href={wa("Hola Sky Stays, quiero una recomendación de zona para hospedarme en Asunción.")}
+            target="_blank"
+            rel="noreferrer"
+            variant="outline"
+            size="sm"
+          >
+            Pedir recomendación
+          </CtaAnchor>
+        </div>
+        <AsuncionMap />
+      </Reveal>
     </Section>
   );
 }
