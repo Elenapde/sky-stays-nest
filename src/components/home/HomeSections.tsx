@@ -88,7 +88,7 @@ export function Hero() {
 
 
       <Section tone="cream" className="py-0 md:py-0">
-        <div className="-mt-14 pb-20 md:-mt-20 md:pb-28">
+        <div className="pt-16 pb-20 md:pt-20 md:pb-28">
           <Reveal>
             <StaySearch />
           </Reveal>
