@@ -8,6 +8,15 @@ import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { CtaAnchor, Section, SectionHead } from "@/components/sky/ui";
+import { AsuncionMap } from "@/components/sky/AsuncionMap";
+import {
+  buildings,
+  categoryLabel,
+  featuredPlaces,
+  places,
+  zoneLabel,
+  zones,
+} from "@/data/asuncion";
 import { guide, wa } from "@/data/sky";
 
 /* --------------------------------- Hero ---------------------------------- */
@@ -209,6 +218,123 @@ export function GuideCta() {
         >
           Hablar por WhatsApp
         </CtaAnchor>
+      </div>
+    </Section>
+  );
+}
+
+/* ----------------------------- Mapa interactivo -------------------------- */
+
+export function GuideMap() {
+  return (
+    <Section id="mapa">
+      <SectionHead
+        kicker="Guía de Asunción"
+        title="Quedate cerca de lo que te trae a Asunción."
+        lead="Restaurantes, cafés, compras, negocios y lugares para descubrir. Explorá el mapa y conocé todo lo que tenés cerca de nuestros alojamientos."
+      />
+      <Reveal delay={100} className="mt-10">
+        <AsuncionMap />
+      </Reveal>
+    </Section>
+  );
+}
+
+/* -------------------- Recomendados por Sky Stays (destacados) ------------ */
+
+export function GuideRecomendados() {
+  return (
+    <Section tone="cream">
+      <SectionHead
+        kicker="Recomendados por Sky Stays"
+        title="Los lugares que recomendamos a nuestros huéspedes."
+        lead="Una selección editorial del equipo: mesas, cafés y paseos que valen el viaje, todos a minutos de nuestros alojamientos en Asunción."
+      />
+      <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featuredPlaces.map((p, i) => (
+          <Reveal as="li" key={p.id} delay={i * 70} className="group">
+            <a href={p.mapsUrl} target="_blank" rel="noreferrer" className="block h-full">
+              <div className="overflow-hidden">
+                <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
+                  <PhotoSlot
+                    label={`${p.barrio} · ${categoryLabel(p.category)}`}
+                    {...(p.image ? { src: p.image } : {})}
+                    alt={`${p.name}, ${p.barrio}, Asunción`}
+                    ratio="4/3"
+                    tone={i % 2 === 0 ? "burgundy" : "carbon"}
+                  />
+                </div>
+              </div>
+              <p className="kicker mt-4 text-primary-soft">
+                {zoneLabel(p.zone)} · {categoryLabel(p.category)}
+              </p>
+              <h3 className="mt-2 text-lg leading-snug text-primary">{p.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {p.description}
+              </p>
+              <span className="mt-3 inline-flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-primary transition-all group-hover:gap-3">
+                Descubrir →
+              </span>
+            </a>
+          </Reveal>
+        ))}
+      </ul>
+    </Section>
+  );
+}
+
+/* ------------- Contenido indexable: zonas y puntos de interés ------------ */
+
+export function GuideZonas() {
+  return (
+    <Section>
+      <SectionHead
+        kicker="Qué hacer en Asunción"
+        title="Zonas, barrios y puntos de interés."
+        lead="Un resumen de cada zona donde tenemos alojamientos en Asunción y de los lugares que quedan a pocos minutos de cada edificio Sky Stays."
+      />
+      <div className="mt-10 grid gap-10 lg:grid-cols-3">
+        {zones.map((z, i) => {
+          const zonePlaces = places.filter((p) => p.zone === z.id);
+          const zoneBuildings = buildings.filter((b) => b.zone === z.id);
+          return (
+            <Reveal key={z.id} delay={i * 80} as="article">
+              <h3 className="text-xl text-primary">Alojamiento en {z.label}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{z.text}</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.12em] text-primary-soft">
+                Edificios Sky Stays
+              </p>
+              <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                {zoneBuildings.map((b) => (
+                  <li key={b.id}>
+                    <a href={b.staysUrl} className="hover:text-primary">
+                      {b.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-xs uppercase tracking-[0.12em] text-primary-soft">
+                Cerca de tu estadía
+              </p>
+              <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
+                {zonePlaces.map((p) => (
+                  <li key={p.id}>
+                    <a
+                      href={p.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-primary hover:text-primary-soft"
+                    >
+                      {p.name}
+                    </a>{" "}
+                    — {categoryLabel(p.category)}, {p.barrio}. {p.description} Ideal para{" "}
+                    {p.idealFor.toLowerCase()}.
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          );
+        })}
       </div>
     </Section>
   );
