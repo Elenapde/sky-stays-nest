@@ -47,7 +47,6 @@ function OwnersPage() {
 
         <OwnersForm />
         <OwnersFaq />
-        <OwnersCta />
       </main>
       <SiteFooter />
       <WhatsAppFab />
