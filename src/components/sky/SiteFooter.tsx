@@ -5,23 +5,6 @@ import { CtaAnchor, Stars } from "./ui";
 export function SiteFooter() {
   return (
     <footer className="bg-carbon text-carbon-foreground">
-      {/* Acceso discreto para propietarios */}
-      <div className="border-b border-nude/10 px-6 py-12 md:px-10">
-        <div className="mx-auto flex w-full max-w-[80rem] flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 className="text-xl text-nude md:text-2xl">
-              ¿Tenés un departamento en Asunción?
-            </h2>
-            <p className="mt-2 text-sm text-nude/60">
-              Convertí tu propiedad en una experiencia Sky Stays.
-            </p>
-          </div>
-          <CtaAnchor href="/propietarios" variant="ghostLight">
-            Conocer servicio para propietarios →
-          </CtaAnchor>
-        </div>
-      </div>
-
       <div className="mx-auto grid w-full max-w-[80rem] gap-12 px-6 py-16 md:grid-cols-[1.2fr_2fr] md:px-10">
         <div>
           <img src={logo.url} alt="Sky Stays" className="h-16 w-auto" />
