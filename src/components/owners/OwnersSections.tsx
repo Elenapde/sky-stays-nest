@@ -10,7 +10,7 @@ import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { Cta, CtaAnchor, Section, SectionHead } from "@/components/sky/ui";
 import { mailto, social, wa } from "@/data/sky";
-import { cn } from "@/lib/utils";
+
 
 /* --------------------------------- Hero ---------------------------------- */
 
@@ -179,66 +179,25 @@ const lines = [
     name: "Sky Rooms",
     src: skyRooms.url,
     alt: "Departamento equipado con la línea Sky Rooms",
-    tag: "Inversión inicial más accesible",
-    lead: "Equipamiento completo, funcional y contemporáneo. Todo lo necesario para operar con estándar hotelero desde el primer día.",
-    ideal: "Ideal si querés poner el departamento en operación rápido, con una inversión medida y sin resignar confort.",
-    items: [
-      "Selección de mobiliario estándar en melamina símil madera y textiles de lino",
-      "Sommiers de estándar hotelero, blanquería, edredón y toallas",
-      "Sofá o asientos, mesa de comedor, sillas y rack de TV",
-      "Smart TV, heladera, microondas, hervidora, grillera y cafetera de goteo",
-      "Bazar completo: vajilla, ollas, copas, vasos y utensilios",
-      "Decoración esencial: alfombra, espejo, cuadros, plantas y almohadas deco",
-    ],
+    tagline: "Funcionalidad que genera valor.",
+    description:
+      "Una propuesta estandarizada para poner tu propiedad en operación de forma ágil y eficiente.",
+    cta: "CONOCER SKY ROOMS",
+    waMessage:
+      "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Rooms.",
+    premium: false,
   },
   {
     name: "Sky Suites",
     src: skySuites.url,
     alt: "Departamento equipado con la línea Sky Suites",
-    tag: "Propuesta premium de interiorismo",
-    lead: "Diseño interior de autor, materiales nobles y detalles de artesanía paraguaya para posicionar la unidad en el segmento alto.",
-    ideal: "Ideal si buscás diferenciar tu departamento, apuntar a un huésped más exigente y sostener una tarifa superior.",
-    items: [
-      "Proyecto de interiorismo a medida, con mobiliario de líneas curvas y texturas suaves",
-      "Cabecera con mesas de luz, poltrona o sofá y sillas de comedor tapizadas",
-      "Cortinas blackout + traslúcido en todos los ambientes",
-      "Doble Smart TV (sala y habitación) y cafetera multicápsula",
-      "Blanquería premium: duvet, edredón, mantas de pie de cama y set completo de toallas",
-      "Decoración con barro artesanal paraguayo, deco de baño y piezas de autor",
-    ],
-  },
-];
-
-const comparison = [
-  {
-    k: "Concepto",
-    rooms: "Funcional, cómodo y eficiente",
-    suites: "Diseño y experiencia superior",
-  },
-  {
-    k: "Interiorismo",
-    rooms: "Línea de diseño estandarizada",
-    suites: "Proyecto personalizado",
-  },
-  {
-    k: "Equipamiento",
-    rooms: "Selección funcional completa",
-    suites: "Selección superior y detalles especiales",
-  },
-  {
-    k: "Huésped objetivo",
-    rooms: "Turismo, negocios y estadías cortas",
-    suites: "Corporate, long stay y huésped de mayor categoría",
-  },
-  {
-    k: "Inversión",
-    rooms: "Optimizada",
-    suites: "Superior",
-  },
-  {
-    k: "Puesta a punto",
-    rooms: "Más ágil",
-    suites: "Desarrollo a medida",
+    tagline: "Una experiencia de categoría superior.",
+    description:
+      "Interiorismo y equipamiento pensado para elevar la experiencia y el posicionamiento de la propiedad.",
+    cta: "CONOCER SKY SUITES",
+    waMessage:
+      "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Suites.",
+    premium: true,
   },
 ];
 
@@ -250,96 +209,66 @@ export function OwnersLines() {
         title="Sky Rooms o Sky Suites: vos elegís hasta dónde llevar tu departamento."
         lead="Las dos líneas se operan con el mismo estándar de hospitalidad. La diferencia está en el nivel de interiorismo, el mobiliario y la inversión que quieras hacer en la puesta a punto."
       />
-      <div className="mt-14 grid gap-px overflow-hidden rounded-xs bg-border md:grid-cols-2">
+      <div className="mt-14 grid gap-6 md:grid-cols-2">
         {lines.map((line, i) => (
-          <Reveal key={line.name} delay={i * 90} className="bg-background">
+          <Reveal
+            key={line.name}
+            delay={i * 90}
+            className={
+              line.premium
+                ? "flex flex-col overflow-hidden rounded-xs bg-burgundy"
+                : "flex flex-col overflow-hidden rounded-xs bg-background ring-1 ring-border"
+            }
+          >
             <PhotoSlot
               src={line.src}
               alt={line.alt}
               label={line.name}
-              ratio="21 / 9"
+              ratio="4 / 3"
+              className={line.premium ? "" : ""}
             />
-            <div className="p-8">
-              <p className="kicker text-primary-soft">{line.tag}</p>
-              <h3 className="mt-4 text-2xl text-primary">{line.name}</h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
-                {line.lead}
+            <div className="flex flex-1 flex-col p-8 md:p-10">
+              <h3
+                className={
+                  line.premium
+                    ? "text-2xl text-nude md:text-3xl"
+                    : "text-2xl text-primary md:text-3xl"
+                }
+              >
+                {line.name}
+              </h3>
+              <p
+                className={
+                  line.premium
+                    ? "mt-4 text-lg leading-snug text-nude"
+                    : "mt-4 text-lg leading-snug text-primary"
+                }
+              >
+                {line.tagline}
               </p>
-              <p className="mt-5 border-l-2 border-primary-soft pl-4 text-[0.9375rem] leading-relaxed text-foreground">
-                {line.ideal}
+              <p
+                className={
+                  line.premium
+                    ? "mt-4 text-[0.9375rem] leading-relaxed text-nude/75"
+                    : "mt-4 text-[0.9375rem] leading-relaxed text-muted-foreground"
+                }
+              >
+                {line.description}
               </p>
-              <ul className="mt-7 space-y-4 border-t border-border pt-7">
-                {line.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-4 text-[0.9375rem] leading-relaxed text-foreground"
-                  >
-                    <span aria-hidden className="mt-[0.35rem] text-primary-soft">
-                      ―
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-auto pt-8">
+                <CtaAnchor
+                  href={wa(line.waMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant={line.premium ? "nude" : "outline"}
+                  className="w-full justify-center"
+                >
+                  {line.cta} →
+                </CtaAnchor>
+              </div>
             </div>
           </Reveal>
         ))}
-      </div>
-
-      <div className="mt-16">
-        <h3 className="text-xl text-primary md:text-2xl">
-          En qué se diferencian
-        </h3>
-        <div className="mt-8 overflow-hidden rounded-xs border border-border">
-          <div className="hidden grid-cols-[1fr_1.3fr_1.3fr] bg-secondary md:grid">
-            <p className="kicker px-6 py-4 text-primary-soft">Aspecto</p>
-            <p className="kicker px-6 py-4 text-primary">Sky Rooms</p>
-            <p className="kicker px-6 py-4 text-primary">Sky Suites</p>
-          </div>
-          <dl>
-            {comparison.map((row, i) => (
-              <div
-                key={row.k}
-                className={cn(
-                  "grid gap-x-6 gap-y-3 px-6 py-6 md:grid-cols-[1fr_1.3fr_1.3fr] md:items-start md:py-5",
-                  i % 2 === 1 && "bg-secondary/45",
-                  i > 0 && "border-t border-border",
-                )}
-              >
-                <dt className="kicker text-primary-soft">{row.k}</dt>
-                <dd className="text-[0.9375rem] leading-relaxed text-foreground">
-                  <span className="mr-2 font-semibold text-primary md:hidden">
-                    Sky Rooms ·
-                  </span>
-                  {row.rooms}
-                </dd>
-                <dd className="text-[0.9375rem] leading-relaxed text-foreground">
-                  <span className="mr-2 font-semibold text-primary md:hidden">
-                    Sky Suites ·
-                  </span>
-                  {row.suites}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <CtaAnchor
-            href={wa(
-              "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Rooms.",
-            )}
-          >
-            Ver qué incluye Sky Rooms →
-          </CtaAnchor>
-          <CtaAnchor
-            href={wa(
-              "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Suites.",
-            )}
-          >
-            Ver qué incluye Sky Suites →
-          </CtaAnchor>
-        </div>
       </div>
 
       <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
