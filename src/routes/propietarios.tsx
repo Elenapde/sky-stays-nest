@@ -5,6 +5,7 @@ import {
   OwnersFaq,
   OwnersForm,
   OwnersHero,
+  OwnersLines,
   OwnersProcess,
   OwnersRequirements,
   OwnersService,
@@ -40,7 +41,9 @@ function OwnersPage() {
         <OwnersHero />
         <OwnersValue />
         <OwnersService />
+        <OwnersLines />
         <OwnersProcess />
+
         <OwnersRequirements />
         <OwnersForm />
         <OwnersFaq />

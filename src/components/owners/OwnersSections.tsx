@@ -4,6 +4,8 @@ import longStay from "@/assets/sky-stays-long-stay.png.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
 import coworking from "@/assets/sky-stays-coworking.png.asset.json";
+import skyRooms from "@/assets/sky-stays-sky-rooms.jpg.asset.json";
+import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { Cta, CtaAnchor, Section, SectionHead } from "@/components/sky/ui";
@@ -168,6 +170,90 @@ export function OwnersService() {
     </Section>
   );
 }
+
+/* ---------------------------- Líneas de producto -------------------------- */
+
+const lines = [
+  {
+    name: "Sky Rooms",
+    src: skyRooms.url,
+    alt: "Departamento equipado con la línea Sky Rooms",
+    lead: "Equipamiento funcional y contemporáneo, pensado para estadías cortas y viajes de trabajo.",
+    items: [
+      "Sommiers con estándar hotelero y blanquería completa",
+      "Living con sofá, mesa de comedor y rack de TV",
+      "Smart TV, heladera, microondas, cafetera de goteo y grillera",
+      "Bazar completo: vajilla, ollas, copas y utensilios",
+      "Decoración esencial: alfombra, espejo, cuadros y plantas",
+      "Escritorio independiente según tipología",
+    ],
+  },
+  {
+    name: "Sky Suites",
+    src: skySuites.url,
+    alt: "Departamento equipado con la línea Sky Suites",
+    lead: "Interiorismo de autor, materiales nobles y artesanía paraguaya para una experiencia superior.",
+    items: [
+      "Diseño interior a medida con mobiliario de líneas curvas y texturas suaves",
+      "Cabecera con mesas de luz, poltrona o sofá y sillas tapizadas",
+      "Cortinas blackout + traslúcido en todos los ambientes",
+      "Doble Smart TV (sala y habitación) y cafetera multicápsula",
+      "Blanquería premium: duvet, edredón, mantas y set completo de toallas",
+      "Decoración con barro artesanal paraguayo y deco de baño",
+    ],
+  },
+];
+
+export function OwnersLines() {
+  return (
+    <Section tone="light">
+      <SectionHead
+        kicker="Dos líneas de equipamiento"
+        title="Sky Rooms o Sky Suites, según el potencial de tu departamento."
+        lead="Ambas líneas comparten el mismo estándar de hospitalidad. Cambian el nivel de interiorismo, el mobiliario y los detalles de cada ambiente."
+      />
+      <div className="mt-14 grid gap-px overflow-hidden rounded-xs bg-border md:grid-cols-2">
+        {lines.map((line, i) => (
+          <Reveal key={line.name} delay={i * 90} className="bg-background">
+            <PhotoSlot
+              src={line.src}
+              alt={line.alt}
+              label={line.name}
+              ratio="16 / 10"
+            />
+            <div className="p-8">
+              <h3 className="text-2xl text-primary">{line.name}</h3>
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
+                {line.lead}
+              </p>
+              <ul className="mt-7 space-y-4 border-t border-border pt-7">
+                {line.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-4 text-[0.9375rem] leading-relaxed text-foreground"
+                  >
+                    <span aria-hidden className="mt-[0.35rem] text-primary-soft">
+                      ―
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+      <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+        El equipamiento presentado es ilustrativo y referencial. La disposición,
+        cantidad y selección final del mobiliario pueden variar según la
+        tipología, distribución y superficie de cada departamento, manteniendo
+        siempre el estándar de calidad y diseño de cada línea.
+      </p>
+    </Section>
+  );
+}
+
+
 
 /* ------------------------------ Cómo funciona ----------------------------- */
 
