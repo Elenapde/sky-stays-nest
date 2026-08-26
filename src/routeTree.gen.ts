@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuiaDeAsuncionRouteImport } from './routes/guia-de-asuncion'
 import { Route as PropietariosRouteImport } from './routes/propietarios'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiaDeAsuncionRoute = GuiaDeAsuncionRouteImport.update({
+  id: '/guia-de-asuncion',
+  path: '/guia-de-asuncion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PropietariosRoute = PropietariosRouteImport.update({
@@ -25,27 +31,31 @@ const PropietariosRoute = PropietariosRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/propietarios': typeof PropietariosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/propietarios': typeof PropietariosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/propietarios': typeof PropietariosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/propietarios'
+  fullPaths: '/' | '/guia-de-asuncion' | '/propietarios'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/propietarios'
-  id: '__root__' | '/' | '/propietarios'
+  to: '/' | '/guia-de-asuncion' | '/propietarios'
+  id: '__root__' | '/' | '/guia-de-asuncion' | '/propietarios'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GuiaDeAsuncionRoute: typeof GuiaDeAsuncionRoute
   PropietariosRoute: typeof PropietariosRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guia-de-asuncion': {
+      id: '/guia-de-asuncion'
+      path: '/guia-de-asuncion'
+      fullPath: '/guia-de-asuncion'
+      preLoaderRoute: typeof GuiaDeAsuncionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/propietarios': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GuiaDeAsuncionRoute: GuiaDeAsuncionRoute,
   PropietariosRoute: PropietariosRoute,
 }
 export const routeTree = rootRouteImport
