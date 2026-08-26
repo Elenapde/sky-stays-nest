@@ -19,6 +19,7 @@ import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
+import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
@@ -784,6 +785,7 @@ export function AsuncionGuide() {
         {guide.map((g, i) => {
           const srcMap: Record<string, string> = {
             "mejores-barrios-para-hospedarse": barriosPhoto.url,
+            "asuncion-viajes-de-negocios": negociosAerialPhoto.url,
           };
           return (
           <Reveal as="li" key={g.id} delay={i * 70}>
