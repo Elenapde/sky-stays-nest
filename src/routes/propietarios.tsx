@@ -1,14 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
-  OwnersCta,
   OwnersFaq,
   OwnersForm,
   OwnersHero,
   OwnersLines,
   OwnersPetra,
   OwnersProcess,
-  
+
   OwnersService,
   OwnersValue,
 } from "@/components/owners/OwnersSections";
@@ -48,7 +47,6 @@ function OwnersPage() {
 
         <OwnersForm />
         <OwnersFaq />
-        <OwnersCta />
       </main>
       <SiteFooter />
       <WhatsAppFab />
