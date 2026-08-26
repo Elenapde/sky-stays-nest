@@ -10,7 +10,7 @@ import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { Cta, CtaAnchor, Section, SectionHead } from "@/components/sky/ui";
 import { mailto, social, wa } from "@/data/sky";
-import { cn } from "@/lib/utils";
+
 
 /* --------------------------------- Hero ---------------------------------- */
 
