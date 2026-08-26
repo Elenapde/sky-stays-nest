@@ -323,6 +323,23 @@ export function OwnersLines() {
             ))}
           </dl>
         </div>
+
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <CtaAnchor
+            href={wa(
+              "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Rooms.",
+            )}
+          >
+            Ver qué incluye Sky Rooms →
+          </CtaAnchor>
+          <CtaAnchor
+            href={wa(
+              "Hola, soy propietario y quiero saber qué incluye el equipamiento Sky Suites.",
+            )}
+          >
+            Ver qué incluye Sky Suites →
+          </CtaAnchor>
+        </div>
       </div>
 
       <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
