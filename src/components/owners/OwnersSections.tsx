@@ -74,7 +74,7 @@ export function OwnersHero() {
 const pillars = [
   {
     name: "Renta previsible",
-    text: "Estrategia de precios dinámica y mix de estadías cortas, corporativas y long stay para sostener la ocupación todo el año.",
+    text: "Precios dinámicos y combinación de estadías cortas, corporativas y long stay para optimizar ocupación e ingresos.",
   },
   {
     name: "Operación hotelera",
