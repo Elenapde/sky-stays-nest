@@ -1,14 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
-  OwnersCta,
   OwnersFaq,
   OwnersForm,
   OwnersHero,
   OwnersLines,
   OwnersPetra,
   OwnersProcess,
-  
+
   OwnersService,
   OwnersValue,
 } from "@/components/owners/OwnersSections";
