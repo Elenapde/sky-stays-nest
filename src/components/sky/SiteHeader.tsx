@@ -61,9 +61,13 @@ export function SiteHeader() {
               </div>
             </div>
           ))}
+          <a href="/corporate-long-stay" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
+            Corporate & Long Stay
+          </a>
           <a href="/guia-de-asuncion" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
             Guía de Asunción
           </a>
+
           <a href="/propietarios" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
             Propietarios
           </a>
