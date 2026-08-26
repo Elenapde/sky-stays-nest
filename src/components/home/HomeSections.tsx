@@ -16,6 +16,7 @@ import longStayPhoto from "@/assets/sky-stays-long-stay.png.asset.json";
 import familiaPhoto from "@/assets/sky-stays-familia.png.asset.json";
 import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
+import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
 import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
@@ -512,7 +513,13 @@ export function Locations() {
                               alt: "Patio de cafés en Recoleta, Asunción",
                               objectPosition: "center",
                             }
-                          : {})}
+                          : l.id === "ycua-sati"
+                            ? {
+                                src: ycuaSatiPhoto.url,
+                                alt: "Torres y eje corporativo de Ycuá Satí, Asunción",
+                                objectPosition: "center",
+                              }
+                            : {})}
                     />
                   </div>
                 </div>
