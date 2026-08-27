@@ -637,9 +637,9 @@ export function CorporateLongStay() {
             lead="Soluciones flexibles para empresas, profesionales y quienes necesitan hacer de Asunción su casa por un tiempo."
           />
           <p className="mt-8 flex flex-wrap gap-3 text-xs tracking-[0.14em] text-nude/70 uppercase">
-            <span className="border border-nude/20 px-3 py-1.5">7+ noches</span>
-            <span className="border border-nude/20 px-3 py-1.5">30+ noches</span>
-            <span className="border border-nude/20 px-3 py-1.5">60+ noches</span>
+            <span className="border border-nude/20 px-3 py-1.5">30 NOCHES</span>
+            <span className="border border-nude/20 px-3 py-1.5">60 NOCHES</span>
+            <span className="border border-nude/20 px-3 py-1.5">+90 NOCHES</span>
           </p>
         </Reveal>
         <Reveal delay={100} className="grid gap-6">
