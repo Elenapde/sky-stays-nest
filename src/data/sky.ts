@@ -229,26 +229,6 @@ export const nav = [
     ],
   },
   {
-    label: "Tu viaje",
-    items: [
-      { label: "Negocios", to: "/tu-viaje/negocios" },
-      { label: "Fin de semana en familia", to: "/tu-viaje/familia" },
-      { label: "Shopping en Asunción", to: "/tu-viaje/shopping-asuncion" },
-      { label: "Escapadas", to: "/tu-viaje/escapadas" },
-      { label: "Conocé Asunción", to: "/tu-viaje/conoce-asuncion" },
-      { label: "Estadías prolongadas", to: "/tu-viaje/long-stay" },
-    ],
-  },
-  {
-    label: "Experiencias",
-    items: [
-      { label: "Amenities", to: "/experiencias/amenities" },
-      { label: "Servicios", to: "/experiencias/servicios" },
-      { label: "Petra Tower", to: "/edificios/petra-tower" },
-      { label: "Day Stay", to: "/day-stay-asuncion" },
-    ],
-  },
-  {
     label: "Ubicaciones",
     items: [
       { label: "Villa Morra", to: "/ubicaciones/villa-morra" },
