@@ -71,7 +71,7 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-carbon/85 via-carbon/45 to-carbon/35" />
 
-        <div className="relative mx-auto w-full max-w-[80rem] px-6 pt-32 pb-16 md:px-10 md:pb-24">
+        <div className="relative w-full px-6 pt-32 pb-16 md:px-10 md:pb-24">
           <Reveal>
             <Kicker className="text-nude">Hospedaje temporal en Asunción</Kicker>
             <h1 className="mt-5 max-w-2xl text-3xl leading-[1.1] text-nude md:text-4xl lg:text-5xl">

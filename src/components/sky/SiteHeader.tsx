@@ -27,7 +27,7 @@ export function SiteHeader() {
           : "bg-gradient-to-b from-carbon/55 to-transparent",
       )}
     >
-      <div className="mx-auto flex w-full max-w-[84rem] items-center justify-between gap-6 px-6 py-4 md:px-10">
+      <div className="flex w-full items-center justify-between gap-6 px-6 py-4 md:px-10">
         <a href="/" className="shrink-0" aria-label="Sky Stays — inicio">
           <img
             src={logo.url}
