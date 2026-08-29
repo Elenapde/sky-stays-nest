@@ -13,6 +13,7 @@ import {
   Locations,
   Reviews,
   RoomsAndSuites,
+  ServicesSection,
   WhatIsSkyStays,
   YourTrip,
 } from "@/components/home/HomeSections";
@@ -50,6 +51,7 @@ function Index() {
         <RoomsAndSuites />
         <FeaturedProperties />
         <ExperienceSection />
+        <ServicesSection />
         <Locations />
         <DayStay />
         <Reviews />
