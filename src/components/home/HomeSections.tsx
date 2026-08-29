@@ -40,6 +40,7 @@ import {
   SectionHead,
   Stars,
 } from "@/components/sky/ui";
+import { activeServices, servicesDisclaimer } from "@/data/services";
 import {
   benefits,
   directBooking,

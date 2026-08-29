@@ -13,6 +13,7 @@ import {
   Locations,
   Reviews,
   RoomsAndSuites,
+  ServicesSection,
   WhatIsSkyStays,
   YourTrip,
 } from "@/components/home/HomeSections";
