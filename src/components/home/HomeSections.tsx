@@ -440,6 +440,55 @@ export function ExperienceSection() {
   );
 }
 
+/* ----------------------- 07b · Servicios Sky Stays ---------------------- */
+
+export function ServicesSection() {
+  const list = activeServices();
+
+  return (
+    <Section tone="cream" id="servicios">
+      <SectionHead
+        kicker="Servicios Sky Stays"
+        title="Una estadía a tu medida."
+        lead="Sumá servicios adicionales según lo que necesites durante tu estadía."
+      />
+      <ul className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-8">
+        {list.map((s, i) => (
+          <Reveal as="li" key={s.id} delay={i * 80}>
+            <article className="flex h-full flex-col">
+              <div className="relative overflow-hidden">
+                <img
+                  src={s.image}
+                  alt={s.imageAlt}
+                  width={1200}
+                  height={960}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-brand hover:scale-[1.03]"
+                  style={{ objectPosition: s.imagePosition ?? "center" }}
+                />
+              </div>
+              <div className="mt-7">
+                <h3 className="font-sans text-[0.6875rem] font-semibold tracking-[0.22em] uppercase text-primary-soft">
+                  {s.name}
+                </h3>
+                <p className="mt-4 font-display text-xl leading-snug text-primary md:text-[1.375rem]">
+                  {s.title}
+                </p>
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                  {s.description}
+                </p>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+      </ul>
+      <p className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
+        {servicesDisclaimer(list)}
+      </p>
+    </Section>
+  );
+}
+
 /* ---------------------------- 08 · Petra Tower -------------------------- */
 
 export function PetraTower() {
