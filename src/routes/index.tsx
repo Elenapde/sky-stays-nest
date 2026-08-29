@@ -51,6 +51,7 @@ function Index() {
         <RoomsAndSuites />
         <FeaturedProperties />
         <ExperienceSection />
+        <ServicesSection />
         <Locations />
         <DayStay />
         <Reviews />
