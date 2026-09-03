@@ -52,6 +52,8 @@ export type CategoryId =
   | "cafe"
   | "shopping"
   | "entretenimiento"
+  | "vida-nocturna"
+  | "supermercado"
   | "cultura"
   | "aire-libre"
   | "negocios";
@@ -68,10 +70,13 @@ export const categories: Category[] = [
   { id: "cafe", label: "Cafés", color: "#a08979" },
   { id: "shopping", label: "Shopping", color: "#6d3448" },
   { id: "entretenimiento", label: "Entretenimiento", color: "#7c6f8a" },
+  { id: "vida-nocturna", label: "Vida nocturna", color: "#403050" },
+  { id: "supermercado", label: "Supermercados 24 h", color: "#4f6b57" },
   { id: "cultura", label: "Cultura", color: "#5c6672" },
   { id: "aire-libre", label: "Aire libre", color: "#5f7a6b" },
   { id: "negocios", label: "Negocios", color: "#1d2127" },
 ];
+
 
 export const BUILDING_COLOR = "#4a192c";
 
