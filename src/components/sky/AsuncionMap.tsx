@@ -56,18 +56,23 @@ function loadMapsSdk(): Promise<any> {
 
 /* ------------------------------ Pines de marca ---------------------------- */
 
-import isologoAsset from "@/assets/sky-stays-isologo-bordo.png.asset.json";
+const PIN_PATH =
+  "M12 0C5.9 0 1 4.9 1 11c0 8.1 9.6 18.3 10 18.7.5.5 1.4.5 1.9 0 .4-.4 10.1-10.6 10.1-18.7 0-6.1-4.9-11-11-11z";
 
-/** Isologo de Sky Stays como pin de los edificios. */
+/** Pin de ubicación bordo, más grande y con sombra, para los edificios Sky Stays. */
 function buildingIcon(g: any, highlighted: boolean) {
-  const size = highlighted ? 46 : 38;
+  const scale = highlighted ? 1.75 : 1.35;
   return {
-    url: isologoAsset.url,
-    scaledSize: new g.maps.Size(size, size),
-    anchor: new g.maps.Point(size / 2, size / 2),
-    labelOrigin: new g.maps.Point(size / 2, size / 2),
+    path: PIN_PATH,
+    fillColor: BUILDING_COLOR,
+    fillOpacity: 1,
+    strokeColor: "#FFFFFF",
+    strokeWeight: 2.2,
+    scale,
+    anchor: new g.maps.Point(12, 30),
   };
 }
+
 
 function placeIcon(g: any, color: string, dimmed: boolean) {
   return {
