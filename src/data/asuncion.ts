@@ -200,7 +200,18 @@ export const buildings: Building[] = [
     lng: -57.5872,
     staysUrl: "/alojamientos?edificio=life-mariscal",
   },
+  {
+    id: "agora",
+    name: "Agora",
+    barrio: "Recoleta",
+    zone: "recoleta",
+    mapsUrl: "https://maps.app.goo.gl/RaWkCmmJpYdgjFyG7",
+    lat: -25.297627,
+    lng: -57.5860154,
+    staysUrl: "/alojamientos?edificio=agora",
+  },
 ];
+
 
 /* ---------------------------- Puntos de interés --------------------------- */
 
