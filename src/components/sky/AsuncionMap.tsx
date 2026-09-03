@@ -368,12 +368,14 @@ export function AsuncionMap({
             </button>
 
             <div className="pointer-events-none absolute left-3 top-3 z-10 hidden items-center gap-2 border border-border bg-card/95 px-3 py-2 md:inline-flex">
-              <img
-                src={isologoAsset.url}
-                alt=""
+              <svg
+                viewBox="0 0 24 30"
                 aria-hidden
-                className="h-5 w-5 object-contain"
-              />
+                className="h-5 w-4"
+                style={{ color: BUILDING_COLOR }}
+              >
+                <path d={PIN_PATH} fill="currentColor" stroke="#fff" strokeWidth="2.2" />
+              </svg>
               <span className="kicker text-primary">Edificios Sky Stays</span>
             </div>
           </>
