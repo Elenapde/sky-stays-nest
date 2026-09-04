@@ -464,6 +464,16 @@ function PlaceCard({ place }: { place: Place }) {
   const near = buildingById(place.nearBuilding);
   return (
     <>
+      {place.image && (
+        <div className="-mx-5 -mt-5 mb-4 aspect-[16/10] overflow-hidden bg-secondary">
+          <img
+            src={place.image}
+            alt={place.name}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+      )}
       <p className="kicker text-primary-soft">{categoryLabel(place.category)}</p>
       <h4 className="mt-2 pr-6 text-lg text-primary">{place.name}</h4>
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
