@@ -17,6 +17,13 @@ import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
+import poiShoppingDelSol from "@/assets/poi-shopping-del-sol.jpg.asset.json";
+import poiWorldTradeCenter from "@/assets/poi-world-trade-center.jpg.asset.json";
+import poiPaseoLaGaleria from "@/assets/poi-paseo-la-galeria.jpg.asset.json";
+import poiTorresDelPaseo from "@/assets/poi-torres-del-paseo.jpg.asset.json";
+import poiTierraColorada from "@/assets/poi-tierra-colorada.png.asset.json";
+import poiShoppingMariscal from "@/assets/poi-shopping-mariscal.png.asset.json";
+import poiLaCuadrita from "@/assets/poi-la-cuadrita.png.asset.json";
 
 /* --------------------------------- Zonas ---------------------------------- */
 
@@ -245,7 +252,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/jY7cHaM6ChdVGfzq7",
     lat: -25.2828559,
     lng: -57.5692492,
-    image: shoppingPhoto.url,
+    image: poiShoppingDelSol.url,
     featured: true,
   },
   {
@@ -261,7 +268,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/m3tmwwTVvimekckx8",
     lat: -25.2843526,
     lng: -57.5695765,
-    image: negociosAerialPhoto.url,
+    image: poiWorldTradeCenter.url,
     featured: true,
   },
   {
@@ -277,7 +284,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Jxt3T4QgLceMgHcv7",
     lat: -25.2842398,
     lng: -57.5654656,
-    image: shoppingPhoto.url,
+    image: poiPaseoLaGaleria.url,
     featured: true,
   },
   {
@@ -293,6 +300,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Jxt3T4QgLceMgHcv7",
     lat: -25.2839,
     lng: -57.5649,
+    image: poiTorresDelPaseo.url,
     featured: false,
   },
   {
@@ -308,7 +316,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/79qte5ocQATuh3kE9",
     lat: -25.2733026,
     lng: -57.560242,
-    image: gastronomiaPhoto.url,
+    image: poiTierraColorada.url,
     featured: true,
   },
   {
@@ -324,6 +332,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/V2wUHynVgzVfz6AB6",
     lat: -25.2950826,
     lng: -57.5848556,
+    image: poiShoppingMariscal.url,
     featured: false,
   },
   {
@@ -339,7 +348,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/cW739Q1J9CVS6LAg9",
     lat: -25.2991573,
     lng: -57.5823058,
-    image: villaMorraPhoto.url,
+    image: poiLaCuadrita.url,
     featured: true,
   },
   {
@@ -355,6 +364,7 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/covTMicSkG4qAL2bA",
     lat: -25.2999189,
     lng: -57.5817754,
+    image: poiLaCuadrita.url,
     featured: false,
   },
   {
