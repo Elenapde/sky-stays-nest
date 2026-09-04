@@ -380,7 +380,7 @@ export function AsuncionMap({
 
         {/* Card de detalle: bottom sheet en mobile, card flotante en desktop */}
         {selection && (
-          <div className="absolute inset-x-3 bottom-3 top-16 z-20 flex items-end md:inset-auto md:bottom-4 md:left-4 md:block md:w-[22rem]">
+          <div className="absolute inset-x-3 bottom-0 top-20 z-20 flex items-end md:inset-x-auto md:bottom-0 md:left-4 md:top-20 md:w-[22rem]">
             <div className="relative max-h-full w-full overflow-y-auto border border-border bg-card p-5 shadow-lift">
               <button
                 type="button"
