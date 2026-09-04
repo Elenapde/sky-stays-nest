@@ -17,13 +17,44 @@ import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
-import poiShoppingDelSol from "@/assets/poi-shopping-del-sol.jpg.asset.json";
-import poiWorldTradeCenter from "@/assets/poi-world-trade-center.jpg.asset.json";
-import poiPaseoLaGaleria from "@/assets/poi-paseo-la-galeria.jpg.asset.json";
-import poiTorresDelPaseo from "@/assets/poi-torres-del-paseo.jpg.asset.json";
-import poiTierraColorada from "@/assets/poi-tierra-colorada.png.asset.json";
-import poiShoppingMariscal from "@/assets/poi-shopping-mariscal.png.asset.json";
-import poiLaCuadrita from "@/assets/poi-la-cuadrita.png.asset.json";
+import mapBuildingAgoraJpg from "@/assets/building-agora.jpg.asset.json";
+import mapBuildingForvmMolasLopezJpg from "@/assets/building-forvm-molas-lopez.jpg.asset.json";
+import mapBuildingLifeMariscalJpg from "@/assets/building-life-mariscal.jpg.asset.json";
+import mapBuildingLifeRecoletaJpg from "@/assets/building-life-recoleta.jpg.asset.json";
+import mapBuildingLifeSantaTeresaJpg from "@/assets/building-life-santa-teresa.jpg.asset.json";
+import mapBuildingPetraTowerPng from "@/assets/building-petra-tower.png.asset.json";
+import mapBuildingSpiritBruselasJpg from "@/assets/building-spirit-bruselas.jpg.asset.json";
+import mapBuildingSpiritDeGaullePng from "@/assets/building-spirit-de-gaulle.png.asset.json";
+import mapBuildingSpiritVillaMorraJpg from "@/assets/building-spirit-villa-morra.jpg.asset.json";
+import mapPoi2AcuarelaPng from "@/assets/poi2-acuarela.png.asset.json";
+import mapPoi2AlmaCocinaConFuegosPng from "@/assets/poi2-alma-cocina-con-fuegos.png.asset.json";
+import mapPoi2AlmarreinaPng from "@/assets/poi2-almarreina.png.asset.json";
+import mapPoi2BastardoPng from "@/assets/poi2-bastardo.png.asset.json";
+import mapPoi2BiggiePng from "@/assets/poi2-biggie.png.asset.json";
+import mapPoi2CasaColomboPng from "@/assets/poi2-casa-colombo.png.asset.json";
+import mapPoi2ElCafeDeAcaPng from "@/assets/poi2-el-cafe-de-aca.png.asset.json";
+import mapPoi2ElCafeDePorfirioPng from "@/assets/poi2-el-cafe-de-porfirio.png.asset.json";
+import mapPoi2HardRockCafePng from "@/assets/poi2-hard-rock-cafe.png.asset.json";
+import mapPoi2LaCuadritaPng from "@/assets/poi2-la-cuadrita.png.asset.json";
+import mapPoi2LaGalettePng from "@/assets/poi2-la-galette.png.asset.json";
+import mapPoi2LaPatissPng from "@/assets/poi2-la-patiss.png.asset.json";
+import mapPoi2MokaiPng from "@/assets/poi2-mokai.png.asset.json";
+import mapPoi2MorganWarehousePng from "@/assets/poi2-morgan-warehouse.png.asset.json";
+import mapPoi2MusiuPng from "@/assets/poi2-musiu.png.asset.json";
+import mapPoi2OGauchoPng from "@/assets/poi2-o-gaucho.png.asset.json";
+import mapPoi2ParqueDeLaSaludJpg from "@/assets/poi2-parque-de-la-salud.jpg.asset.json";
+import mapPoi2ParqueGuasuJpg from "@/assets/poi2-parque-guasu.jpg.asset.json";
+import mapPoi2PaseoLaGaleriaJpg from "@/assets/poi2-paseo-la-galeria.jpg.asset.json";
+import mapPoi2PaseoLosArbolesPng from "@/assets/poi2-paseo-los-arboles.png.asset.json";
+import mapPoi2QuattroDPng from "@/assets/poi2-quattro-d.png.asset.json";
+import mapPoi2ShoppingDelSolJpg from "@/assets/poi2-shopping-del-sol.jpg.asset.json";
+import mapPoi2ShoppingMariscalPng from "@/assets/poi2-shopping-mariscal.png.asset.json";
+import mapPoi2SushiclubPng from "@/assets/poi2-sushiclub.png.asset.json";
+import mapPoi2TakuareePng from "@/assets/poi2-takuaree.png.asset.json";
+import mapPoi2TierraColoradaPng from "@/assets/poi2-tierra-colorada.png.asset.json";
+import mapPoi2TorresDelPaseoJpg from "@/assets/poi2-torres-del-paseo.jpg.asset.json";
+import mapPoi2VillaMorraFoodParkPng from "@/assets/poi2-villa-morra-food-park.png.asset.json";
+import mapPoi2WorldTradeCenterJpg from "@/assets/poi2-world-trade-center.jpg.asset.json";
 
 /* --------------------------------- Zonas ---------------------------------- */
 
@@ -111,8 +142,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/2PMjf7XCveBUwLwH6",
     lat: -25.27895,
     lng: -57.5622022,
-    image: negociosAerialPhoto.url,
-    staysUrl: "/alojamientos?edificio=petra-tower",
+        image: mapBuildingPetraTowerPng.url,
+staysUrl: "/alojamientos?edificio=petra-tower",
   },
   {
     id: "forvm-molas-lopez",
@@ -122,7 +153,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/9PmUMMdxiVX6eZYQ8",
     lat: -25.2770187,
     lng: -57.5671648,
-    staysUrl: "/alojamientos?edificio=forvm-molas-lopez",
+        image: mapBuildingForvmMolasLopezJpg.url,
+staysUrl: "/alojamientos?edificio=forvm-molas-lopez",
   },
   {
     id: "life-santa-teresa",
@@ -132,8 +164,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/xbsdj5LGXGZuL4M28",
     lat: -25.2871816,
     lng: -57.5629274,
-    image: ycuaSatiPhoto.url,
-    staysUrl: "/alojamientos?edificio=life-santa-teresa",
+        image: mapBuildingLifeSantaTeresaJpg.url,
+staysUrl: "/alojamientos?edificio=life-santa-teresa",
   },
   {
     id: "spirit-bruselas",
@@ -143,7 +175,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/yznXSAuUVoPk6bcn6",
     lat: -25.2800142,
     lng: -57.5666515,
-    staysUrl: "/alojamientos?edificio=spirit-bruselas",
+        image: mapBuildingSpiritBruselasJpg.url,
+staysUrl: "/alojamientos?edificio=spirit-bruselas",
   },
   {
     id: "spirit-de-gaulle",
@@ -153,7 +186,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/rXCKX15Yg8qZ5cPKA",
     lat: -25.287468,
     lng: -57.5802138,
-    staysUrl: "/alojamientos?edificio=spirit-de-gaulle",
+        image: mapBuildingSpiritDeGaullePng.url,
+staysUrl: "/alojamientos?edificio=spirit-de-gaulle",
   },
   {
     id: "spirit-mariscal",
@@ -173,8 +207,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/HJTTr5GY8ihd6qVdA",
     lat: -25.2992502,
     lng: -57.5888246,
-    image: villaMorraPhoto.url,
-    staysUrl: "/alojamientos?edificio=spirit-villa-morra",
+        image: mapBuildingSpiritVillaMorraJpg.url,
+staysUrl: "/alojamientos?edificio=spirit-villa-morra",
   },
   {
     id: "life-de-gaulle",
@@ -194,8 +228,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/aowW1R5Bae9QDpVP7",
     lat: -25.3007589,
     lng: -57.5878647,
-    image: recoletaPhoto.url,
-    staysUrl: "/alojamientos?edificio=life-recoleta",
+        image: mapBuildingLifeRecoletaJpg.url,
+staysUrl: "/alojamientos?edificio=life-recoleta",
   },
   {
     id: "life-mariscal",
@@ -205,7 +239,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/M5ZoiBQ2xN2uaD8Z8",
     lat: -25.3005,
     lng: -57.5872,
-    staysUrl: "/alojamientos?edificio=life-mariscal",
+        image: mapBuildingLifeMariscalJpg.url,
+staysUrl: "/alojamientos?edificio=life-mariscal",
   },
   {
     id: "agora",
@@ -215,7 +250,8 @@ export const buildings: Building[] = [
     mapsUrl: "https://maps.app.goo.gl/RaWkCmmJpYdgjFyG7",
     lat: -25.297627,
     lng: -57.5860154,
-    staysUrl: "/alojamientos?edificio=agora",
+        image: mapBuildingAgoraJpg.url,
+staysUrl: "/alojamientos?edificio=agora",
   },
 ];
 
@@ -252,8 +288,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/jY7cHaM6ChdVGfzq7",
     lat: -25.2828559,
     lng: -57.5692492,
-    image: poiShoppingDelSol.url,
-    featured: true,
+        image: mapPoi2ShoppingDelSolJpg.url,
+featured: true,
   },
   {
     id: "world-trade-center",
@@ -268,8 +304,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/m3tmwwTVvimekckx8",
     lat: -25.2843526,
     lng: -57.5695765,
-    image: poiWorldTradeCenter.url,
-    featured: true,
+        image: mapPoi2WorldTradeCenterJpg.url,
+featured: true,
   },
   {
     id: "paseo-la-galeria",
@@ -284,8 +320,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Jxt3T4QgLceMgHcv7",
     lat: -25.2842398,
     lng: -57.5654656,
-    image: poiPaseoLaGaleria.url,
-    featured: true,
+        image: mapPoi2PaseoLaGaleriaJpg.url,
+featured: true,
   },
   {
     id: "torres-del-paseo",
@@ -300,8 +336,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Jxt3T4QgLceMgHcv7",
     lat: -25.2839,
     lng: -57.5649,
-    image: poiTorresDelPaseo.url,
-    featured: false,
+        image: mapPoi2TorresDelPaseoJpg.url,
+featured: false,
   },
   {
     id: "tierra-colorada",
@@ -316,8 +352,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/79qte5ocQATuh3kE9",
     lat: -25.2733026,
     lng: -57.560242,
-    image: poiTierraColorada.url,
-    featured: true,
+        image: mapPoi2TierraColoradaPng.url,
+featured: true,
   },
   {
     id: "shopping-mariscal",
@@ -332,8 +368,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/V2wUHynVgzVfz6AB6",
     lat: -25.2950826,
     lng: -57.5848556,
-    image: poiShoppingMariscal.url,
-    featured: false,
+        image: mapPoi2ShoppingMariscalPng.url,
+featured: false,
   },
   {
     id: "la-cuadrita",
@@ -348,8 +384,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/cW739Q1J9CVS6LAg9",
     lat: -25.2991573,
     lng: -57.5823058,
-    image: poiLaCuadrita.url,
-    featured: true,
+        image: mapPoi2LaCuadritaPng.url,
+featured: true,
   },
   {
     id: "el-cafe-de-aca",
@@ -364,8 +400,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/covTMicSkG4qAL2bA",
     lat: -25.2999189,
     lng: -57.5817754,
-    image: poiLaCuadrita.url,
-    featured: false,
+        image: mapPoi2ElCafeDeAcaPng.url,
+featured: false,
   },
   {
     id: "la-patiss",
@@ -379,7 +415,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/ZC4idojeuoXMQ1Nf8",
     lat: -25.2774356,
     lng: -57.564184,
-    featured: false,
+        image: mapPoi2LaPatissPng.url,
+featured: false,
   },
   {
     id: "la-galette",
@@ -393,7 +430,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/GJpjuohcBUzxHtmV6",
     lat: -25.2778,
     lng: -57.5646,
-    featured: false,
+        image: mapPoi2LaGalettePng.url,
+featured: false,
   },
   {
     id: "almarreina",
@@ -407,8 +445,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/DsDxCNAt9DXPvazj7",
     lat: -25.2747107,
     lng: -57.5649537,
-    image: recoletaPhoto.url,
-    featured: true,
+        image: mapPoi2AlmarreinaPng.url,
+featured: true,
   },
   {
     id: "el-cafe-de-porfirio",
@@ -422,7 +460,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/VDnXPQmj415m4Sd68",
     lat: -25.2998907,
     lng: -57.5837955,
-    featured: false,
+        image: mapPoi2ElCafeDePorfirioPng.url,
+featured: false,
   },
   {
     id: "parque-guasu",
@@ -437,8 +476,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/tB4ND9sfrRb5pLDy7",
     lat: -25.2905,
     lng: -57.5308,
-    image: costaneraPhoto.url,
-    featured: true,
+        image: mapPoi2ParqueGuasuJpg.url,
+featured: true,
   },
   {
     id: "parque-de-la-salud",
@@ -453,7 +492,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/LFqNhGaYhJN5Popn8",
     lat: -25.2926,
     lng: -57.5748,
-    featured: false,
+        image: mapPoi2ParqueDeLaSaludJpg.url,
+featured: false,
   },
   {
     id: "museo-del-barro",
@@ -500,7 +540,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Uw5p6yhgRezpx2r97",
     lat: -25.2933884,
     lng: -57.5808481,
-    featured: false,
+        image: mapPoi2VillaMorraFoodParkPng.url,
+featured: false,
   },
   {
     id: "o-gaucho",
@@ -514,7 +555,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/yyV9i4xoKqufv6E4A",
     lat: -25.2963028,
     lng: -57.5888511,
-    featured: false,
+        image: mapPoi2OGauchoPng.url,
+featured: false,
   },
   {
     id: "acuarela",
@@ -528,7 +570,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/XT7NAH1eN6vJvc1P7",
     lat: -25.2953148,
     lng: -57.5761726,
-    featured: false,
+        image: mapPoi2AcuarelaPng.url,
+featured: false,
   },
   {
     id: "quattro-d",
@@ -542,21 +585,23 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/qLtiSwQjnYTyerj77",
     lat: -25.2934402,
     lng: -57.5763761,
-    featured: false,
+        image: mapPoi2QuattroDPng.url,
+featured: false,
   },
   {
-    id: "palo-santo-brewing",
-    name: "Palo Santo Brewing",
+    id: "morgan-warehouse",
+    name: "Morgan Warehouse",
     category: "vida-nocturna",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "Cervecería artesanal con patio, tap room y música en vivo algunas noches.",
-    idealFor: "Una cerveza después del trabajo",
+    description: "Club nocturno de referencia en Villa Morra, con música y ambiente animado.",
+    idealFor: "Salir de noche",
     nearBuilding: "spirit-villa-morra",
-    mapsUrl: "https://maps.app.goo.gl/joNuNb9CwsztxHct9",
-    lat: -25.2895434,
-    lng: -57.5836561,
-    featured: false,
+    mapsUrl: "https://maps.app.goo.gl/CVDoKko3quBjCczKA",
+    lat: -25.2895497,
+    lng: -57.5837,
+        image: mapPoi2MorganWarehousePng.url,
+featured: false,
   },
   {
     id: "casa-colombo",
@@ -570,7 +615,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/1aSyywxzFRiCZpaw5",
     lat: -25.287639,
     lng: -57.5774108,
-    featured: false,
+        image: mapPoi2CasaColomboPng.url,
+featured: false,
   },
   {
     id: "hard-rock-cafe",
@@ -584,7 +630,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/dwU2vFSYkDe9yW8t9",
     lat: -25.2894061,
     lng: -57.5738499,
-    featured: false,
+        image: mapPoi2HardRockCafePng.url,
+featured: false,
   },
   {
     id: "mokai",
@@ -598,7 +645,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/4BeRZEjCBCsfKw6R6",
     lat: -25.2816405,
     lng: -57.5652252,
-    featured: false,
+        image: mapPoi2MokaiPng.url,
+featured: false,
   },
   {
     id: "takuaree",
@@ -612,7 +660,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/oDyqix2bPALSveTB6",
     lat: -25.2848237,
     lng: -57.5683996,
-    featured: false,
+        image: mapPoi2TakuareePng.url,
+featured: false,
   },
   {
     id: "sushiclub",
@@ -626,7 +675,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/DSjrGnNER6iXS2rY8",
     lat: -25.2763461,
     lng: -57.5657266,
-    featured: false,
+        image: mapPoi2SushiclubPng.url,
+featured: false,
   },
   {
     id: "musiu",
@@ -640,7 +690,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/MWdeVujYeg9jrsoh9",
     lat: -25.2810057,
     lng: -57.5635039,
-    featured: false,
+        image: mapPoi2MusiuPng.url,
+featured: false,
   },
   {
     id: "alma-cocina-con-fuegos",
@@ -654,7 +705,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Ga5xkcDKE5hn9WYEA",
     lat: -25.2802126,
     lng: -57.5661352,
-    featured: false,
+        image: mapPoi2AlmaCocinaConFuegosPng.url,
+featured: false,
   },
   {
     id: "bastardo",
@@ -668,7 +720,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/SWYqJ4B42Gv2tcBA7",
     lat: -25.2824647,
     lng: -57.5633756,
-    featured: false,
+        image: mapPoi2BastardoPng.url,
+featured: false,
   },
   {
     id: "paseo-los-arboles",
@@ -682,7 +735,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/K2NUAmXjsnQ41Ezr6",
     lat: -25.2919782,
     lng: -57.5740021,
-    featured: false,
+        image: mapPoi2PaseoLosArbolesPng.url,
+featured: false,
   },
   {
     id: "biggie-pacheco",
@@ -696,7 +750,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/Qp2akXWMyW4EmSNV8",
     lat: -25.2970569,
     lng: -57.5865055,
-    featured: false,
+        image: mapPoi2BiggiePng.url,
+featured: false,
   },
   {
     id: "biggie-legion-civil",
@@ -710,7 +765,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/HqoB2mErUuVSfWE88",
     lat: -25.294918,
     lng: -57.5859138,
-    featured: false,
+        image: mapPoi2BiggiePng.url,
+featured: false,
   },
   {
     id: "biggie-los-laureles",
@@ -724,7 +780,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/4Vr8UKemqZwspEnk9",
     lat: -25.3029633,
     lng: -57.5813456,
-    featured: false,
+        image: mapPoi2BiggiePng.url,
+featured: false,
   },
   {
     id: "biggie-las-palmeras",
@@ -738,7 +795,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/F2cn94ZH3qYJwkc46",
     lat: -25.3031016,
     lng: -57.5851322,
-    featured: false,
+        image: mapPoi2BiggiePng.url,
+featured: false,
   },
   {
     id: "biggie-san-martin",
@@ -752,7 +810,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/TfbTodejpubbYknP7",
     lat: -25.2871107,
     lng: -57.5719073,
-    featured: false,
+        image: mapPoi2BiggiePng.url,
+featured: false,
   },
   {
     id: "biggie-molas-lopez",
@@ -766,7 +825,8 @@ export const places: Place[] = [
     mapsUrl: "https://maps.app.goo.gl/mwiaU3YA6KE5Tdi86",
     lat: -25.277408,
     lng: -57.5647971,
-    featured: false,
+        image: mapPoi2BiggiePng.url,
+featured: false,
   },
 ];
 

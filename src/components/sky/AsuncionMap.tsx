@@ -13,7 +13,6 @@ import {
   distanceLabel,
   places,
   zoneLabel,
-  zones,
   type Building,
   type CategoryId,
   type Place,
@@ -163,24 +162,18 @@ export function AsuncionMap({
 
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [expanded, setExpanded] = useState(initialExpanded);
-  const [zone, setZone] = useState<string>("all");
   const [interest, setInterest] = useState<CategoryId | "all">("all");
   const [selection, setSelection] = useState<Selection>(null);
 
   const visiblePlaces = useMemo(
     () =>
       places.filter(
-        (p) =>
-          (zone === "all" || p.zone === zone) &&
-          (interest === "all" || p.category === interest),
+        (p) => interest === "all" || p.category === interest,
       ),
-    [zone, interest],
+    [interest],
   );
 
-  const visibleBuildings = useMemo(
-    () => buildings.filter((b) => zone === "all" || b.zone === zone),
-    [zone],
-  );
+  const visibleBuildings = buildings;
 
   /** Puntos cercanos al edificio seleccionado. */
   const nearby = useMemo(() => {
@@ -311,20 +304,8 @@ export function AsuncionMap({
 
   return (
     <div className={cn("relative", className)}>
-      {/* Filtros por zona */}
       <div className="border border-border bg-card">
         <div className="flex items-center gap-2 overflow-x-auto px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <span className="kicker shrink-0 pr-1 text-muted-foreground">Zona</span>
-          <Chip active={zone === "all"} onClick={() => setZone("all")}>
-            Todos
-          </Chip>
-          {zones.map((z) => (
-            <Chip key={z.id} active={zone === z.id} onClick={() => setZone(z.id)}>
-              {z.label}
-            </Chip>
-          ))}
-        </div>
-        <div className="flex items-center gap-2 overflow-x-auto border-t border-border px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <span className="kicker shrink-0 pr-1 text-muted-foreground">Interés</span>
           <Chip active={interest === "all"} onClick={() => setInterest("all")}>
             Todos
@@ -399,8 +380,8 @@ export function AsuncionMap({
 
         {/* Card de detalle: bottom sheet en mobile, card flotante en desktop */}
         {selection && (
-          <div className="absolute inset-x-0 bottom-0 z-20 md:inset-auto md:bottom-4 md:left-4 md:w-[22rem]">
-            <div className="border border-border bg-card p-5 shadow-lift">
+          <div className="absolute inset-x-3 bottom-3 top-16 z-20 flex items-end md:inset-auto md:bottom-4 md:left-4 md:block md:w-[22rem]">
+            <div className="relative max-h-full w-full overflow-y-auto border border-border bg-card p-5 shadow-lift">
               <button
                 type="button"
                 onClick={close}
@@ -412,6 +393,16 @@ export function AsuncionMap({
 
               {selection.kind === "building" ? (
                 <>
+                  {selection.item.image && (
+                    <div className="-mx-5 -mt-5 mb-4 aspect-[16/10] overflow-hidden bg-secondary">
+                      <img
+                        src={selection.item.image}
+                        alt={selection.item.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
                   <p className="kicker text-primary-soft">
                     Edificio Sky Stays · {zoneLabel(selection.item.zone)}
                   </p>
