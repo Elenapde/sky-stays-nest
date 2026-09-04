@@ -623,7 +623,7 @@ export function DayStay() {
             tone="burgundy"
             src={dayStayPhoto.url}
             alt="Huéspedes disfrutando de la piscina rooftop de Petra Tower durante un día en lo más alto de Asunción"
-            objectPosition="center"
+            objectPosition="center bottom"
           />
         </Reveal>
         <Reveal delay={100}>
