@@ -4,7 +4,6 @@ import { ArrowRight, Maximize2, Minimize2, X } from "lucide-react";
 import mapPinAsset from "@/assets/sky-stays-map-pin.png.asset.json";
 import { cn } from "@/lib/utils";
 import {
-  BUILDING_COLOR,
   buildingById,
   buildings,
   categories,
