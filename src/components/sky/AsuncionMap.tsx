@@ -394,12 +394,12 @@ export function AsuncionMap({
               {selection.kind === "building" ? (
                 <>
                   {selection.item.image && (
-                    <div className="-mx-5 mb-4 aspect-[16/10] overflow-hidden bg-secondary">
+                    <div className="-mx-5 mb-4 overflow-hidden bg-secondary">
                       <img
                         src={selection.item.image}
                         alt={selection.item.name}
                         loading="lazy"
-                        className="h-full w-full object-cover"
+                        className="block h-auto w-full"
                       />
                     </div>
                   )}
@@ -456,12 +456,12 @@ function PlaceCard({ place }: { place: Place }) {
   return (
     <>
       {place.image && (
-        <div className="-mx-5 mb-4 aspect-[16/10] overflow-hidden bg-secondary">
+        <div className="-mx-5 mb-4 overflow-hidden bg-secondary">
           <img
             src={place.image}
             alt={place.name}
             loading="lazy"
-            className="h-full w-full object-cover"
+            className="block h-auto w-full"
           />
         </div>
       )}
