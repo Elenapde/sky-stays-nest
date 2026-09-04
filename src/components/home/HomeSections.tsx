@@ -618,30 +618,30 @@ export function DayStay() {
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <PhotoSlot
-            label="Day Stay · descanso y desconexión durante el día"
+            label="DAY USE · PETRA TOWER"
             ratio="4/3"
             tone="burgundy"
             src={dayStayPhoto.url}
-            alt="Pareja disfrutando un desayuno tranquilo en un departamento Sky Stays durante una estadía de día"
+            alt="Huéspedes disfrutando de la piscina rooftop de Petra Tower durante un día en lo más alto de Asunción"
             objectPosition="center"
           />
         </Reveal>
         <Reveal delay={100}>
-          <Kicker>Day Stay by Sky Stays</Kicker>
+          <Kicker>Day Use by Sky Stays</Kicker>
           <h2 className="mt-5 text-3xl text-primary md:text-[2.5rem] md:leading-[1.12]">
-            No necesitás viajar para sentir que te escapaste.
+            ¿Querés pasar el día en lo más alto de la ciudad?
           </h2>
           <p className="mt-6 text-[0.9375rem] leading-relaxed text-muted-foreground">
-            Tu espacio por unas horas para descansar, trabajar, disfrutar de los
-            amenities o simplemente cambiar de aire.
+            Viví Petra Tower por un día. Disfrutá de un departamento completamente
+            equipado y de los amenities de la torre más alta del Paraguay.
           </p>
           <p className="mt-4 text-sm font-semibold text-primary">
             Tarifas especiales para estadías durante el día.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <CtaAnchor href="/day-stay-asuncion">Descubrir Day Stay</CtaAnchor>
+            <CtaAnchor href="/day-stay-asuncion">Viví Petra Tower por un día</CtaAnchor>
             <CtaAnchor
-              href={wa("Hola, quiero consultar tarifas de Day Stay.")}
+              href={wa("Hola, quiero consultar tarifas de Day Use en Petra Tower.")}
               target="_blank"
               rel="noreferrer"
               variant="outline"
