@@ -18,7 +18,7 @@ import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
 import heroPoster from "@/assets/sky-stays-hero-poster.jpg.asset.json";
-import dayStayPhoto from "@/assets/sky-stays-day-stay.png.asset.json";
+import dayStayPhoto from "@/assets/sky-stays-day-use-petra.jpg.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
