@@ -393,6 +393,16 @@ export function AsuncionMap({
 
               {selection.kind === "building" ? (
                 <>
+                  {selection.item.image && (
+                    <div className="-mx-5 -mt-5 mb-4 aspect-[16/10] overflow-hidden bg-secondary">
+                      <img
+                        src={selection.item.image}
+                        alt={selection.item.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
                   <p className="kicker text-primary-soft">
                     Edificio Sky Stays · {zoneLabel(selection.item.zone)}
                   </p>
