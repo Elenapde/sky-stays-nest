@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Maximize2, Minimize2, X } from "lucide-react";
 
+import mapPinAsset from "@/assets/sky-stays-map-pin.png.asset.json";
 import { cn } from "@/lib/utils";
 import {
-  BUILDING_COLOR,
   buildingById,
   buildings,
   categories,
@@ -56,20 +56,14 @@ function loadMapsSdk(): Promise<any> {
 
 /* ------------------------------ Pines de marca ---------------------------- */
 
-const PIN_PATH =
-  "M12 0C5.9 0 1 4.9 1 11c0 8.1 9.6 18.3 10 18.7.5.5 1.4.5 1.9 0 .4-.4 10.1-10.6 10.1-18.7 0-6.1-4.9-11-11-11z";
-
-/** Pin de ubicación bordo, más grande y con sombra, para los edificios Sky Stays. */
+/** Pin de ubicación bordo con el isologo beige para los edificios Sky Stays. */
 function buildingIcon(g: any, highlighted: boolean) {
-  const scale = highlighted ? 1.75 : 1.35;
+  const width = highlighted ? 52 : 44;
+  const height = Math.round(width * (220 / 180));
   return {
-    path: PIN_PATH,
-    fillColor: BUILDING_COLOR,
-    fillOpacity: 1,
-    strokeColor: "#FFFFFF",
-    strokeWeight: 2.2,
-    scale,
-    anchor: new g.maps.Point(12, 30),
+    url: mapPinAsset.url,
+    scaledSize: new g.maps.Size(width, height),
+    anchor: new g.maps.Point(width / 2, height),
   };
 }
 
@@ -349,14 +343,7 @@ export function AsuncionMap({
             </button>
 
             <div className="pointer-events-none absolute left-3 top-3 z-10 hidden items-center gap-2 border border-border bg-card/95 px-3 py-2 md:inline-flex">
-              <svg
-                viewBox="0 0 24 30"
-                aria-hidden
-                className="h-5 w-4"
-                style={{ color: BUILDING_COLOR }}
-              >
-                <path d={PIN_PATH} fill="currentColor" stroke="#fff" strokeWidth="2.2" />
-              </svg>
+              <img src={mapPinAsset.url} alt="" aria-hidden className="h-6 w-5 object-contain" />
               <span className="kicker text-primary">Edificios Sky Stays</span>
             </div>
           </>
