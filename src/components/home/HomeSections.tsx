@@ -759,27 +759,14 @@ export function Reviews() {
     <Section>
       <div className="flex flex-wrap items-end justify-between gap-8">
         <SectionHead kicker="Reviews" title="Nuestros huéspedes lo cuentan mejor." />
-        <div className="flex items-center gap-8">
-          <div>
-            <Stars className="text-primary" />
-            <p className="mt-1 font-display text-2xl text-primary">
-              {social.rating} / 5
-            </p>
-          </div>
-          <div className="border-l border-border pl-8">
-            <p className="font-display text-2xl text-primary">+{social.reviews}</p>
-            <p className="kicker mt-1 text-muted-foreground">evaluaciones</p>
-          </div>
-          <div className="border-l border-border pl-8">
-            <img
-              src={superhostLogo.url}
-              alt="Airbnb Superhost — Superanfitrión de Airbnb"
-              className="h-10 w-auto"
-              loading="lazy"
-            />
-            <p className="kicker mt-2 text-primary-soft">{social.badge}</p>
-          </div>
-
+        <div className="border-l border-border pl-8">
+          <img
+            src={superhostLogo.url}
+            alt="Airbnb Superhost — Superanfitrión de Airbnb"
+            className="h-10 w-auto"
+            loading="lazy"
+          />
+          <p className="kicker mt-2 text-primary-soft">{social.badge}</p>
         </div>
       </div>
 
