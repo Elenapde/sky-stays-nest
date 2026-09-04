@@ -420,7 +420,7 @@ export function ExperienceSection() {
               />
               <div className="border border-t-0 border-nude/15 p-5">
                 <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-nude">
-                  {e.name}
+                  {e.name === "Coworking" ? "COWORKING Y SALAS DE REUNIONES" : e.name}
                 </h3>
                 <p className="mt-2 text-sm text-nude/70">{e.text}</p>
               </div>
