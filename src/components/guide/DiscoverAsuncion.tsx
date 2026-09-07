@@ -137,7 +137,7 @@ export function DiscoverFeatured() {
           <FeaturedCard place={lead} large />
         </Reveal>
         <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
-          {rest.slice(0, 3).map((p, i) => (
+          {rest.slice(0, 2).map((p, i) => (
             <Reveal as="li" key={p.id} delay={80 + i * 70}>
               <FeaturedCard place={p} />
             </Reveal>
