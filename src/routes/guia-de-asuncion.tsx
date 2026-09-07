@@ -8,10 +8,8 @@ import {
   GuideBarrios,
   GuideByTrip,
   GuideCta,
-  GuideFeatured,
   GuideHero,
   GuideMap,
-  GuideZonas,
 } from "@/components/guide/GuideSections";
 import { SiteFooter } from "@/components/sky/SiteFooter";
 import { SiteHeader } from "@/components/sky/SiteHeader";
@@ -44,9 +42,7 @@ function GuidePage() {
         <DiscoverFeatured />
         <DiscoverExplore />
         <GuideMap />
-        <GuideFeatured />
         <GuideBarrios />
-        <GuideZonas />
         <GuideByTrip />
         <GuideCta />
       </main>
