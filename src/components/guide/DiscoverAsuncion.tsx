@@ -6,12 +6,15 @@ import { Section, SectionHead } from "@/components/sky/ui";
 import {
   activeCategories,
   activePlaces,
-  
   categoryLabel,
   featuredPlaces,
   zoneLabel,
   type Place,
 } from "@/data/asuncion";
+
+/** Lugares visibles en "Explorá por interés" — se excluyen los supermercados 24 h. */
+const explorePlaces = activePlaces.filter((p) => p.category !== "supermercado");
+const exploreCategories = activeCategories.filter((c) => c.id !== "supermercado");
 import { cn } from "@/lib/utils";
 
 /* --------------------------------- Chips ---------------------------------- */
