@@ -152,16 +152,10 @@ export function DiscoverFeatured() {
 
 export function DiscoverExplore() {
   const [category, setCategory] = useState<string>("all");
-  const [barrio, setBarrio] = useState<string>("all");
-
   const filtered = useMemo(
     () =>
-      activePlaces.filter(
-        (p) =>
-          (category === "all" || p.category === category) &&
-          (barrio === "all" || p.barrio === barrio),
-      ),
-    [category, barrio],
+      activePlaces.filter((p) => category === "all" || p.category === category),
+    [category],
   );
 
   return (
