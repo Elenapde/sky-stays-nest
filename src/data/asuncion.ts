@@ -47,7 +47,7 @@ import mapPoi2ParqueGuasuJpg from "@/assets/poi2-parque-guasu.jpg.asset.json";
 import mapPoi2PaseoLaGaleriaJpg from "@/assets/poi2-paseo-la-galeria.jpg.asset.json";
 import mapPoi2PaseoLosArbolesPng from "@/assets/poi2-paseo-los-arboles.png.asset.json";
 import mapPoi2QuattroDPng from "@/assets/poi2-quattro-d.png.asset.json";
-import mapPoi2ShoppingDelSolJpg from "@/assets/poi2-shopping-del-sol.jpg.asset.json";
+import mapPoi2ShoppingDelSolJpg from "@/assets/poi2-shopping-del-sol-v2.png.asset.json";
 import mapPoi2ShoppingMariscalPng from "@/assets/poi2-shopping-mariscal.png.asset.json";
 import mapPoi2SushiclubPng from "@/assets/poi2-sushiclub.png.asset.json";
 import mapPoi2TakuareePng from "@/assets/poi2-takuaree.png.asset.json";
