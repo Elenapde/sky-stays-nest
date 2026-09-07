@@ -163,7 +163,7 @@ export function DiscoverExplore() {
       <SectionHead
         kicker="Explorá por interés"
         title="Elegí qué querés hacer en Asunción."
-        lead="Filtrá por tipo de experiencia o por barrio y descubrí los lugares que quedan cerca de nuestros alojamientos."
+        lead="Filtrá por tipo de experiencia y descubrí los lugares que quedan cerca de nuestros alojamientos."
       />
 
       <div className="mt-8 -mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
