@@ -1,13 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
+  DiscoverExplore,
+  DiscoverFeatured,
+} from "@/components/guide/DiscoverAsuncion";
+import {
   GuideBarrios,
   GuideByTrip,
   GuideCta,
   GuideFeatured,
   GuideHero,
   GuideMap,
-  GuideRecomendados,
   GuideZonas,
 } from "@/components/guide/GuideSections";
 import { SiteFooter } from "@/components/sky/SiteFooter";
@@ -38,8 +41,9 @@ function GuidePage() {
       <SiteHeader />
       <main>
         <GuideHero />
+        <DiscoverFeatured />
+        <DiscoverExplore />
         <GuideMap />
-        <GuideRecomendados />
         <GuideFeatured />
         <GuideBarrios />
         <GuideZonas />

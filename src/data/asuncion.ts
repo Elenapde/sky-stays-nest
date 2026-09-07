@@ -55,6 +55,13 @@ import mapPoi2TierraColoradaPng from "@/assets/poi2-tierra-colorada.png.asset.js
 import mapPoi2TorresDelPaseoJpg from "@/assets/poi2-torres-del-paseo.jpg.asset.json";
 import mapPoi2VillaMorraFoodParkPng from "@/assets/poi2-villa-morra-food-park.png.asset.json";
 import mapPoi2WorldTradeCenterJpg from "@/assets/poi2-world-trade-center.jpg.asset.json";
+import mapPoi3CasaIndependenciaWebp from "@/assets/poi3-casa-independencia.webp.asset.json";
+import mapPoi3PanteonHeroesJpg from "@/assets/poi3-panteon-heroes.jpg.asset.json";
+import mapPoi3PlayaCostaneraJpg from "@/assets/poi3-playa-costanera.jpg.asset.json";
+import mapPoi3ManzanaRiveraPng from "@/assets/poi3-manzana-rivera.png.asset.json";
+import mapPoi3CasaClariPng from "@/assets/poi3-casa-clari.png.asset.json";
+import mapPoi3TeatroMunicipalWebp from "@/assets/poi3-teatro-municipal.webp.asset.json";
+import mapPoi3ElBolsiPng from "@/assets/poi3-el-bolsi.png.asset.json";
 
 /* --------------------------------- Zonas ---------------------------------- */
 
@@ -81,7 +88,13 @@ export const zones: Zone[] = [
     label: "Recoleta",
     text: "Recoleta y Carmelitas: Shopping Mariscal, La Cuadrita y gastronomía de barrio. Alojamiento en Recoleta, tranquilo y bien conectado con el centro corporativo.",
   },
+  {
+    id: "centro-historico",
+    label: "Centro Histórico",
+    text: "El casco antiguo de Asunción: Panteón de los Héroes, Casa de la Independencia, Manzana de la Rivera, el Teatro Municipal y la Costanera. La zona para conocer la historia y la vida cultural de la ciudad.",
+  },
 ];
+
 
 /* --------------------------------- Categorías ----------------------------- */
 
@@ -266,13 +279,25 @@ export interface Place {
   zone: string;
   description: string;
   idealFor: string;
+  /** Edificio Sky Stays principal más cercano. */
   nearBuilding: string;
+  /** Edificios Sky Stays relacionados (etapa 2). */
+  relatedBuildings?: string[];
   mapsUrl: string;
   lat: number;
   lng: number;
   image?: string;
+  instagram?: string;
+  website?: string;
+  /** Etiquetas libres: "Ideal para…", tipo de plan, etc. */
+  tags?: string[];
   featured: boolean;
+  /** Orden de aparición (menor primero). Si falta, se usa el orden del array. */
+  order?: number;
+  /** Activo / inactivo: los inactivos no se muestran ni en cards ni en el mapa. */
+  active?: boolean;
 }
+
 
 export const places: Place[] = [
   {
@@ -282,7 +307,7 @@ export const places: Place[] = [
     barrio: "Las Lomas",
     zone: "eje-corporativo",
     description:
-      "El shopping clásico de Asunción: marcas internacionales, patio gastronómico y cine, a minutos del eje corporativo.",
+      "Uno de los principales centros comerciales de Asunción, con una amplia propuesta de tiendas, gastronomía y entretenimiento. Una parada ideal para disfrutar de compras y pasar unas horas en la ciudad.",
     idealFor: "Compras y una tarde sin apuro",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/jY7cHaM6ChdVGfzq7",
@@ -290,6 +315,7 @@ export const places: Place[] = [
     lng: -57.5692492,
         image: mapPoi2ShoppingDelSolJpg.url,
 featured: true,
+    instagram: "https://www.instagram.com/delsolpy/",
   },
   {
     id: "world-trade-center",
@@ -298,7 +324,7 @@ featured: true,
     barrio: "Las Lomas",
     zone: "eje-corporativo",
     description:
-      "El principal complejo de oficinas de la ciudad, con restaurantes y salas de reunión en las torres.",
+      "Un referente del eje corporativo de Asunción, que reúne oficinas y actividad empresarial en una de las zonas más dinámicas de la capital.",
     idealFor: "Viajes de negocios y reuniones",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/m3tmwwTVvimekckx8",
@@ -306,6 +332,7 @@ featured: true,
     lng: -57.5695765,
         image: mapPoi2WorldTradeCenterJpg.url,
 featured: true,
+    instagram: "https://www.instagram.com/wtcasuncion/",
   },
   {
     id: "paseo-la-galeria",
@@ -314,7 +341,7 @@ featured: true,
     barrio: "Ykuá Satí",
     zone: "eje-corporativo",
     description:
-      "Compras, gastronomía y cine dentro del complejo corporativo más nuevo de Asunción.",
+      "Un moderno complejo que combina compras, gastronomía, entretenimiento y espacios corporativos. Con tiendas como Zara y H&M, es el principal atractivo comercial de la ciudad.",
     idealFor: "Compras y cenar cerca del hotel",
     nearBuilding: "life-santa-teresa",
     mapsUrl: "https://maps.app.goo.gl/Jxt3T4QgLceMgHcv7",
@@ -322,6 +349,7 @@ featured: true,
     lng: -57.5654656,
         image: mapPoi2PaseoLaGaleriaJpg.url,
 featured: true,
+    instagram: "https://www.instagram.com/paseolagaleria.py/",
   },
   {
     id: "torres-del-paseo",
@@ -330,7 +358,7 @@ featured: true,
     barrio: "Ykuá Satí",
     zone: "eje-corporativo",
     description:
-      "Torres de oficinas sobre Santa Teresa, conectadas a Paseo La Galería.",
+      "Un complejo corporativo ubicado en una de las principales zonas de negocios de Asunción.",
     idealFor: "Agenda corporativa",
     nearBuilding: "life-santa-teresa",
     mapsUrl: "https://maps.app.goo.gl/Jxt3T4QgLceMgHcv7",
@@ -338,6 +366,7 @@ featured: true,
     lng: -57.5649,
         image: mapPoi2TorresDelPaseoJpg.url,
 featured: false,
+    instagram: "https://www.instagram.com/bctorresdelpaseo/",
   },
   {
     id: "tierra-colorada",
@@ -346,7 +375,7 @@ featured: false,
     barrio: "Mburucuyá",
     zone: "villa-morra",
     description:
-      "Cocina paraguaya contemporánea, una de las mesas más reconocidas de Asunción.",
+      "Una propuesta gastronómica que reinterpreta sabores e ingredientes paraguayos desde una mirada contemporánea. Asunción.",
     idealFor: "Una cena especial",
     nearBuilding: "forvm-molas-lopez",
     mapsUrl: "https://maps.app.goo.gl/79qte5ocQATuh3kE9",
@@ -362,7 +391,7 @@ featured: true,
     barrio: "Recoleta",
     zone: "recoleta",
     description:
-      "Shopping urbano en el corazón de Recoleta, rodeado de cafés y restaurantes.",
+      "Un centro comercial en el corazón de Recoleta, con tiendas, gastronomía y espacios para disfrutar durante el día.",
     idealFor: "Compras rápidas y cine",
     nearBuilding: "life-mariscal",
     mapsUrl: "https://maps.app.goo.gl/V2wUHynVgzVfz6AB6",
@@ -370,6 +399,7 @@ featured: true,
     lng: -57.5848556,
         image: mapPoi2ShoppingMariscalPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/shoppingmariscal/",
   },
   {
     id: "la-cuadrita",
@@ -378,7 +408,7 @@ featured: false,
     barrio: "Recoleta",
     zone: "recoleta",
     description:
-      "Paseo gastronómico al aire libre con bares, food trucks y música por la noche.",
+      "Un paseo gastronómico y de entretenimiento en Recoleta, con diferentes propuestas para comer, tomar algo y compartir.",
     idealFor: "Salir a la noche",
     nearBuilding: "life-recoleta",
     mapsUrl: "https://maps.app.goo.gl/cW739Q1J9CVS6LAg9",
@@ -386,6 +416,7 @@ featured: false,
     lng: -57.5823058,
         image: mapPoi2LaCuadritaPng.url,
 featured: true,
+    instagram: "https://www.instagram.com/lacuadrita.asu/",
   },
   {
     id: "el-cafe-de-aca",
@@ -394,7 +425,7 @@ featured: true,
     barrio: "Villa Morra",
     zone: "villa-morra",
     description:
-      "Café de especialidad y panadería, ideal para trabajar unas horas o desayunar tranquilo.",
+      "Un espacio para disfrutar de un café, desayunar o hacer una pausa en Villa Morra, con una propuesta gastronómica y una identidad muy vinculada a Paraguay.",
     idealFor: "Trabajar fuera del departamento",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/covTMicSkG4qAL2bA",
@@ -402,6 +433,7 @@ featured: true,
     lng: -57.5817754,
         image: mapPoi2ElCafeDeAcaPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/elcafedeaca/",
   },
   {
     id: "la-patiss",
@@ -409,7 +441,8 @@ featured: false,
     category: "cafe",
     barrio: "Mburucuyá",
     zone: "villa-morra",
-    description: "Pastelería francesa y café de barrio en Mburucuyá.",
+    description:
+      "Una propuesta de pastelería y café para disfrutar de algo dulce, desayunar o hacer una pausa durante el día.",
     idealFor: "Desayuno o merienda",
     nearBuilding: "forvm-molas-lopez",
     mapsUrl: "https://maps.app.goo.gl/ZC4idojeuoXMQ1Nf8",
@@ -417,6 +450,7 @@ featured: false,
     lng: -57.564184,
         image: mapPoi2LaPatissPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/lapatiss/",
   },
   {
     id: "la-galette",
@@ -424,7 +458,8 @@ featured: false,
     category: "cafe",
     barrio: "Mburucuyá",
     zone: "villa-morra",
-    description: "Panadería artesanal y café, a pasos del eje corporativo.",
+    description:
+      "Un espacio de café y pastelería Francesa para disfrutar de una pausa dulce, un desayuno o una merienda.",
     idealFor: "Café de mañana",
     nearBuilding: "forvm-molas-lopez",
     mapsUrl: "https://maps.app.goo.gl/GJpjuohcBUzxHtmV6",
@@ -432,6 +467,7 @@ featured: false,
     lng: -57.5646,
         image: mapPoi2LaGalettePng.url,
 featured: false,
+    instagram: "https://www.instagram.com/lagalette.paraguay/",
   },
   {
     id: "almarreina",
@@ -439,7 +475,8 @@ featured: false,
     category: "cafe",
     barrio: "Mburucuyá",
     zone: "villa-morra",
-    description: "Café y brunch con patio, en una casa de barrio reciclada.",
+    description:
+      "Una propuesta de café y gastronomía para disfrutar de un desayuno, una merienda o una pausa durante el día.",
     idealFor: "Brunch de fin de semana",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/DsDxCNAt9DXPvazj7",
@@ -447,6 +484,7 @@ featured: false,
     lng: -57.5649537,
         image: mapPoi2AlmarreinaPng.url,
 featured: true,
+    instagram: "https://www.instagram.com/almarreina/",
   },
   {
     id: "el-cafe-de-porfirio",
@@ -454,7 +492,8 @@ featured: true,
     category: "cafe",
     barrio: "Recoleta",
     zone: "recoleta",
-    description: "Café clásico de Recoleta, con mesas afuera y pastelería propia.",
+    description:
+      "Un café con una propuesta gastronómica para disfrutar de desayunos, meriendas y momentos de pausa.",
     idealFor: "Merienda cerca del alojamiento",
     nearBuilding: "life-recoleta",
     mapsUrl: "https://maps.app.goo.gl/VDnXPQmj415m4Sd68",
@@ -462,6 +501,7 @@ featured: true,
     lng: -57.5837955,
         image: mapPoi2ElCafeDePorfirioPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/elcafedeporfirio/",
   },
   {
     id: "parque-guasu",
@@ -470,7 +510,7 @@ featured: false,
     barrio: "Ykuá Satí",
     zone: "eje-corporativo",
     description:
-      "El pulmón verde de Asunción: circuitos para correr, bicisenda y lagunas.",
+      "Uno de los grandes espacios verdes de Asunción, ideal para caminar, correr o disfrutar de un momento al aire libre.",
     idealFor: "Correr o desconectar al aire libre",
     nearBuilding: "life-santa-teresa",
     mapsUrl: "https://maps.app.goo.gl/tB4ND9sfrRb5pLDy7",
@@ -478,6 +518,7 @@ featured: false,
     lng: -57.5308,
         image: mapPoi2ParqueGuasuJpg.url,
 featured: true,
+    instagram: "https://www.instagram.com/parqueguasu/",
   },
   {
     id: "parque-de-la-salud",
@@ -486,7 +527,7 @@ featured: true,
     barrio: "Carmelitas",
     zone: "recoleta",
     description:
-      "Parque urbano con senderos y equipamiento deportivo, en plena Carmelitas.",
+      "Un espacio verde para caminar, hacer ejercicio y disfrutar de un momento de tranquilidad.",
     idealFor: "Caminar temprano",
     nearBuilding: "spirit-de-gaulle",
     mapsUrl: "https://maps.app.goo.gl/LFqNhGaYhJN5Popn8",
@@ -494,6 +535,7 @@ featured: true,
     lng: -57.5748,
         image: mapPoi2ParqueDeLaSaludJpg.url,
 featured: false,
+    instagram: "https://www.instagram.com/parquedelasaludips/",
   },
   {
     id: "museo-del-barro",
@@ -534,7 +576,7 @@ featured: false,
     barrio: "Villa Morra",
     zone: "villa-morra",
     description:
-      "Patio gastronómico al aire libre con food trucks, mesas compartidas y ambiente relajado.",
+      "Un espacio gastronómico que reúne diferentes propuestas para comer y compartir en un ambiente informal. Una alternativa para disfrutar de una salida con amigos o familia en Villa Morra.",
     idealFor: "Cenar informal en grupo",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/Uw5p6yhgRezpx2r97",
@@ -542,6 +584,7 @@ featured: false,
     lng: -57.5808481,
         image: mapPoi2VillaMorraFoodParkPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/villamorrapark/",
   },
   {
     id: "o-gaucho",
@@ -549,7 +592,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Recoleta",
     zone: "recoleta",
-    description: "Parrilla clásica de Asunción, con cortes a la brasa y servicio de sala.",
+    description:
+      "Una de las mejores churrasquerías de la ciudad, para quienes disfrutan de las carnes y la tradición de la parrilla.",
     idealFor: "Una cena de carnes",
     nearBuilding: "agora",
     mapsUrl: "https://maps.app.goo.gl/yyV9i4xoKqufv6E4A",
@@ -557,6 +601,7 @@ featured: false,
     lng: -57.5888511,
         image: mapPoi2OGauchoPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/churrasqueriaogaucho/",
   },
   {
     id: "acuarela",
@@ -564,7 +609,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "Parrilla y cocina de barrio, un imperdible de Villa Morra.",
+    description:
+      "Una propuesta gastronómica con especialidad en parrilla, ideal para quienes buscan disfrutar de carnes y compartir una comida en Villa Morra.",
     idealFor: "Almuerzo o cena en familia",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/XT7NAH1eN6vJvc1P7",
@@ -572,6 +618,7 @@ featured: false,
     lng: -57.5761726,
         image: mapPoi2AcuarelaPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/acuarela_py/",
   },
   {
     id: "quattro-d",
@@ -579,7 +626,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "La heladería más tradicional de Asunción, con helados artesanales.",
+    description:
+      "Una heladería Italiana para disfrutar de una pausa dulce durante tu recorrido por Asunción.",
     idealFor: "Un postre después de cenar",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/qLtiSwQjnYTyerj77",
@@ -587,6 +635,7 @@ featured: false,
     lng: -57.5763761,
         image: mapPoi2QuattroDPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/quattrodpy/",
   },
   {
     id: "morgan-warehouse",
@@ -594,7 +643,8 @@ featured: false,
     category: "vida-nocturna",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "Club nocturno de referencia en Villa Morra, con música y ambiente animado.",
+    description:
+      "Un espacio de vida nocturna en Villa Morra, ideal para quienes buscan salir a tomar algo y disfrutar del ambiente de Asunción. Una alternativa para una noche entre amigos.",
     idealFor: "Salir de noche",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/CVDoKko3quBjCczKA",
@@ -602,6 +652,7 @@ featured: false,
     lng: -57.5837,
         image: mapPoi2MorganWarehousePng.url,
 featured: false,
+    instagram: "https://www.instagram.com/morganwarehouse/",
   },
   {
     id: "casa-colombo",
@@ -609,7 +660,8 @@ featured: false,
     category: "vida-nocturna",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "Bar de coctelería en una casa reciclada, ideal para arrancar la noche.",
+    description:
+      "Una propuesta de vida nocturna en Villa Morra para quienes buscan disfrutar de música, tragos y un ambiente diferente.",
     idealFor: "Tragos y noche tranquila",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/1aSyywxzFRiCZpaw5",
@@ -617,6 +669,7 @@ featured: false,
     lng: -57.5774108,
         image: mapPoi2CasaColomboPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/studiocolombopy/",
   },
   {
     id: "hard-rock-cafe",
@@ -624,7 +677,8 @@ featured: false,
     category: "vida-nocturna",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "Música en vivo, hamburguesas y tragos en el clásico internacional.",
+    description:
+      "Una propuesta internacional que combina gastronomía, música y entretenimiento. Una opción para disfrutar de una salida informal en Villa Morra.",
     idealFor: "Salir con música en vivo",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/dwU2vFSYkDe9yW8t9",
@@ -632,6 +686,7 @@ featured: false,
     lng: -57.5738499,
         image: mapPoi2HardRockCafePng.url,
 featured: false,
+    instagram: "https://www.instagram.com/hardrockasu/",
   },
   {
     id: "mokai",
@@ -639,7 +694,8 @@ featured: false,
     category: "vida-nocturna",
     barrio: "Las Lomas",
     zone: "eje-corporativo",
-    description: "Bar y club nocturno en el eje corporativo, uno de los puntos de la noche asuncena.",
+    description:
+      "Un espacio de vida nocturna para quienes buscan disfrutar de música y salir con amigos.",
     idealFor: "Salir de noche",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/4BeRZEjCBCsfKw6R6",
@@ -647,6 +703,7 @@ featured: false,
     lng: -57.5652252,
         image: mapPoi2MokaiPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/mokai.py/",
   },
   {
     id: "takuaree",
@@ -654,7 +711,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Ykuá Satí",
     zone: "eje-corporativo",
-    description: "Cocina contemporánea a pasos de Paseo La Galería y las torres corporativas.",
+    description:
+      "Una propuesta gastronómica que fusiona la gastronomía mediterránea en sinfonía con la gastronomía paraguaya.",
     idealFor: "Almuerzo de trabajo",
     nearBuilding: "life-santa-teresa",
     mapsUrl: "https://maps.app.goo.gl/oDyqix2bPALSveTB6",
@@ -662,6 +720,7 @@ featured: false,
     lng: -57.5683996,
         image: mapPoi2TakuareePng.url,
 featured: false,
+    instagram: "https://www.instagram.com/takuareepy/",
   },
   {
     id: "sushiclub",
@@ -669,7 +728,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Las Lomas",
     zone: "eje-corporativo",
-    description: "Sushi y cocina nikkei en un salón moderno de Las Lomas.",
+    description:
+      "Una propuesta de cocina japonesa y sushi para quienes buscan una alternativa gastronómica durante su estadía.",
     idealFor: "Cena rápida y liviana",
     nearBuilding: "forvm-molas-lopez",
     mapsUrl: "https://maps.app.goo.gl/DSjrGnNER6iXS2rY8",
@@ -677,6 +737,7 @@ featured: false,
     lng: -57.5657266,
         image: mapPoi2SushiclubPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/sushiclub_py/",
   },
   {
     id: "musiu",
@@ -684,7 +745,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Las Lomas",
     zone: "eje-corporativo",
-    description: "Restaurante de autor con carta de estación, en el corazón de Las Lomas.",
+    description:
+      "Un restaurante de comida Peruana para disfrutar de una salida gastronómica durante tu estadía.",
     idealFor: "Una cena tranquila",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/MWdeVujYeg9jrsoh9",
@@ -692,6 +754,7 @@ featured: false,
     lng: -57.5635039,
         image: mapPoi2MusiuPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/musiuresto.py/",
   },
   {
     id: "alma-cocina-con-fuegos",
@@ -699,7 +762,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Las Lomas",
     zone: "eje-corporativo",
-    description: "Cocina al fuego, brasas y horno de leña en un salón cálido.",
+    description:
+      "Una propuesta gastronómica donde el fuego es protagonista. Una opción para quienes disfrutan de las carnes, la cocina contemporánea y una experiencia culinaria diferente en Asunción.",
     idealFor: "Una cena especial",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/Ga5xkcDKE5hn9WYEA",
@@ -707,6 +771,7 @@ featured: false,
     lng: -57.5661352,
         image: mapPoi2AlmaCocinaConFuegosPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/almacocinaconfuegos/",
   },
   {
     id: "bastardo",
@@ -714,7 +779,8 @@ featured: false,
     category: "gastronomia",
     barrio: "Las Lomas",
     zone: "eje-corporativo",
-    description: "Restaurante y bar con propuesta informal, buena carta y ambiente joven.",
+    description:
+      "Una propuesta gastronómica para disfrutar de una salida y descubrir nuevos sabores.",
     idealFor: "Cenar y quedarse un rato",
     nearBuilding: "petra-tower",
     mapsUrl: "https://maps.app.goo.gl/SWYqJ4B42Gv2tcBA7",
@@ -722,6 +788,7 @@ featured: false,
     lng: -57.5633756,
         image: mapPoi2BastardoPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/bastardo_py/",
   },
   {
     id: "paseo-los-arboles",
@@ -729,7 +796,8 @@ featured: false,
     category: "shopping",
     barrio: "Villa Morra",
     zone: "villa-morra",
-    description: "Paseo comercial a cielo abierto con tiendas, cafés y restaurantes.",
+    description:
+      "Un paseo comercial en Villa Morra que reúne propuestas de compras y gastronomía en un entorno agradable.",
     idealFor: "Compras y una pausa",
     nearBuilding: "spirit-villa-morra",
     mapsUrl: "https://maps.app.goo.gl/K2NUAmXjsnQ41Ezr6",
@@ -737,6 +805,7 @@ featured: false,
     lng: -57.5740021,
         image: mapPoi2PaseoLosArbolesPng.url,
 featured: false,
+    instagram: "https://www.instagram.com/paseolosarboles/",
   },
   {
     id: "biggie-pacheco",
@@ -828,12 +897,154 @@ featured: false,
         image: mapPoi2BiggiePng.url,
 featured: false,
   },
+  {
+    id: "museo-casa-independencia",
+    name: "Museo Casa de la Independencia",
+    category: "cultura",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Una casa histórica vinculada al proceso de independencia del Paraguay. Una visita para conocer parte de la historia del país y descubrir el patrimonio del Centro Histórico de Asunción.",
+    idealFor: "Una mañana de historia",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/SyBsS7GoeNyYZGxh7",
+    lat: -25.2805476,
+    lng: -57.6372319,
+    image: mapPoi3CasaIndependenciaWebp.url,
+    featured: true,
+  },
+  {
+    id: "panteon-de-los-heroes",
+    name: "Panteón de los Héroes",
+    category: "cultura",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Uno de los monumentos más emblemáticos de Asunción, dedicado a figuras importantes de la historia paraguaya. Una parada para conocer el patrimonio nacional y recorrer el corazón del Centro Histórico.",
+    idealFor: "Recorrer el centro a pie",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/sfcGxUxE17rRcjB2A",
+    lat: -25.2812606,
+    lng: -57.6361858,
+    image: mapPoi3PanteonHeroesJpg.url,
+    featured: false,
+  },
+  {
+    id: "playa-de-la-costanera",
+    name: "Playa de la Costanera",
+    category: "aire-libre",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Un espacio junto a la bahía de Asunción para caminar, disfrutar del paisaje y contemplar la ciudad desde otra perspectiva. Una parada para conocer la Costanera y disfrutar del aire libre.",
+    idealFor: "Atardecer junto al río",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/sYAYB2C5v87WoeEa7",
+    lat: -25.2768765,
+    lng: -57.6339229,
+    image: mapPoi3PlayaCostaneraJpg.url,
+    featured: true,
+  },
+  {
+    id: "manzana-de-la-rivera",
+    name: "Manzana de la Rivera",
+    category: "cultura",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Un conjunto de casas históricas convertido en espacio cultural, con exposiciones y actividades. Una visita para descubrir el patrimonio arquitectónico y la vida cultural de Asunción.",
+    idealFor: "Arte y arquitectura",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/ZJZDpX9YRLSb33Rq9",
+    lat: -25.2781016,
+    lng: -57.6392414,
+    image: mapPoi3ManzanaRiveraPng.url,
+    instagram: "https://www.instagram.com/manzanadelarivera.asu/",
+    featured: false,
+  },
+  {
+    id: "casa-clari",
+    name: "Casa Clari",
+    category: "gastronomia",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Una propuesta gastronómica en el Centro Histórico para disfrutar de una comida o una pausa durante tu recorrido.",
+    idealFor: "Almuerzo en el centro",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/XAPiHT2NfAFtA1dm6",
+    lat: -25.2798279,
+    lng: -57.6361666,
+    image: mapPoi3CasaClariPng.url,
+    instagram: "https://www.instagram.com/casaclari_/",
+    featured: false,
+  },
+  {
+    id: "teatro-municipal",
+    name: "Teatro Municipal Ignacio A. Pane",
+    category: "cultura",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Uno de los principales espacios culturales de Asunción, con una historia vinculada a las artes escénicas de la ciudad.",
+    idealFor: "Una noche de teatro o música",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/UT4vpHEgNEvSR45e7",
+    lat: -25.2804991,
+    lng: -57.6365399,
+    image: mapPoi3TeatroMunicipalWebp.url,
+    instagram: "https://www.instagram.com/teatromunicipaldeasuncion/",
+    featured: false,
+  },
+  {
+    id: "el-bolsi",
+    name: "El Bolsi",
+    category: "gastronomia",
+    barrio: "Centro Histórico",
+    zone: "centro-historico",
+    description:
+      "Un clásico de la gastronomía asuncena, ubicado en el Centro Histórico. Una opción para disfrutar de una comida y conocer un lugar que forma parte de la vida cotidiana y la tradición gastronómica de la ciudad.",
+    idealFor: "Probar un clásico de la ciudad",
+    nearBuilding: "petra-tower",
+    mapsUrl: "https://maps.app.goo.gl/DdT29ntou2ceYjd98",
+    lat: -25.2819931,
+    lng: -57.6372694,
+    image: mapPoi3ElBolsiPng.url,
+    instagram: "https://www.instagram.com/elbolsi/",
+    featured: false,
+  },
 ];
 
 
 /* --------------------------------- Helpers -------------------------------- */
 
-export const featuredPlaces = places.filter((p) => p.featured);
+/** Lugares activos, ordenados por el campo `order` cuando existe. */
+export const activePlaces = places
+  .filter((p) => p.active !== false)
+  .map((p, i) => ({ place: p, i }))
+  .sort((a, b) => (a.place.order ?? a.i) - (b.place.order ?? b.i))
+  .map(({ place }) => place);
+
+export const featuredPlaces = activePlaces.filter((p) => p.featured);
+
+/** Barrios presentes en el contenido activo, ordenados alfabéticamente. */
+export const barrios = Array.from(
+  new Set(activePlaces.map((p) => p.barrio)),
+).sort((a, b) => a.localeCompare(b, "es"));
+
+/** Categorías que efectivamente tienen lugares activos. */
+export const activeCategories = categories.filter((c) =>
+  activePlaces.some((p) => p.category === c.id),
+);
+
+/** Puntos de interés relacionados con un edificio Sky Stays. */
+export function placesForBuilding(buildingId: string) {
+  return activePlaces.filter(
+    (p) =>
+      p.nearBuilding === buildingId || p.relatedBuildings?.includes(buildingId),
+  );
+}
+
 
 export function categoryLabel(id: CategoryId) {
   return categories.find((c) => c.id === id)?.label ?? id;
