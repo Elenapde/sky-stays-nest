@@ -183,19 +183,6 @@ export function DiscoverExplore() {
         </div>
       </div>
 
-      <div className="mt-3 -mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
-        <div className="flex gap-2 pb-1">
-          <FilterChip active={barrio === "all"} onClick={() => setBarrio("all")}>
-            Todos los barrios
-          </FilterChip>
-          {barrios.map((b) => (
-            <FilterChip key={b} active={barrio === b} onClick={() => setBarrio(b)}>
-              {b}
-            </FilterChip>
-          ))}
-        </div>
-      </div>
-
       <p className="mt-6 text-xs uppercase tracking-[0.14em] text-primary-soft">
         {filtered.length} {filtered.length === 1 ? "lugar" : "lugares"}
       </p>
