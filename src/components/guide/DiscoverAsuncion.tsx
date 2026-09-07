@@ -189,8 +189,7 @@ export function DiscoverExplore() {
 
       {filtered.length === 0 ? (
         <p className="mt-6 text-sm text-muted-foreground">
-          No hay lugares con esa combinación de filtros. Probá con otra categoría
-          o barrio.
+          No hay lugares con esa categoría. Probá con otra opción.
         </p>
       ) : (
         <ul className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
