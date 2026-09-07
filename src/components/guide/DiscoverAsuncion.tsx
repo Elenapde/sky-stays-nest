@@ -6,7 +6,7 @@ import { Section, SectionHead } from "@/components/sky/ui";
 import {
   activeCategories,
   activePlaces,
-  barrios,
+  
   categoryLabel,
   featuredPlaces,
   zoneLabel,
