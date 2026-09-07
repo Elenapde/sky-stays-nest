@@ -157,7 +157,7 @@ export function DiscoverExplore() {
   const [category, setCategory] = useState<string>("all");
   const filtered = useMemo(
     () =>
-      activePlaces.filter((p) => category === "all" || p.category === category),
+      explorePlaces.filter((p) => category === "all" || p.category === category),
     [category],
   );
 
@@ -174,7 +174,7 @@ export function DiscoverExplore() {
           <FilterChip active={category === "all"} onClick={() => setCategory("all")}>
             Todos
           </FilterChip>
-          {activeCategories.map((c) => (
+          {exploreCategories.map((c) => (
             <FilterChip
               key={c.id}
               active={category === c.id}
