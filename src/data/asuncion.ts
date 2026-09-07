@@ -58,7 +58,7 @@ import mapPoi2WorldTradeCenterJpg from "@/assets/poi2-world-trade-center.jpg.ass
 import mapPoi3CasaIndependenciaWebp from "@/assets/poi3-casa-independencia.webp.asset.json";
 import mapPoi3PanteonHeroesJpg from "@/assets/poi3-panteon-heroes.jpg.asset.json";
 import mapPoi3PlayaCostaneraJpg from "@/assets/poi3-playa-costanera.jpg.asset.json";
-import mapPoi3ManzanaRiveraPng from "@/assets/poi3-manzana-rivera.png.asset.json";
+import mapPoi3ManzanaRiveraPng from "@/assets/poi3-manzana-rivera.webp.asset.json";
 import mapPoi3CasaClariPng from "@/assets/poi3-casa-clari.png.asset.json";
 import mapPoi3TeatroMunicipalWebp from "@/assets/poi3-teatro-municipal.webp.asset.json";
 import mapPoi3ElBolsiPng from "@/assets/poi3-el-bolsi.png.asset.json";
