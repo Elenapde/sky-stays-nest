@@ -11,7 +11,7 @@ import {
   categoryLabel,
   distanceKm,
   distanceLabel,
-  places,
+  activePlaces as places,
   zoneLabel,
   type Building,
   type CategoryId,
