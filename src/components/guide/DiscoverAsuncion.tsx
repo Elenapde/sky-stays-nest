@@ -6,7 +6,7 @@ import { Section, SectionHead } from "@/components/sky/ui";
 import {
   activeCategories,
   activePlaces,
-  barrios,
+  
   categoryLabel,
   featuredPlaces,
   zoneLabel,
@@ -152,16 +152,10 @@ export function DiscoverFeatured() {
 
 export function DiscoverExplore() {
   const [category, setCategory] = useState<string>("all");
-  const [barrio, setBarrio] = useState<string>("all");
-
   const filtered = useMemo(
     () =>
-      activePlaces.filter(
-        (p) =>
-          (category === "all" || p.category === category) &&
-          (barrio === "all" || p.barrio === barrio),
-      ),
-    [category, barrio],
+      activePlaces.filter((p) => category === "all" || p.category === category),
+    [category],
   );
 
   return (
@@ -169,7 +163,7 @@ export function DiscoverExplore() {
       <SectionHead
         kicker="Explorá por interés"
         title="Elegí qué querés hacer en Asunción."
-        lead="Filtrá por tipo de experiencia o por barrio y descubrí los lugares que quedan cerca de nuestros alojamientos."
+        lead="Filtrá por tipo de experiencia y descubrí los lugares que quedan cerca de nuestros alojamientos."
       />
 
       <div className="mt-8 -mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
@@ -189,27 +183,13 @@ export function DiscoverExplore() {
         </div>
       </div>
 
-      <div className="mt-3 -mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
-        <div className="flex gap-2 pb-1">
-          <FilterChip active={barrio === "all"} onClick={() => setBarrio("all")}>
-            Todos los barrios
-          </FilterChip>
-          {barrios.map((b) => (
-            <FilterChip key={b} active={barrio === b} onClick={() => setBarrio(b)}>
-              {b}
-            </FilterChip>
-          ))}
-        </div>
-      </div>
-
       <p className="mt-6 text-xs uppercase tracking-[0.14em] text-primary-soft">
         {filtered.length} {filtered.length === 1 ? "lugar" : "lugares"}
       </p>
 
       {filtered.length === 0 ? (
         <p className="mt-6 text-sm text-muted-foreground">
-          No hay lugares con esa combinación de filtros. Probá con otra categoría
-          o barrio.
+          No hay lugares con esa categoría. Probá con otra opción.
         </p>
       ) : (
         <ul className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
