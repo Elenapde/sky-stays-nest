@@ -6,7 +6,6 @@ import {
 } from "@/components/guide/DiscoverAsuncion";
 import {
   GuideBarrios,
-  GuideByTrip,
   GuideCta,
   GuideHero,
   GuideMap,
@@ -43,7 +42,6 @@ function GuidePage() {
         <DiscoverExplore />
         <GuideMap />
         <GuideBarrios />
-        <GuideByTrip />
         <GuideCta />
       </main>
       <SiteFooter />
