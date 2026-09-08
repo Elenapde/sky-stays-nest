@@ -55,7 +55,7 @@ export const services: SkyService[] = [
     name: "Traslados",
     title: "Llegá sin complicaciones.",
     description:
-      "Contamos con servicio de traslado para hacer más simple tu llegada, salida o recorrido por la ciudad.",
+      "Contamos con servicio de traslado para hacer más simple tu llegada o salida.",
     image: trasladosImg,
     imageAlt:
       "Huésped llegando con equipaje al ingreso de un edificio de Sky Stays",
