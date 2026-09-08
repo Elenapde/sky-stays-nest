@@ -10,7 +10,7 @@
  *   Latitud · Longitud · Imagen · Destacado
  */
 
-import shoppingPhoto from "@/assets/sky-stays-shopping.png.asset.json";
+import shoppingPhoto from "@/assets/sky-stays-shopping-v2.png.asset.json";
 import gastronomiaPhoto from "@/assets/sky-stays-gastronomia.png.asset.json";
 import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
