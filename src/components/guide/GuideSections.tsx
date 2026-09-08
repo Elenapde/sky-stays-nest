@@ -1,7 +1,6 @@
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
-import shoppingPhoto from "@/assets/sky-stays-shopping-v2.png.asset.json";
 import villaMorraPhoto from "@/assets/sky-stays-villa-morra.png.asset.json";
 import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
