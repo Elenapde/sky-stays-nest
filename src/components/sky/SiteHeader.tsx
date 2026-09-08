@@ -67,10 +67,6 @@ export function SiteHeader() {
           <a href="/guia-de-asuncion" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
             Guía de Asunción
           </a>
-
-          <a href="/propietarios" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
-            Propietarios
-          </a>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -142,10 +138,6 @@ export function SiteHeader() {
             </a>
             <a href="/guia-de-asuncion" className="kicker text-nude">
               Guía de Asunción
-            </a>
-
-            <a href="/propietarios" className="kicker text-nude">
-              Propietarios
             </a>
           </div>
           <div className="grid gap-3">
