@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CorporateLongStayRouteImport } from './routes/corporate-long-stay'
 import { Route as GuiaDeAsuncionRouteImport } from './routes/guia-de-asuncion'
-import { Route as PropietariosRouteImport } from './routes/propietarios'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,50 +28,35 @@ const GuiaDeAsuncionRoute = GuiaDeAsuncionRouteImport.update({
   path: '/guia-de-asuncion',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PropietariosRoute = PropietariosRouteImport.update({
-  id: '/propietarios',
-  path: '/propietarios',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
-  '/propietarios': typeof PropietariosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
-  '/propietarios': typeof PropietariosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
-  '/propietarios': typeof PropietariosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/corporate-long-stay' | '/guia-de-asuncion' | '/propietarios'
+  fullPaths: '/' | '/corporate-long-stay' | '/guia-de-asuncion'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/corporate-long-stay' | '/guia-de-asuncion' | '/propietarios'
-  id:
-    | '__root__'
-    | '/'
-    | '/corporate-long-stay'
-    | '/guia-de-asuncion'
-    | '/propietarios'
+  to: '/' | '/corporate-long-stay' | '/guia-de-asuncion'
+  id: '__root__' | '/' | '/corporate-long-stay' | '/guia-de-asuncion'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CorporateLongStayRoute: typeof CorporateLongStayRoute
   GuiaDeAsuncionRoute: typeof GuiaDeAsuncionRoute
-  PropietariosRoute: typeof PropietariosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -98,13 +82,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuiaDeAsuncionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/propietarios': {
-      id: '/propietarios'
-      path: '/propietarios'
-      fullPath: '/propietarios'
-      preLoaderRoute: typeof PropietariosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -112,7 +89,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CorporateLongStayRoute: CorporateLongStayRoute,
   GuiaDeAsuncionRoute: GuiaDeAsuncionRoute,
-  PropietariosRoute: PropietariosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
