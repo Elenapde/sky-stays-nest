@@ -22,7 +22,7 @@ import dayStayPhoto from "@/assets/sky-stays-day-use-petra.jpg.asset.json";
 import barriosPhoto from "@/assets/sky-stays-barrios.png.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
-import shoppingPhoto from "@/assets/sky-stays-shopping.png.asset.json";
+import shoppingPhoto from "@/assets/sky-stays-shopping-v2.png.asset.json";
 
 import heroVideo from "@/assets/sky-stays-hero.mp4.asset.json";
 import monogram from "@/assets/sky-stays-monogram.png.asset.json";
