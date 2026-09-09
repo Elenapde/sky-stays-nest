@@ -209,14 +209,15 @@ export function CorporateEspacios() {
     <Section tone="cream">
       <SectionHead
         kicker="Los espacios"
-        title="Todo lo que tu equipo necesita dentro del departamento."
+        title="Tu espacio para trabajar. Y para vivir."
+        lead="Un departamento equipado para que puedas concentrarte cuando lo necesites y disfrutar de tu tiempo libre cuando termina la jornada."
       />
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         <Reveal className="overflow-hidden">
           <PhotoSlot
             src={escritorio.url}
             alt="Escritorio equipado en un departamento Sky Stays para trabajo remoto y viajes de negocios"
-            label="Workspace · trabajo y nómadas digitales"
+            label="TU ESPACIO, A TU MANERA"
             ratio="4/3"
             tone="burgundy"
           />
@@ -225,12 +226,15 @@ export function CorporateEspacios() {
           <PhotoSlot
             src={coworking.url}
             alt="Coworking moderno dentro de un edificio Sky Stays en Asunción"
-            label="Coworking · espacio compartido en el edificio"
+            label="COWORKING CUANDO LO NECESITÁS"
             ratio="4/3"
             tone="carbon"
           />
         </Reveal>
       </div>
+      <p className="mt-6 text-xs text-muted-foreground">
+        El coworking está disponible según el edificio seleccionado.
+      </p>
     </Section>
   );
 }
