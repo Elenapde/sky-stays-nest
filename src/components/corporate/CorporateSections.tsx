@@ -59,34 +59,20 @@ export function CorporateHero() {
 
 const modalidades = [
   {
-    name: "Corporate Stay",
-    text: "Para viajes de negocios, proyectos puntuales y relocalizaciones de ejecutivos. Estadías de 7 noches o más con todas las comodidades para trabajar y descansar.",
-    items: [
-      "WiFi de alta velocidad",
-      "Workspace en el departamento",
-      "Ubicaciones corporativas",
-      "Facturación a empresa",
-      "Check-in digital",
-      "Atención 24/7",
-    ],
+    name: "Viajes de trabajo",
+    title: "Todo listo para que te ocupes de lo importante.",
+    text: "Departamentos equipados, WiFi y espacios para trabajar, cerca de las principales zonas corporativas de Asunción.",
+    use: "Para reuniones, proyectos y viajes de negocios.",
     photo: negociosAerialPhoto.url,
     alt: "Eje corporativo de Asunción al amanecer, con torres de oficinas",
-    cta: "Consultar Corporate Stay",
   },
   {
-    name: "Long Stay",
-    text: "Condiciones especiales para estadías prolongadas de 30 noches o más. Una alternativa a la-hotelería tradicional para profesionales, nómadas digitales y familias en proceso de mudanza.",
-    items: [
-      "Tarifas decrecientes por duración",
-      "Limpieza periódica incluida",
-      "Cocina totalmente equipada",
-      "Amenities del edificio",
-      "Ropa blanca y amenities",
-      "Gestión de incidencias",
-    ],
+    name: "Estadías prolongadas",
+    title: "Quedate más tiempo. Sentite en casa.",
+    text: "Más espacio, independencia y todo lo que necesitás para instalarte cómodamente durante unas semanas o meses.",
+    use: "Para proyectos de larga duración, relocaciones y quienes necesitan hacer de Asunción su hogar por un tiempo.",
     photo: longStayPhoto.url,
     alt: "Departamento amplio y equipado para estadías prolongadas en Sky Stays",
-    cta: "Consultar Long Stay",
   },
 ];
 
@@ -95,8 +81,8 @@ export function CorporateModalidades() {
     <Section tone="cream" id="modalidades">
       <SectionHead
         kicker="Modalidades"
-        title="Dos propuestas, una misma calidad."
-        lead="Elegí la modalidad que mejor se ajusta a tu necesidad. Ambas combinan la comodidad de un departamento con el respaldo operativo de Sky Stays."
+        title="Tu estadía, a tu ritmo."
+        lead="Ya sea por una reunión, un proyecto o una temporada en Asunción, encontrá un espacio que se adapte a tu forma de viajar."
       />
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         {modalidades.map((m, i) => (
@@ -117,29 +103,15 @@ export function CorporateModalidades() {
               <h3 className="font-sans text-xs font-semibold tracking-[0.24em] uppercase text-primary-soft">
                 {m.name}
               </h3>
+              <p className="mt-4 font-display text-xl leading-snug text-foreground">
+                {m.title}
+              </p>
               <p className="mt-4 text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {m.text}
               </p>
-              <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2.5 border-t border-border pt-6">
-                {m.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm text-foreground/80"
-                  >
-                    <span className="text-primary" aria-hidden>·</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <CtaAnchor
-                href={wa(`Hola, quiero consultar ${m.name}.`)}
-                target="_blank"
-                rel="noreferrer"
-                variant="outline"
-                className="mt-8 self-start"
-              >
-                {m.cta}
-              </CtaAnchor>
+              <p className="mt-6 border-t border-border pt-6 text-sm italic text-foreground/70">
+                {m.use}
+              </p>
             </div>
           </Reveal>
         ))}
