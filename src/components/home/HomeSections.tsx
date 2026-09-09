@@ -38,7 +38,7 @@ import {
   Kicker,
   Section,
   SectionHead,
-  Stars,
+  
 } from "@/components/sky/ui";
 import { activeServices, servicesDisclaimer } from "@/data/services";
 import {
@@ -771,8 +771,7 @@ export function Reviews() {
         {reviews.map((r, i) => (
           <Reveal as="li" key={i} delay={i * 80}>
             <blockquote className="flex h-full flex-col border border-border bg-card p-7">
-              <Stars className="text-sm text-primary" />
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground/80">
+              <p className="flex-1 text-sm leading-relaxed text-foreground/80">
                 “{r.text}”
               </p>
               <footer className="mt-6 border-t border-border pt-4 text-xs text-muted-foreground">
