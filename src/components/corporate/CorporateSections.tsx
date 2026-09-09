@@ -152,28 +152,28 @@ export function CorporateDuraciones() {
 
 const beneficios = [
   {
-    name: "Facturación a empresa",
-    text: "Condiciones comerciales, facturación centralizada y reportes para gestionar los gastos de viaje de tu equipo.",
+    name: "Un espacio propio",
+    text: "Disfrutá de la independencia de un departamento equipado, con lugar para descansar, cocinar y sentirte cómodo durante tu estadía.",
   },
   {
-    name: "Workspace integrado",
-    text: "Escritorio, WiFi de alta velocidad y coworking en el edificio. Tu equipo trabaja sin salir del alojamiento.",
+    name: "Trabajá a tu manera",
+    text: "WiFi y espacios para trabajar, con la posibilidad de aprovechar coworking en los edificios que cuentan con este servicio.",
   },
   {
-    name: "Ubicaciones corporativas",
-    text: "A minutos del eje corporativo de Asunción: Ycuá Satí, Villa Morra y Recoleta.",
+    name: "Cerca de donde necesitás estar",
+    text: "Alojamientos en zonas estratégicas de Asunción, cerca del eje corporativo, centros comerciales y propuestas gastronómicas.",
   },
   {
-    name: "Operación hotelera",
-    text: "Check-in digital, limpieza profesional, ropa blanca y atención 24/7. Nosotros nos ocupamos del día a día.",
+    name: "Servicios que hacen tu estadía más simple",
+    text: "Check-in digital, atención al huésped y servicios adicionales disponibles para acompañarte durante tu visita.",
   },
   {
-    name: "Flexibilidad",
-    text: "Ampliaciones, reducciones y cambios de ubicación con anticipación. La estadía se adapta a tu agenda.",
+    name: "Más que trabajo",
+    text: "Después de tu jornada, disfrutá de los amenities del edificio y descubrí todo lo que Asunción tiene para ofrecer.",
   },
   {
-    name: "Amenities del edificio",
-    text: "Piscina, gimnasio, quincho, gastronomía y minimarket 24 h disponibles según la propiedad seleccionada.",
+    name: "Para quedarte más tiempo",
+    text: "Opciones para estadías prolongadas, con condiciones especiales y la comodidad de tener un espacio propio.",
   },
 ];
 
@@ -182,9 +182,9 @@ export function CorporateBeneficios() {
     <Section tone="dark">
       <SectionHead
         invert
-        kicker="Por qué empresas y profesionales eligen Sky Stays"
-        title="Más que un lugar donde dormir."
-        lead="Una infraestructura pensada para que tu equipo se concentre en lo importante, mientras nosotros nos encargamos del resto."
+        kicker="Por qué Sky Stays"
+        title="Todo lo que necesitás para trabajar. Y para desconectar."
+        lead=""
       />
       <div className="mt-12 grid gap-px overflow-hidden rounded-xs bg-nude/10 sm:grid-cols-2 lg:grid-cols-3">
         {beneficios.map((b, i) => (
