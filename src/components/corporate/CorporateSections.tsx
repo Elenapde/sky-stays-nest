@@ -43,10 +43,10 @@ export function CorporateHero() {
               variant="nude"
               size="lg"
             >
-              Solicitar propuesta
+              VER ALOJAMIENTOS
             </CtaAnchor>
             <CtaAnchor href="#modalidades" variant="ghostLight" size="lg">
-              Ver modalidades
+              SOLICITAR POR WHATSAPP
             </CtaAnchor>
           </div>
         </Reveal>
