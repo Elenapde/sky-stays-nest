@@ -122,46 +122,27 @@ export function CorporateModalidades() {
 
 /* ------------------------------- Duraciones ------------------------------ */
 
-const duraciones = [
-  {
-    label: "7+ noches",
-    name: "Estadía semanal",
-    text: "Ideal para proyectos cortos, giras de negocios o capacitaciones. Tarifa preferencial sobre la tarifa diaria estándar.",
-  },
-  {
-    label: "30+ noches",
-    name: "Estadía mensual",
-    text: "Pensado para relocalizaciones, asignaciones de mediano plazo o nómadas digitales. Condiciones especiales y limpieza periódica incluida.",
-  },
-  {
-    label: "60+ noches",
-    name: "Long Stay extendido",
-    text: "La mejor tarifa por noche. Para equipos apostados en Asunción por períodos prolongados o familias en proceso de mudanza.",
-  },
-];
-
 export function CorporateDuraciones() {
   return (
     <Section>
       <SectionHead
-        kicker="Duraciones"
-        title="Mientras más te quedes, mejores condiciones."
-        lead="Tarifas decrecientes según la duración de la estadía. Solicitá una propuesta a medida y comparamos lo que más te convenga."
+        kicker="Estadías prolongadas"
+        title="Quedate el tiempo que necesites."
+        lead="¿Venís por unas semanas o varios meses? Tenemos opciones para estadías prolongadas, con condiciones especiales según la duración de tu viaje."
       />
-      <ul className="mt-12 grid gap-px overflow-hidden rounded-xs bg-border sm:grid-cols-3">
-        {duraciones.map((d, i) => (
-          <Reveal as="li" key={d.label} delay={i * 70} className="flex flex-col bg-background p-8">
-            <p className="font-display text-3xl text-primary">{d.label}</p>
-            <p className="kicker mt-4 text-primary-soft">{d.name}</p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              {d.text}
-            </p>
-          </Reveal>
-        ))}
-      </ul>
+      <div className="mt-10">
+        <CtaAnchor
+          href={wa("Hola, quiero consultar por una estadía prolongada / Long Stay.")}
+          target="_blank"
+          rel="noreferrer"
+          variant="nude"
+          size="lg"
+        >
+          Consultar estadía prolongada →
+        </CtaAnchor>
+      </div>
       <p className="mt-6 text-xs text-muted-foreground">
-        Las condiciones y tarifas son referenciales. Cada propuesta se cotiza según
-        duración, ubicación, categoría y disponibilidad.
+        Las condiciones dependen de la duración, el alojamiento y la disponibilidad.
       </p>
     </Section>
   );
