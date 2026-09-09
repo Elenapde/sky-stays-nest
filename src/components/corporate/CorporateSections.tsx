@@ -247,27 +247,21 @@ export function CorporateCta() {
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="max-w-xl">
           <h2 className="text-2xl text-nude md:text-3xl">
-            ¿Necesitás alojar a tu equipo en Asunción?
+            ¿Organizás estadías para tu empresa?
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-nude/75">
-            Contanos cuántas personas, por cuánto tiempo y en qué zona.
-            Te preparamos una propuesta a medida en 24 horas.
+            También podemos ayudarte con alojamientos para equipos, proyectos y
+            estadías prolongadas.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
           <CtaAnchor
-            href={wa("Hola, quiero solicitar una propuesta corporativa / Long Stay.")}
+            href={wa("Hola, quiero hablar con el equipo de Sky Stays sobre estadías corporativas.")}
             target="_blank"
             rel="noreferrer"
             variant="nude"
           >
-            Solicitar propuesta
-          </CtaAnchor>
-          <CtaAnchor
-            href={mailto("Solicitud de propuesta Corporate & Long Stay", "Quisiera recibir información sobre Corporate Stay y Long Stay para mi equipo.")}
-            variant="ghostLight"
-          >
-            Escribir un email
+            HABLAR CON NUESTRO EQUIPO →
           </CtaAnchor>
         </div>
       </div>
