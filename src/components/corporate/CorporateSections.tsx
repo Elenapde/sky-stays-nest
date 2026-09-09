@@ -26,13 +26,13 @@ export function CorporateHero() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <span className="border border-nude/20 px-3 py-1.5 text-xs tracking-[0.14em] text-nude/70 uppercase">
-              7+ noches
+              30 NOCHES
             </span>
             <span className="border border-nude/20 px-3 py-1.5 text-xs tracking-[0.14em] text-nude/70 uppercase">
-              30+ noches
+              60 NOCHES
             </span>
             <span className="border border-nude/20 px-3 py-1.5 text-xs tracking-[0.14em] text-nude/70 uppercase">
-              60+ noches
+              +90 NOCHES
             </span>
           </div>
           <div className="mt-9 flex flex-wrap gap-4">
