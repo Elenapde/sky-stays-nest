@@ -1,7 +1,7 @@
 import superhost from "@/assets/airbnb-superhost.png.asset.json";
 import { cn } from "@/lib/utils";
 import { social } from "@/data/sky";
-import { Stars } from "./ui";
+
 
 /**
  * Sello Superanfitrión de Airbnb con prueba social.
@@ -34,15 +34,10 @@ export function SuperhostBadge({
         className={cn("w-auto shrink-0", logoHeight)}
         loading="lazy"
       />
-      <span className="border-l border-primary/20 pl-4 leading-tight">
-        <span className="flex items-center gap-2">
-          <Stars className="text-[0.625rem] text-primary" />
-          <span className="font-display text-base text-primary">{social.rating}</span>
-        </span>
-        <span className="kicker mt-1 block text-primary-soft">
-          +{social.reviews} evaluaciones
-        </span>
+      <span className="kicker border-l border-primary/20 pl-4 leading-tight text-primary-soft">
+        {social.badge}
       </span>
+
     </div>
   );
 }

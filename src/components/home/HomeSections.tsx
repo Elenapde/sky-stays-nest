@@ -38,7 +38,7 @@ import {
   Kicker,
   Section,
   SectionHead,
-  Stars,
+  
 } from "@/components/sky/ui";
 import { activeServices, servicesDisclaimer } from "@/data/services";
 import {
@@ -322,11 +322,8 @@ export function FeaturedProperties() {
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between gap-3">
                   <p className="kicker text-primary-soft">{p.category}</p>
-                  <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <Stars className="text-[0.625rem] text-primary" />
-                    {p.rating} · {p.reviews}
-                  </p>
                 </div>
+
                 <h3 className="mt-3 text-xl text-primary">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {p.building} · {p.zone}
@@ -774,8 +771,7 @@ export function Reviews() {
         {reviews.map((r, i) => (
           <Reveal as="li" key={i} delay={i * 80}>
             <blockquote className="flex h-full flex-col border border-border bg-card p-7">
-              <Stars className="text-sm text-primary" />
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-foreground/80">
+              <p className="flex-1 text-sm leading-relaxed text-foreground/80">
                 “{r.text}”
               </p>
               <footer className="mt-6 border-t border-border pt-4 text-xs text-muted-foreground">
