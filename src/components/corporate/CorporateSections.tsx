@@ -17,13 +17,12 @@ export function CorporateHero() {
         <Reveal>
           <Kicker className="text-nude">Corporate & Long Stay</Kicker>
           <h1 className="mt-6 max-w-2xl text-3xl leading-[1.1] text-nude md:text-[3rem]">
-            La base de operaciones de tu empresa en Asunción.
+            Venís por trabajo. Quedate como en casa.
           </h1>
           <p className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-nude/75">
-            Departamentos equipados, ubicaciones corporativas y condiciones
-            especiales para estadías de 7 noches o más. Pensado para empresas,
-            profesionales y equipos que necesitan arraigo sin renunciar a la
-            comodidad de un hotel.
+            Departamentos equipados, ubicaciones estratégicas y la comodidad de
+            tener tu propio espacio en Asunción. Para unos días, unas semanas o
+            el tiempo que necesites.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <span className="border border-nude/20 px-3 py-1.5 text-xs tracking-[0.14em] text-nude/70 uppercase">
