@@ -5,7 +5,7 @@ import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.js
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
 import { CtaAnchor, Kicker, Section, SectionHead } from "@/components/sky/ui";
-import { mailto, wa } from "@/data/sky";
+import { wa } from "@/data/sky";
 
 /* --------------------------------- Hero ---------------------------------- */
 
