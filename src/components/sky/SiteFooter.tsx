@@ -1,6 +1,6 @@
 import logo from "@/assets/sky-stays-logo-beige.png.asset.json";
 import { nav, social, wa } from "@/data/sky";
-import { CtaAnchor, Stars } from "./ui";
+import { CtaAnchor } from "./ui";
 
 export function SiteFooter() {
   return (
@@ -12,11 +12,8 @@ export function SiteFooter() {
             Hospedaje temporal en Asunción. La comodidad de un departamento, con
             servicios hoteleros y atención 24/7.
           </p>
-          <p className="mt-6 flex items-center gap-2 text-sm text-nude/70">
-            <Stars className="text-nude" />
-            {social.rating} · +{social.reviews} evaluaciones
-          </p>
-          <p className="kicker mt-2 text-nude/45">{social.badge}</p>
+          <p className="kicker mt-6 text-nude/45">{social.badge}</p>
+
           <CtaAnchor
             href={wa("Hola, quiero consultar disponibilidad en Sky Stays.")}
             target="_blank"

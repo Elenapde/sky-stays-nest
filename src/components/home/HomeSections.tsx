@@ -322,11 +322,8 @@ export function FeaturedProperties() {
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between gap-3">
                   <p className="kicker text-primary-soft">{p.category}</p>
-                  <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <Stars className="text-[0.625rem] text-primary" />
-                    {p.rating} · {p.reviews}
-                  </p>
                 </div>
+
                 <h3 className="mt-3 text-xl text-primary">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {p.building} · {p.zone}
