@@ -15,7 +15,7 @@ export function PhotoSlot({
   alt,
   objectPosition = "center",
 }: {
-  label: string;
+  label?: string;
   className?: string;
   tone?: "burgundy" | "nude" | "carbon";
   ratio?: string;
@@ -63,14 +63,16 @@ export function PhotoSlot({
           className="pointer-events-none absolute top-1/2 left-1/2 w-[38%] max-w-[8rem] -translate-x-1/2 -translate-y-1/2 opacity-25"
         />
       )}
-      <figcaption
-        className={cn(
-          "relative w-full px-4 pb-4 pt-4 text-[0.625rem] leading-snug font-semibold tracking-[0.12em] break-words hyphens-none uppercase opacity-95 sm:text-[0.6875rem] sm:tracking-[0.16em]",
-          captionColor,
-        )}
-      >
-        {label}
-      </figcaption>
+      {label ? (
+        <figcaption
+          className={cn(
+            "relative w-full px-4 pb-4 pt-4 text-[0.625rem] leading-snug font-semibold tracking-[0.12em] break-words hyphens-none uppercase opacity-95 sm:text-[0.6875rem] sm:tracking-[0.16em]",
+            captionColor,
+          )}
+        >
+          {label}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }
