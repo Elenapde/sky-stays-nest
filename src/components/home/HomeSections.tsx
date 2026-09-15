@@ -545,7 +545,7 @@ export function Locations() {
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
-                    label={l.photo}
+                    label=""
                     ratio="3/4"
                     tone="burgundy"
                     {...(l.id === "villa-morra"
