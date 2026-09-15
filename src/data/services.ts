@@ -1,6 +1,8 @@
-import desayunoImg from "@/assets/sky-stays-desayuno.jpg";
+import desayunoAsset from "@/assets/sky-stays-desayuno.png.asset.json";
 import limpiezaImg from "@/assets/sky-stays-limpieza.jpg";
 import trasladosImg from "@/assets/sky-stays-traslados.jpg";
+
+const desayunoImg = desayunoAsset.url;
 
 /**
  * Servicios adicionales Sky Stays.
