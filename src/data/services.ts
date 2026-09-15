@@ -1,6 +1,8 @@
 import desayunoAsset from "@/assets/sky-stays-desayuno.png.asset.json";
 import limpiezaImg from "@/assets/sky-stays-limpieza.jpg";
-import trasladosImg from "@/assets/sky-stays-traslados.jpg";
+import trasladosAsset from "@/assets/sky-stays-traslados.jpg.asset.json";
+
+const trasladosImg = trasladosAsset.url;
 
 const desayunoImg = desayunoAsset.url;
 
