@@ -185,7 +185,24 @@ export function AsuncionMap({
     let cancelled = false;
     setStatus("loading");
 
-    loadMapsSdk()
+    // Carga diferida: el mapa sólo se descarga cuando está por entrar en pantalla.
+    const whenVisible = new Promise<void>((resolve) => {
+      const el = containerRef.current;
+      if (!el || typeof IntersectionObserver === "undefined") return resolve();
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            io.disconnect();
+            resolve();
+          }
+        },
+        { rootMargin: "400px" },
+      );
+      io.observe(el);
+    });
+
+    whenVisible
+      .then(() => loadMapsSdk())
       .then((g) => {
         if (cancelled || !containerRef.current) return;
         const map = new g.maps.Map(containerRef.current, {

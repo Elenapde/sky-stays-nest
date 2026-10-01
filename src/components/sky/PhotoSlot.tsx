@@ -52,6 +52,8 @@ export function PhotoSlot({
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition }}
             loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 50vw, 100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon/90 via-carbon/25 to-transparent" />
         </>
