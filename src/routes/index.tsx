@@ -35,6 +35,27 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LodgingBusiness",
+          name: "Sky Stays",
+          description,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Asunción",
+            addressCountry: "PY",
+          },
+          areaServed: ["Villa Morra", "Ycuá Satí", "Recoleta"],
+          amenityFeature: [
+            { "@type": "LocationFeatureSpecification", name: "Check-in digital", value: true },
+            { "@type": "LocationFeatureSpecification", name: "Atención 24/7", value: true },
+          ],
+        }),
+      },
+    ],
   }),
   component: Index,
 });
