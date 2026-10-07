@@ -29,6 +29,9 @@ import monogram from "@/assets/sky-stays-monogram.png.asset.json";
 import { AsuncionMap } from "@/components/sky/AsuncionMap";
 import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { Reveal } from "@/components/sky/Reveal";
+import { useQuery } from "@tanstack/react-query";
+import { PropertyCard, PropertyCardSkeleton } from "@/components/sky/PropertyCard";
+import { getListings } from "@/lib/guesty.functions";
 import { StaySearch } from "@/components/sky/StaySearch";
 import { SuperhostBadge } from "@/components/sky/SuperhostBadge";
 
@@ -48,7 +51,6 @@ import {
   guide,
   journeys,
   locations,
-  properties,
   social,
   wa,
 } from "@/data/sky";
@@ -302,6 +304,11 @@ export function RoomsAndSuites() {
 /* ------------------------ 06 · Propiedades destacadas -------------------- */
 
 export function FeaturedProperties() {
+  const { data, isPending, isError } = useQuery({
+    queryKey: ["listings"],
+    queryFn: () => getListings(),
+    staleTime: 5 * 60_000,
+  });
   return (
     <Section tone="cream" id="alojamientos">
       <div className="flex flex-wrap items-end justify-between gap-6">
@@ -311,57 +318,22 @@ export function FeaturedProperties() {
         </CtaAnchor>
       </div>
 
-      <ul className="edge-fade mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {properties.map((p) => (
-          <li
-            key={p.id}
-            className="w-[78%] shrink-0 snap-start bg-card shadow-soft sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-3rem)/3)]"
-          >
-            <article className="flex h-full flex-col">
-              <PhotoSlot label={p.photo} ratio="4/3" />
-              <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-center justify-between gap-3">
-                  <p className="kicker text-primary-soft">{p.category}</p>
-                </div>
-
-                <h3 className="mt-3 text-xl text-primary">{p.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {p.building} · {p.zone}
-                </p>
-                <p className="mt-4 text-sm text-foreground/80">
-                  {p.guests} huéspedes · {p.beds}
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {p.amenities.map((a) => (
-                    <li
-                      key={a}
-                      className="border border-border-strong/25 px-2.5 py-1 text-[0.6875rem] text-primary"
-                    >
-                      {a}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6 flex items-end justify-between gap-4 border-t border-border pt-5">
-                  <p className="text-sm text-muted-foreground">
-                    Desde{" "}
-                    <span className="font-display text-xl text-primary">{p.from}</span>{" "}
-                    / noche
-                  </p>
-                </div>
-                <CtaAnchor
-                  href={wa(`Hola, quiero consultar disponibilidad de ${p.name} (${p.building}).`)}
-                  target="_blank"
-                  rel="noreferrer"
-                  size="sm"
-                  className="mt-5"
-                >
-                  Ver disponibilidad
-                </CtaAnchor>
-              </div>
-            </article>
-          </li>
-        ))}
-      </ul>
+      {isError ? (
+        <p className="mt-12 text-sm text-muted-foreground">
+          No pudimos cargar los alojamientos en este momento. Escribinos por WhatsApp y te ayudamos.
+        </p>
+      ) : (
+        <ul className="edge-fade mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {(isPending ? Array.from({ length: 3 }, () => null) : data).map((p, i) => (
+            <li
+              key={p?.id ?? i}
+              className="w-[78%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-3rem)/3)]"
+            >
+              {p ? <PropertyCard p={p} /> : <PropertyCardSkeleton />}
+            </li>
+          ))}
+        </ul>
+      )}
       <p className="kicker mt-2 text-muted-foreground">
         Deslizá para ver más alojamientos
       </p>

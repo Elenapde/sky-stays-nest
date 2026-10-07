@@ -1,10 +1,56 @@
 import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { Cta } from "./ui";
+import { wa } from "@/data/sky";
 
 const quick = ["Fin de semana", "Day Stay", "Negocios", "Estadía prolongada"];
+const TAG_PRESETS = ["Negocios", "Estadía prolongada"];
+
+function ymd(d: Date) {
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${m}-${day}`;
+}
+
+function nextWeekend() {
+  const fri = new Date();
+  fri.setDate(fri.getDate() + (((5 - fri.getDay() + 7) % 7) || 7));
+  const sun = new Date(fri);
+  sun.setDate(fri.getDate() + 2);
+  return { checkIn: ymd(fri), checkOut: ymd(sun) };
+}
 
 export function StaySearch() {
+  const navigate = useNavigate();
   const [preset, setPreset] = useState<string | null>(null);
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [guests, setGuests] = useState("2");
+  const [error, setError] = useState<string | null>(null);
+
+  function onPreset(item: string) {
+    if (item === "Day Stay") {
+      window.open(wa("Hola, quiero consultar por un Day Stay en Sky Stays."), "_blank", "noreferrer");
+      return;
+    }
+    const next = preset === item ? null : item;
+    setPreset(next);
+    if (next === "Fin de semana") {
+      const w = nextWeekend();
+      setCheckIn(w.checkIn);
+      setCheckOut(w.checkOut);
+      setError(null);
+    }
+  }
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!checkIn || !checkOut) return setError("Elegí las fechas de check-in y check-out.");
+    if (checkOut <= checkIn) return setError("El check-out tiene que ser posterior al check-in.");
+    setError(null);
+    const tag = preset && TAG_PRESETS.includes(preset) ? preset : undefined;
+    navigate({ to: "/alojamientos", search: { checkIn, checkOut, guests: Number(guests), tag } });
+  }
 
   return (
     <div id="buscador" className="scroll-mt-24">
@@ -13,16 +59,36 @@ export function StaySearch() {
 
         <form
           className="mt-6 grid gap-4 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={onSubmit}
+          noValidate
         >
           <Field label="Check-in">
-            <input type="date" className={inputClass} aria-label="Check-in" />
+            <input
+              type="date"
+              className={inputClass}
+              aria-label="Check-in"
+              value={checkIn}
+              min={ymd(new Date())}
+              onChange={(e) => setCheckIn(e.target.value)}
+            />
           </Field>
           <Field label="Check-out">
-            <input type="date" className={inputClass} aria-label="Check-out" />
+            <input
+              type="date"
+              className={inputClass}
+              aria-label="Check-out"
+              value={checkOut}
+              min={checkIn || ymd(new Date())}
+              onChange={(e) => setCheckOut(e.target.value)}
+            />
           </Field>
           <Field label="Huéspedes">
-            <select className={inputClass} aria-label="Huéspedes" defaultValue="2">
+            <select
+              className={inputClass}
+              aria-label="Huéspedes"
+              value={guests}
+              onChange={(e) => setGuests(e.target.value)}
+            >
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <option key={n} value={n}>
                   {n} {n === 1 ? "huésped" : "huéspedes"}
@@ -34,6 +100,11 @@ export function StaySearch() {
             Buscar
           </Cta>
         </form>
+        {error && (
+          <p role="alert" className="mt-3 text-sm text-destructive">
+            {error}
+          </p>
+        )}
 
         <div className="mt-7 flex flex-wrap items-center gap-2 border-t border-border pt-6">
           <span className="kicker mr-2 text-muted-foreground">Accesos rápidos</span>
@@ -41,7 +112,7 @@ export function StaySearch() {
             <button
               key={item}
               type="button"
-              onClick={() => setPreset(item)}
+              onClick={() => onPreset(item)}
               aria-pressed={preset === item}
               className={
                 "rounded-xs border px-4 py-2 text-xs transition-all duration-300 ease-brand " +
