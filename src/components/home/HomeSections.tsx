@@ -318,10 +318,15 @@ export function FeaturedProperties() {
         </CtaAnchor>
       </div>
 
-      {isError ? (
-        <p className="mt-12 text-sm text-muted-foreground">
-          No pudimos cargar los alojamientos en este momento. Escribinos por WhatsApp y te ayudamos.
-        </p>
+      {isError || (!isPending && data.length === 0) ? (
+        <div className="mt-12 flex flex-col items-start gap-4">
+          <p className="text-sm text-muted-foreground">
+            No pudimos cargar los alojamientos en este momento. Escribinos por WhatsApp y te ayudamos.
+          </p>
+          <CtaAnchor href={wa("Hola, quiero consultar disponibilidad.")} target="_blank" rel="noreferrer" size="sm">
+            Consultar por WhatsApp
+          </CtaAnchor>
+        </div>
       ) : (
         <ul className="edge-fade mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {(isPending ? Array.from({ length: 3 }, () => null) : data).map((p, i) => (

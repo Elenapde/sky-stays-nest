@@ -15,9 +15,8 @@ async function requestToken(): Promise<string> {
   const clientId = process.env["GUESTY_CLIENT_ID"];
   const clientSecret = process.env["GUESTY_CLIENT_SECRET"];
   if (!clientId || !clientSecret) throw new Error("Faltan credenciales de Guesty");
-  const blocked = (store as { blockedUntil?: number }).blockedUntil;
-  if (blocked && blocked > Date.now()) throw new Error("Guesty limitó temporalmente las conexiones");
   const res = await fetch(`${API}/oauth2/token`, {
+    signal: AbortSignal.timeout(TIMEOUT_MS),
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
     body: new URLSearchParams({
@@ -28,7 +27,9 @@ async function requestToken(): Promise<string> {
     }),
   });
   if (res.status === 429) {
-    (store as { blockedUntil?: number }).blockedUntil = Date.now() + 30 * 60 * 1000;
+    console.error("Guesty: límite diario de tokens alcanzado", res.status, await res.text());
+    await setBlocked(Date.now() + BLOCK_MS);
+    throw new Error("Guesty: límite diario de tokens alcanzado");
   }
   if (!res.ok) {
     console.error("Guesty token error", res.status, await res.text());
@@ -39,15 +40,42 @@ async function requestToken(): Promise<string> {
   return json.access_token;
 }
 
+const TIMEOUT_MS = 10_000;
+const BLOCK_MS = 60 * 60 * 1000;
+
+// Bloqueo compartido entre instancias del servidor (en Lovable Cloud) tras un 429.
+async function setBlocked(until: number) {
+  (store as { blockedUntil?: number }).blockedUntil = until;
+  try {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    await supabaseAdmin
+      .from("guesty_token")
+      .upsert({ id: 1, blocked_until: new Date(until).toISOString(), updated_at: new Date().toISOString() });
+  } catch (e) {
+    console.error("Guesty block save error", e);
+  }
+}
+
 async function loadOrRequestToken(): Promise<string> {
+  const memBlocked = (store as { blockedUntil?: number }).blockedUntil;
+  if (memBlocked && memBlocked > Date.now()) throw new Error("Guesty: límite diario de tokens alcanzado");
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   try {
-    const { data } = await supabaseAdmin.from("guesty_token").select("token, expires_at").eq("id", 1).maybeSingle();
-    if (data && new Date(data.expires_at).getTime() > Date.now()) {
+    const { data } = await supabaseAdmin
+      .from("guesty_token")
+      .select("token, expires_at, blocked_until")
+      .eq("id", 1)
+      .maybeSingle();
+    if (data?.token && data.expires_at && new Date(data.expires_at).getTime() > Date.now()) {
       store.cached = { token: data.token, expiresAt: new Date(data.expires_at).getTime() };
       return data.token;
     }
+    if (data?.blocked_until && new Date(data.blocked_until).getTime() > Date.now()) {
+      (store as { blockedUntil?: number }).blockedUntil = new Date(data.blocked_until).getTime();
+      throw new Error("Guesty: límite diario de tokens alcanzado");
+    }
   } catch (e) {
+    if (e instanceof Error && e.message.startsWith("Guesty:")) throw e;
     console.error("Guesty token load error", e);
   }
   const token = await requestToken();
@@ -56,6 +84,7 @@ async function loadOrRequestToken(): Promise<string> {
       id: 1,
       token,
       expires_at: new Date(store.cached!.expiresAt).toISOString(),
+      blocked_until: null,
       updated_at: new Date().toISOString(),
     });
   } catch (e) {
@@ -74,12 +103,12 @@ export async function guestyGet<T>(path: string, params?: Record<string, string 
   const url = new URL(path, API);
   for (const [k, v] of Object.entries(params ?? {})) if (v) url.searchParams.set(k, v);
   const doFetch = async () =>
-    fetch(url, { headers: { Authorization: `Bearer ${await getToken()}`, Accept: "application/json" } });
+    fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS), headers: { Authorization: `Bearer ${await getToken()}`, Accept: "application/json" } });
   let res = await doFetch();
   if (res.status === 401) {
     store.cached = null;
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    await supabaseAdmin.from("guesty_token").delete().eq("id", 1);
+    await supabaseAdmin.from("guesty_token").update({ token: null, expires_at: null }).eq("id", 1);
     res = await doFetch();
   }
   if (!res.ok) {
