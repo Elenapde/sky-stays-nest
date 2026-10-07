@@ -14,7 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      guesty_token: {
+        Row: {
+          expires_at: string
+          id: number
+          token: string
+          updated_at: string
+        }
+        Insert: {
+          expires_at: string
+          id?: number
+          token: string
+          updated_at?: string
+        }
+        Update: {
+          expires_at?: string
+          id?: number
+          token?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
