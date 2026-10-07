@@ -132,8 +132,8 @@ async function loadOrRequestToken(env: Env, forceNew: boolean): Promise<string> 
 async function getToken(env: Env, forceNew = false) {
   const c = store.cached[env];
   if (!forceNew && c && c.expiresAt > Date.now()) return c.token;
-  if (forceNew) store.cached[env] = undefined;
-  store.pending[env] ??= loadOrRequestToken(env, forceNew).finally(() => (store.pending[env] = undefined));
+  if (forceNew) delete store.cached[env];
+  store.pending[env] ??= loadOrRequestToken(env, forceNew).finally(() => { delete store.pending[env]; });
   return store.pending[env]!;
 }
 
