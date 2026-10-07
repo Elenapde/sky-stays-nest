@@ -54,7 +54,9 @@ export async function guestyGet<T>(path: string, params?: Record<string, string 
     console.error("Guesty API error", path, res.status, await res.text());
     throw new Error("Guesty no respondió correctamente");
   }
-  return res.json() as Promise<T>;
+  const j = await res.json();
+  (await import("node:fs")).appendFileSync("/tmp/guestydbg.log", "\n" + url.toString() + " => " + JSON.stringify(j).slice(0, 1500));
+  return j as T;
 }
 
 type RawListing = {
@@ -127,7 +129,6 @@ export async function fetchListings(params: Record<string, string | undefined> =
   let cursor: string | undefined;
   for (let i = 0; i < 10; i++) {
     const page = await guestyGet<Page>("/api/listings", { limit: "100", ...params, cursor });
-    (await import("node:fs")).appendFileSync("/tmp/guestydbg.log", "\n" + [url.toString()].join(" ") + " " +  JSON.stringify(params), cursor ? "c" : "-", page.results?.length, JSON.stringify(Object.keys(page)), JSON.stringify(page.results?.[0] ? Object.keys(page.results[0]) : []));
     all.push(...(page.results ?? []).map(normalize));
     cursor = page.pagination?.cursor?.next ?? undefined;
     if (!cursor) break;
