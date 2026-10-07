@@ -10,7 +10,7 @@ export const social = {
   badge: "Superanfitrión Airbnb",
 };
 
-export const whatsappNumber = "595981000000";
+export const whatsappNumber = "595971566000";
 export const ownersEmail = "propietarios@skystays.com.py";
 
 export function wa(message: string) {
