@@ -2,8 +2,8 @@
  * Datos públicos de Guesty, seguros para el navegador (sin credenciales).
  */
 
-/** URL base del booking engine de Sky Stays en Guesty. Cambiar por la real. */
-export const GUESTY_BOOKING_BASE_URL = "https://skystays.guestybookings.com";
+/** URL base del booking engine de Sky Stays en Guesty. */
+export const GUESTY_BOOKING_BASE_URL = "https://reservas.sky-stays.com";
 
 export type Listing = {
   id: string;
@@ -23,7 +23,7 @@ export type Listing = {
 export type StayParams = { checkIn?: string | undefined; checkOut?: string | undefined; guests?: number | undefined };
 
 export function bookingUrl(id: string, p: StayParams = {}) {
-  const url = new URL(`/properties/${encodeURIComponent(id)}`, GUESTY_BOOKING_BASE_URL);
+  const url = new URL(`/es/properties/${encodeURIComponent(id)}`, GUESTY_BOOKING_BASE_URL);
   if (p.checkIn && p.checkOut) {
     url.searchParams.set("checkIn", p.checkIn);
     url.searchParams.set("checkOut", p.checkOut);
