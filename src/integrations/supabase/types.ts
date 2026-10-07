@@ -16,21 +16,24 @@ export type Database = {
     Tables: {
       guesty_token: {
         Row: {
-          expires_at: string
+          blocked_until: string | null
+          expires_at: string | null
           id: number
-          token: string
+          token: string | null
           updated_at: string
         }
         Insert: {
-          expires_at: string
+          blocked_until?: string | null
+          expires_at?: string | null
           id?: number
-          token: string
+          token?: string | null
           updated_at?: string
         }
         Update: {
-          expires_at?: string
+          blocked_until?: string | null
+          expires_at?: string | null
           id?: number
-          token?: string
+          token?: string | null
           updated_at?: string
         }
         Relationships: []
