@@ -19,8 +19,8 @@ export function PhotoSlot({
   className?: string;
   tone?: "burgundy" | "nude" | "carbon";
   ratio?: string;
-  src?: string;
-  alt?: string;
+  src?: string | undefined;
+  alt?: string | undefined;
   objectPosition?: string;
 }) {
   const tones = {

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlojamientosRouteImport } from './routes/alojamientos'
 import { Route as CorporateLongStayRouteImport } from './routes/corporate-long-stay'
 import { Route as GuiaDeAsuncionRouteImport } from './routes/guia-de-asuncion'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -17,6 +18,11 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlojamientosRoute = AlojamientosRouteImport.update({
+  id: '/alojamientos',
+  path: '/alojamientos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CorporateLongStayRoute = CorporateLongStayRouteImport.update({
@@ -37,12 +43,14 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alojamientos': typeof AlojamientosRoute
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alojamientos': typeof AlojamientosRoute
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -50,18 +58,30 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alojamientos': typeof AlojamientosRoute
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/corporate-long-stay' | '/guia-de-asuncion' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/alojamientos'
+    | '/corporate-long-stay'
+    | '/guia-de-asuncion'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/corporate-long-stay' | '/guia-de-asuncion' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/alojamientos'
+    | '/corporate-long-stay'
+    | '/guia-de-asuncion'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
+    | '/alojamientos'
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
@@ -69,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlojamientosRoute: typeof AlojamientosRoute
   CorporateLongStayRoute: typeof CorporateLongStayRoute
   GuiaDeAsuncionRoute: typeof GuiaDeAsuncionRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -81,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alojamientos': {
+      id: '/alojamientos'
+      path: '/alojamientos'
+      fullPath: '/alojamientos'
+      preLoaderRoute: typeof AlojamientosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/corporate-long-stay': {
@@ -109,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlojamientosRoute: AlojamientosRoute,
   CorporateLongStayRoute: CorporateLongStayRoute,
   GuiaDeAsuncionRoute: GuiaDeAsuncionRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
