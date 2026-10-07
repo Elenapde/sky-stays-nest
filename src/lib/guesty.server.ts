@@ -124,6 +124,7 @@ export async function fetchListings(params: Record<string, string | undefined> =
   let cursor: string | undefined;
   for (let i = 0; i < 10; i++) {
     const page = await guestyGet<Page>("/api/listings", { limit: "100", ...params, cursor });
+    console.log("GUESTYDBG", JSON.stringify(params), cursor ? "c" : "-", page.results?.length, JSON.stringify(Object.keys(page)), JSON.stringify(page.results?.[0] ? Object.keys(page.results[0]) : []));
     all.push(...(page.results ?? []).map(normalize));
     cursor = page.pagination?.cursor?.next ?? undefined;
     if (!cursor) break;
