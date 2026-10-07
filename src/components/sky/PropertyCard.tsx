@@ -2,7 +2,7 @@ import { PhotoSlot } from "@/components/sky/PhotoSlot";
 import { CtaAnchor } from "@/components/sky/ui";
 import { bookingUrl, formatPrice, type Listing, type StayParams } from "@/lib/guesty-config";
 
-export function PropertyCard({ p, stay }: { p: Listing; stay?: StayParams }) {
+export function PropertyCard({ p, stay }: { p: Listing; stay?: StayParams | undefined }) {
   const price = formatPrice(p.price, p.currency);
   const details = [
     p.bedrooms ? `${p.bedrooms} ${p.bedrooms === 1 ? "dormitorio" : "dormitorios"}` : null,
