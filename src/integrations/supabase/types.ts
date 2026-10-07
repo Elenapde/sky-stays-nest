@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      guesty_listings_cache: {
+        Row: {
+          env: string
+          fetched_at: string
+          listings: Json
+        }
+        Insert: {
+          env: string
+          fetched_at?: string
+          listings: Json
+        }
+        Update: {
+          env?: string
+          fetched_at?: string
+          listings?: Json
+        }
+        Relationships: []
+      }
       guesty_token: {
         Row: {
           blocked_until: string | null
@@ -35,6 +53,27 @@ export type Database = {
           id?: number
           token?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      guesty_token_requests: {
+        Row: {
+          env: string
+          id: number
+          requested_at: string
+          status: number | null
+        }
+        Insert: {
+          env: string
+          id?: never
+          requested_at?: string
+          status?: number | null
+        }
+        Update: {
+          env?: string
+          id?: never
+          requested_at?: string
+          status?: number | null
         }
         Relationships: []
       }
