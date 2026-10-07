@@ -15,6 +15,8 @@ async function requestToken(): Promise<string> {
   const clientId = process.env["GUESTY_CLIENT_ID"];
   const clientSecret = process.env["GUESTY_CLIENT_SECRET"];
   if (!clientId || !clientSecret) throw new Error("Faltan credenciales de Guesty");
+  const blocked = (store as { blockedUntil?: number }).blockedUntil;
+  if (blocked && blocked > Date.now()) throw new Error("Guesty limitó temporalmente las conexiones");
   const res = await fetch(`${API}/oauth2/token`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
@@ -25,6 +27,9 @@ async function requestToken(): Promise<string> {
       client_secret: clientSecret,
     }),
   });
+  if (res.status === 429) {
+    (store as { blockedUntil?: number }).blockedUntil = Date.now() + 30 * 60 * 1000;
+  }
   if (!res.ok) {
     console.error("Guesty token error", res.status, await res.text());
     throw new Error("No se pudo autenticar con Guesty");
