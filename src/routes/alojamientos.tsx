@@ -10,7 +10,7 @@ import { CtaAnchor, Section, SectionHead } from "@/components/sky/ui";
 import { wa } from "@/data/sky";
 import { getListings, searchListings } from "@/lib/guesty.functions";
 
-type Search = { checkIn?: string; checkOut?: string; guests?: number; tag?: string };
+type Search = { checkIn?: string | undefined; checkOut?: string | undefined; guests?: number | undefined; tag?: string | undefined };
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 const title = "Alojamientos en Asunción | Sky Rooms y Sky Suites — Sky Stays";
@@ -19,10 +19,10 @@ const description =
 
 export const Route = createFileRoute("/alojamientos")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    checkIn: typeof s.checkIn === "string" && DATE.test(s.checkIn) ? s.checkIn : undefined,
-    checkOut: typeof s.checkOut === "string" && DATE.test(s.checkOut) ? s.checkOut : undefined,
-    guests: Number(s.guests) > 0 ? Math.floor(Number(s.guests)) : undefined,
-    tag: typeof s.tag === "string" && s.tag ? s.tag : undefined,
+    checkIn: typeof s["checkIn"] === "string" && DATE.test(s["checkIn"]) ? s["checkIn"] : undefined,
+    checkOut: typeof s["checkOut"] === "string" && DATE.test(s["checkOut"]) ? s["checkOut"] : undefined,
+    guests: Number(s["guests"]) > 0 ? Math.floor(Number(s["guests"])) : undefined,
+    tag: typeof s["tag"] === "string" && s["tag"] ? s["tag"] : undefined,
   }),
   head: () => ({
     meta: [

@@ -20,7 +20,7 @@ export type Listing = {
   photos: string[];
 };
 
-export type StayParams = { checkIn?: string; checkOut?: string; guests?: number };
+export type StayParams = { checkIn?: string | undefined; checkOut?: string | undefined; guests?: number | undefined };
 
 export function bookingUrl(id: string, p: StayParams = {}) {
   const url = new URL(`/properties/${encodeURIComponent(id)}`, GUESTY_BOOKING_BASE_URL);

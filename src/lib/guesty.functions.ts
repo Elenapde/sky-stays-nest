@@ -8,7 +8,7 @@ export const getListings = createServerFn({ method: "GET" }).handler(async () =>
 });
 
 export const searchListings = createServerFn({ method: "GET" })
-  .inputValidator((d: { checkIn: string; checkOut: string; guests: number; tag?: string }) => {
+  .validator((d: { checkIn: string; checkOut: string; guests: number; tag?: string }) => {
     if (!DATE.test(d.checkIn) || !DATE.test(d.checkOut)) throw new Error("Fechas inválidas");
     if (d.checkOut <= d.checkIn) throw new Error("El check-out debe ser posterior al check-in");
     const guests = Math.max(1, Math.min(20, Math.floor(Number(d.guests) || 1)));
@@ -25,7 +25,7 @@ export const searchListings = createServerFn({ method: "GET" })
   });
 
 export const getListing = createServerFn({ method: "GET" })
-  .inputValidator((d: { id: string }) => {
+  .validator((d: { id: string }) => {
     if (!/^[A-Za-z0-9_-]{1,64}$/.test(d.id)) throw new Error("ID inválido");
     return d;
   })
