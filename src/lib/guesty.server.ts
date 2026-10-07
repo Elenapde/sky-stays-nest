@@ -5,8 +5,11 @@ const CATEGORIES = ["Sky Rooms", "Sky Suites"];
 const FILTER_TAGS = ["negocios", "estadía prolongada", "estadia prolongada"];
 
 // Token cacheado en memoria del servidor hasta su vencimiento.
-let cached: { token: string; expiresAt: number } | null = null;
-let pending: Promise<string> | null = null;
+// Guardado en globalThis para sobrevivir recargas del módulo.
+const store = ((globalThis as Record<string, unknown>)["__guestyToken"] ??= {
+  cached: null,
+  pending: null,
+}) as { cached: { token: string; expiresAt: number } | null; pending: Promise<string> | null };
 
 async function requestToken(): Promise<string> {
   const clientId = process.env["GUESTY_CLIENT_ID"];
@@ -27,14 +30,14 @@ async function requestToken(): Promise<string> {
     throw new Error("No se pudo autenticar con Guesty");
   }
   const json = (await res.json()) as { access_token: string; expires_in: number };
-  cached = { token: json.access_token, expiresAt: Date.now() + (json.expires_in - 300) * 1000 };
+  store.cached = { token: json.access_token, expiresAt: Date.now() + (json.expires_in - 300) * 1000 };
   return json.access_token;
 }
 
 async function getToken() {
-  if (cached && cached.expiresAt > Date.now()) return cached.token;
-  pending ??= requestToken().finally(() => (pending = null));
-  return pending;
+  if (store.cached && store.cached.expiresAt > Date.now()) return store.cached.token;
+  store.pending ??= requestToken().finally(() => (store.pending = null));
+  return store.pending;
 }
 
 export async function guestyGet<T>(path: string, params?: Record<string, string | undefined>): Promise<T> {
@@ -44,7 +47,7 @@ export async function guestyGet<T>(path: string, params?: Record<string, string 
     fetch(url, { headers: { Authorization: `Bearer ${await getToken()}`, Accept: "application/json" } });
   let res = await doFetch();
   if (res.status === 401) {
-    cached = null;
+    store.cached = null;
     res = await doFetch();
   }
   if (!res.ok) {
@@ -124,7 +127,7 @@ export async function fetchListings(params: Record<string, string | undefined> =
   let cursor: string | undefined;
   for (let i = 0; i < 10; i++) {
     const page = await guestyGet<Page>("/api/listings", { limit: "100", ...params, cursor });
-    console.log("GUESTYDBG", JSON.stringify(params), cursor ? "c" : "-", page.results?.length, JSON.stringify(Object.keys(page)), JSON.stringify(page.results?.[0] ? Object.keys(page.results[0]) : []));
+    (await import("node:fs")).appendFileSync("/tmp/guestydbg.log", "\n" + [url.toString()].join(" ") + " " +  JSON.stringify(params), cursor ? "c" : "-", page.results?.length, JSON.stringify(Object.keys(page)), JSON.stringify(page.results?.[0] ? Object.keys(page.results[0]) : []));
     all.push(...(page.results ?? []).map(normalize));
     cursor = page.pagination?.cursor?.next ?? undefined;
     if (!cursor) break;
