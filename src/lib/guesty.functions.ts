@@ -3,8 +3,8 @@ import { createServerFn } from "@tanstack/react-start";
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 export const getListings = createServerFn({ method: "GET" }).handler(async () => {
-  const { fetchListings } = await import("./guesty.server");
-  return fetchListings();
+  const { cachedListings } = await import("./guesty.server");
+  return cachedListings();
 });
 
 export const searchListings = createServerFn({ method: "GET" })
