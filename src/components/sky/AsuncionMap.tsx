@@ -211,6 +211,7 @@ export function AsuncionMap({
           disableDefaultUI: true,
           zoomControl: true,
           gestureHandling: "cooperative",
+          clickableIcons: false,
           styles: MAP_STYLES,
         });
         mapRef.current = map;
