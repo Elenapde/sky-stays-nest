@@ -54,9 +54,7 @@ export async function guestyGet<T>(path: string, params?: Record<string, string 
     console.error("Guesty API error", path, res.status, await res.text());
     throw new Error("Guesty no respondió correctamente");
   }
-  const j = await res.json();
-  (await import("node:fs")).appendFileSync("/tmp/guestydbg.log", "\n" + url.toString() + " => " + JSON.stringify(j).slice(0, 1500));
-  return j as T;
+  return res.json() as Promise<T>;
 }
 
 type RawListing = {
