@@ -69,6 +69,7 @@ type RawListing = {
   amenities?: string[];
   prices?: { basePrice?: number; currency?: string };
   nightlyRates?: Record<string, number>;
+  allotment?: number;
   picture?: { original?: string; large?: string; thumbnail?: string };
   pictures?: { original?: string; large?: string; thumbnail?: string }[];
 };
@@ -127,7 +128,12 @@ export async function fetchListings(params: Record<string, string | undefined> =
   let cursor: string | undefined;
   for (let i = 0; i < 10; i++) {
     const page = await guestyGet<Page>("/api/listings", { limit: "100", ...params, cursor });
-    all.push(...(page.results ?? []).map(normalize));
+    const dated = !!params["checkIn"];
+    const rows = (page.results ?? []).filter(
+      // Con fechas, descartamos lo que Guesty marca sin cupo o sin tarifa.
+      (l) => !dated || ((l.allotment ?? 1) > 0 && (!l.nightlyRates || Object.keys(l.nightlyRates).length > 0)),
+    );
+    all.push(...rows.map(normalize));
     cursor = page.pagination?.cursor?.next ?? undefined;
     if (!cursor) break;
   }
