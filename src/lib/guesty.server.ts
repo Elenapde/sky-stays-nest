@@ -34,9 +34,34 @@ async function requestToken(): Promise<string> {
   return json.access_token;
 }
 
+async function loadOrRequestToken(): Promise<string> {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  try {
+    const { data } = await supabaseAdmin.from("guesty_token").select("token, expires_at").eq("id", 1).maybeSingle();
+    if (data && new Date(data.expires_at).getTime() > Date.now()) {
+      store.cached = { token: data.token, expiresAt: new Date(data.expires_at).getTime() };
+      return data.token;
+    }
+  } catch (e) {
+    console.error("Guesty token load error", e);
+  }
+  const token = await requestToken();
+  try {
+    await supabaseAdmin.from("guesty_token").upsert({
+      id: 1,
+      token,
+      expires_at: new Date(store.cached!.expiresAt).toISOString(),
+      updated_at: new Date().toISOString(),
+    });
+  } catch (e) {
+    console.error("Guesty token save error", e);
+  }
+  return token;
+}
+
 async function getToken() {
   if (store.cached && store.cached.expiresAt > Date.now()) return store.cached.token;
-  store.pending ??= requestToken().finally(() => (store.pending = null));
+  store.pending ??= loadOrRequestToken().finally(() => (store.pending = null));
   return store.pending;
 }
 
@@ -48,6 +73,8 @@ export async function guestyGet<T>(path: string, params?: Record<string, string 
   let res = await doFetch();
   if (res.status === 401) {
     store.cached = null;
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    await supabaseAdmin.from("guesty_token").delete().eq("id", 1);
     res = await doFetch();
   }
   if (!res.ok) {
