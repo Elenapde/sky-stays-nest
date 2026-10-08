@@ -830,7 +830,7 @@ export function AsuncionGuide() {
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
-                    label={g.photo}
+                    label=""
                     {...(srcMap[g.id] ? { src: srcMap[g.id] } : {})}
                     alt={g.title}
                     ratio="4/3"
