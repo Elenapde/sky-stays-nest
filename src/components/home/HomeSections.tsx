@@ -1,3 +1,4 @@
+import takuareeGuidePhoto from "@/assets/guia-takuaree.png.asset.json";
 import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import coworking from "@/assets/sky-stays-coworking.png.asset.json";
@@ -819,6 +820,7 @@ export function AsuncionGuide() {
         {guide.map((g, i) => {
           const srcMap: Record<string, string> = {
             "asuncion-48-horas": costaneraPhoto.url,
+            "donde-comer-villa-morra": takuareeGuidePhoto.url,
             "mejores-barrios-para-hospedarse": barriosPhoto.url,
             "asuncion-viajes-de-negocios": negociosAerialPhoto.url,
           };
