@@ -16,15 +16,16 @@ import recoletaPhoto from "@/assets/sky-stays-recoleta.png.asset.json";
 import ycuaSatiPhoto from "@/assets/sky-stays-ycua-sati.png.asset.json";
 import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
-import mapBuildingAgoraJpg from "@/assets/building-agora.jpg.asset.json";
+import mapBuildingAgoraJpg from "@/assets/building-agora-v2.jpg.asset.json";
 import mapBuildingForvmMolasLopezJpg from "@/assets/building-forvm-molas-lopez.jpg.asset.json";
 import mapBuildingLifeMariscalJpg from "@/assets/building-life-mariscal-v2.jpg.asset.json";
 import mapBuildingLifeRecoletaJpg from "@/assets/building-life-recoleta.jpg.asset.json";
 import mapBuildingLifeSantaTeresaJpg from "@/assets/building-life-santa-teresa.jpg.asset.json";
 import mapBuildingPetraTowerPng from "@/assets/building-petra-tower.png.asset.json";
-import mapBuildingSpiritBruselasJpg from "@/assets/building-spirit-bruselas.jpg.asset.json";
+import mapBuildingSpiritBruselasJpg from "@/assets/building-spirit-bruselas-v2.jpg.asset.json";
 import mapBuildingSpiritDeGaullePng from "@/assets/building-spirit-de-gaulle.png.asset.json";
 import mapBuildingSpiritVillaMorraJpg from "@/assets/building-spirit-villa-morra.jpg.asset.json";
+import mapBuildingSpiritMariscalJpg from "@/assets/building-spirit-mariscal.jpg.asset.json";
 import mapPoi2AcuarelaPng from "@/assets/poi2-acuarela.png.asset.json";
 import mapPoi2AlmaCocinaConFuegosPng from "@/assets/poi2-alma-cocina-con-fuegos.png.asset.json";
 import mapPoi2AlmarreinaPng from "@/assets/poi2-almarreina.png.asset.json";
@@ -209,6 +210,7 @@ staysUrl: "/alojamientos?edificio=spirit-de-gaulle",
     mapsUrl: "https://maps.app.goo.gl/rHYWJec2KCg6aU4E6",
     lat: -25.296828,
     lng: -57.5809934,
+    image: mapBuildingSpiritMariscalJpg.url,
     staysUrl: "/alojamientos?edificio=spirit-mariscal",
   },
   {
@@ -221,16 +223,6 @@ staysUrl: "/alojamientos?edificio=spirit-de-gaulle",
     lng: -57.5839537,
         image: mapBuildingSpiritVillaMorraJpg.url,
 staysUrl: "/alojamientos?edificio=spirit-villa-morra",
-  },
-  {
-    id: "life-de-gaulle",
-    name: "Life de Gaulle",
-    barrio: "Recoleta",
-    zone: "recoleta",
-    mapsUrl: "https://maps.app.goo.gl/mTyFZSDtFPGKmiNX6",
-    lat: -25.301143,
-    lng: -57.5869069,
-    staysUrl: "/alojamientos?edificio=life-de-gaulle",
   },
   {
     id: "life-recoleta",
