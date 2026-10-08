@@ -1,4 +1,4 @@
-import superhost from "@/assets/airbnb-superhost.png.asset.json";
+import superhost from "@/assets/airbnb-superhost-v2.png.asset.json";
 import { cn } from "@/lib/utils";
 import { social } from "@/data/sky";
 
