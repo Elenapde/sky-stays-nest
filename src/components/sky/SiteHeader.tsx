@@ -28,8 +28,8 @@ function changeLang(code: string) {
 function loadTranslator() {
   if (document.getElementById("gt-script")) return;
   const w = window as unknown as Record<string, unknown>;
-  w.googleTranslateElementInit = () => {
-    const g = (w.google as { translate: { TranslateElement: new (o: object, id: string) => unknown } });
+  w["googleTranslateElementInit"] = () => {
+    const g = (w["google"] as { translate: { TranslateElement: new (o: object, id: string) => unknown } });
     new g.translate.TranslateElement({ pageLanguage: "es", includedLanguages: "es,pt,en", autoDisplay: false }, "gt-element");
   };
   const el = document.createElement("div");
