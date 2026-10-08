@@ -251,3 +251,13 @@
     }
   }
 }
+
+/* Ocultar la barra y los globos de Google Translate */
+.goog-te-banner-frame,
+iframe.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
+body { top: 0 !important; }
+font[style] { background: transparent !important; box-shadow: none !important; }

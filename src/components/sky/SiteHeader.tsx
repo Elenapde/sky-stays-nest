@@ -6,6 +6,63 @@ import { CtaAnchor } from "./ui";
 
 const languages = ["ES", "PT", "EN"];
 
+function readLang(): string {
+  const m = document.cookie.match(/(?:^|; )googtrans=\/es\/(pt|en)/);
+  return m?.[1] ? m[1].toUpperCase() : "ES";
+}
+
+function changeLang(code: string) {
+  const host = window.location.hostname;
+  const domains = ["", host, `.${host.split(".").slice(-2).join(".")}`];
+  for (const d of domains) {
+    const dom = d ? `; domain=${d}` : "";
+    if (code === "ES") {
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${dom}`;
+    } else {
+      document.cookie = `googtrans=/es/${code.toLowerCase()}; path=/${dom}`;
+    }
+  }
+  window.location.reload();
+}
+
+function loadTranslator() {
+  if (document.getElementById("gt-script")) return;
+  const w = window as unknown as Record<string, unknown>;
+  w["googleTranslateElementInit"] = () => {
+    const g = (w["google"] as { translate: { TranslateElement: new (o: object, id: string) => unknown } });
+    new g.translate.TranslateElement({ pageLanguage: "es", includedLanguages: "es,pt,en", autoDisplay: false }, "gt-element");
+  };
+  const el = document.createElement("div");
+  el.id = "gt-element";
+  el.style.display = "none";
+  document.body.appendChild(el);
+  const s = document.createElement("script");
+  s.id = "gt-script";
+  s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  document.body.appendChild(s);
+}
+
+function LangSwitch({ lang, className }: { lang: string; className?: string }) {
+  return (
+    <div className={cn("items-center gap-1", className)} role="group" aria-label="Idioma">
+      {languages.map((code) => (
+        <button
+          key={code}
+          onClick={() => code !== lang && changeLang(code)}
+          aria-pressed={lang === code}
+          translate="no"
+          className={cn(
+            "notranslate kicker px-1.5 py-1 transition-colors duration-300",
+            lang === code ? "text-nude" : "text-nude/45 hover:text-nude/80",
+          )}
+        >
+          {code}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -16,6 +73,13 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const current = readLang();
+    setLang(current);
+    document.documentElement.lang = current.toLowerCase();
+    if (current !== "ES") loadTranslator();
   }, []);
 
   return (
@@ -70,25 +134,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div
-            className="hidden items-center gap-1 md:flex"
-            role="group"
-            aria-label="Idioma"
-          >
-            {languages.map((code) => (
-              <button
-                key={code}
-                onClick={() => setLang(code)}
-                aria-pressed={lang === code}
-                className={cn(
-                  "kicker px-1.5 py-1 transition-colors duration-300",
-                  lang === code ? "text-nude" : "text-nude/45 hover:text-nude/80",
-                )}
-              >
-                {code}
-              </button>
-            ))}
-          </div>
+          <LangSwitch lang={lang} className="hidden md:flex" />
           <CtaAnchor href="#buscador" variant="nude" size="sm" className="hidden sm:inline-flex">
             Reservar
           </CtaAnchor>
@@ -132,6 +178,7 @@ export function SiteHeader() {
               </div>
             </div>
           ))}
+          <LangSwitch lang={lang} className="flex border-b border-nude/10 py-4 md:hidden" />
           <div className="grid gap-3 py-5">
             <a href="/corporate-long-stay" className="kicker text-nude">
               Corporate & Long Stay
