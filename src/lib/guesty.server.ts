@@ -161,12 +161,16 @@ export async function guestyGet<T>(path: string, params?: Record<string, string 
 
 /* ---------- Lista sin fechas guardada en la base (refresco cada 10 min) ---------- */
 const CACHE_MS = 10 * 60 * 1000;
+/** Cocheras/garages no se reservan desde el sitio. */
+const GARAGE = /garage|garaje|cochera|parking/i;
+const isGarage = (l: { title?: string; nickname?: string; tags?: string[] }) =>
+  [l.title, l.nickname, ...(l.tags ?? [])].some((s) => !!s && GARAGE.test(s));
 
 export async function cachedListings(): Promise<Listing[]> {
   const env = await currentEnv();
   const db = await admin();
   const { data } = await db.from("guesty_listings_cache").select("listings, fetched_at").eq("env", env).maybeSingle();
-  const saved = (data?.listings as Listing[] | undefined) ?? null;
+  const saved = ((data?.listings as Listing[] | undefined) ?? null)?.filter((l) => !GARAGE.test(l.name)) ?? null;
   if (saved && Date.now() - new Date(data!.fetched_at).getTime() < CACHE_MS) return saved;
   try {
     const fresh = await fetchListings();
@@ -260,7 +264,7 @@ export async function fetchListings(params: Record<string, string | undefined> =
       // Con fechas, descartamos lo que Guesty marca sin cupo o sin tarifa.
       (l) => !dated || ((l.allotment ?? 1) > 0 && (!l.nightlyRates || Object.keys(l.nightlyRates).length > 0)),
     );
-    all.push(...rows.map(normalize));
+    all.push(...rows.filter((l) => !isGarage(l)).map(normalize));
     cursor = page.pagination?.cursor?.next ?? undefined;
     if (!cursor) break;
   }
