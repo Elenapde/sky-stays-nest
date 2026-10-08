@@ -15,8 +15,8 @@ export const searchListings = createServerFn({ method: "GET" })
     return { checkIn: d.checkIn, checkOut: d.checkOut, guests, tag: d.tag?.slice(0, 60) };
   })
   .handler(async ({ data }) => {
-    const { fetchListings } = await import("./guesty.server");
-    return fetchListings({
+    const { cachedSearch } = await import("./guesty.server");
+    return cachedSearch({
       checkIn: data.checkIn,
       checkOut: data.checkOut,
       minOccupancy: String(data.guests),

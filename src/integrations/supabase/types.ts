@@ -32,6 +32,24 @@ export type Database = {
         }
         Relationships: []
       }
+      guesty_search_cache: {
+        Row: {
+          fetched_at: string
+          key: string
+          listings: Json
+        }
+        Insert: {
+          fetched_at?: string
+          key: string
+          listings: Json
+        }
+        Update: {
+          fetched_at?: string
+          key?: string
+          listings?: Json
+        }
+        Relationships: []
+      }
       guesty_token: {
         Row: {
           blocked_until: string | null
