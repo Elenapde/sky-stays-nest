@@ -9,7 +9,7 @@ import minimarket from "@/assets/sky-stays-minimarket.png.asset.json";
 import gastronomia from "@/assets/sky-stays-gastronomia.png.asset.json";
 import skyRooms from "@/assets/sky-stays-sky-rooms.jpg.asset.json";
 import skySuites from "@/assets/sky-stays-sky-suites.jpg.asset.json";
-import superhostLogo from "@/assets/airbnb-superhost.png.asset.json";
+import superhostLogo from "@/assets/airbnb-superhost-v2.png.asset.json";
 import negociosPhoto from "@/assets/sky-stays-negocios.png.asset.json";
 import escapadasPhoto from "@/assets/sky-stays-escapadas.png.asset.json";
 import longStayPhoto from "@/assets/sky-stays-long-stay.png.asset.json";
