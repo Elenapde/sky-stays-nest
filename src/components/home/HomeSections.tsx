@@ -1,3 +1,4 @@
+import * as React from "react";
 import takuareeGuidePhoto from "@/assets/guia-takuaree.png.asset.json";
 import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
@@ -708,28 +709,49 @@ export function CorporateLongStay() {
 
 /* ------------------------------ 12 · Reviews ---------------------------- */
 
-const reviews = [
-  {
-    text: "Reemplazar por reviews reales de Airbnb, Booking y canales propios. Cada reseña debe incluir rating, extracto textual, nombre, país o ciudad y plataforma de origen.",
-    name: "Pendiente de carga",
-    place: "—",
-    platform: "Airbnb",
-  },
-  {
-    text: "Espacio reservado para reseña real. No se publican testimonios ficticios ni redactados como publicidad.",
-    name: "Pendiente de carga",
-    place: "—",
-    platform: "Booking",
-  },
-  {
-    text: "Espacio reservado para reseña real verificada por el equipo Sky Stays.",
-    name: "Pendiente de carga",
-    place: "—",
-    platform: "Google",
-  },
+type GuestReview = { name: string; platform: string; text: string; country?: string };
+
+// Fuente: planilla "Reseñas" (Google Sheets).
+const reviews: GuestReview[] = [
+  { name: "Adam", platform: "Airbnb", text: "¡Un departamento elegante y muy bonito! ¡Se lo recomendaría a todo el mundo!", country: "Reino Unido" },
+  { name: "Adrian", platform: "Airbnb", text: "Una experiencia excelente, como siempre. Uno de los mejores alojamientos en Airbnb de Asunción para viajeros que viajan solos." },
+  { name: "Nils", platform: "Airbnb", text: "Excelente alojamiento para estancias cortas o largas. En el corazón de Asunción, en un barrio muy transitable, seguro y tranquilo, y lo más importante: Anfitrión muy atento y rápido para responder. Gracias :)" },
+  { name: "Cynthia", platform: "Airbnb", text: "Quedé encantada con el lugar! La estadía estuvo perfecta. La ubicación ideal. Los volvería a elegir el próximo viaje. El lugar reluciente e impecable.", country: "Argentina" },
+  { name: "Juliana", platform: "Airbnb", text: "Departamento hermoso, espacioso, funcional y acogedor. ¡Todo pensado hasta el más mínimo detalle! ¡Una de las mejores estadías que he tenido!", country: "Brasil" },
+  { name: "Victoria", platform: "Airbnb", text: "Excelente alojamiento, accesible en precio. Ademas, super amplio para tener la privacidad suficiente. Por otro lado, esta en una de las avenidas principales por lo que tenes acceso a una buena zona de bares, restaurantes y shopping. La host fue muy atenta a todos los pedidos y siempre muy proactiva por dar una solución", country: "Argentina" },
+  { name: "Kipita", platform: "Airbnb", text: "Alojamiento muy bien ubicado y muy limpio ! Los anfitriones fueron muy reactivos y muy amables ! Recomendado al 100% ! Aguyje", country: "Francia" },
+  { name: "Daniel", platform: "Airbnb", text: "Muy satisfecho. La habitación estaba muy limpia. Muy buena vista. A pie, se puede llegar al Shopping del Sol o al Paseo La Galería en 15 minutos." },
+  { name: "Jens-Uwe", platform: "Airbnb", text: "Muy bueno. La mejor ubicación. El portero es muy amable. Me hospedaría de nuevo.", country: "Alemania" },
+  { name: "Aranda", platform: "Booking", text: "Limpio, moderno, excelente comunicación, trato muy atento y tanto muy profesional", country: "España" },
+  { name: "Romero", platform: "Booking", text: "El recibimiento con agua fue estupendo. El departamento muy cómodo y agradable. Me encantó.", country: "Chile" },
+  { name: "Pablo", platform: "Booking", text: "Hermosa torre, hermoso monoambiente y hermosa vista desde la altura.", country: "Argentina" },
+  { name: "Thomas", platform: "Expedia", text: "We enjoyed ourselves very much. The apartment was very clean and the location we in a very nice neighborhood. I highly recommend this apartment.", country: "USA" },
+  { name: "Sergio", platform: "Expedia", text: "Foi exatamente como nas fotos: tudo muito limpo, moderno e bem cuidado. A localização é excelente, com fácil acesso aos principais pontos turísticos da cidade. A área de priscila é ótima para relaxar e a academia atendeu às necessidades do dia a dia. Lugar excelente para se hospedar em Assunção, recomendo que fiquem, sem medo.", country: "Brasil" },
 ];
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function useRotatingReviews(count: number, intervalMs = 9000) {
+  const [order, setOrder] = React.useState(reviews);
+  const [page, setPage] = React.useState(0);
+  React.useEffect(() => {
+    setOrder(shuffle(reviews));
+    const t = setInterval(() => setPage((p) => p + 1), intervalMs);
+    return () => clearInterval(t);
+  }, [intervalMs]);
+  const start = (page * count) % order.length;
+  return Array.from({ length: count }, (_, i) => order[(start + i) % order.length]);
+}
+
 export function Reviews() {
+  const visible = useRotatingReviews(3);
   return (
     <Section>
       <div className="flex flex-wrap items-end justify-between gap-8">
@@ -746,15 +768,18 @@ export function Reviews() {
       </div>
 
       <ul className="mt-12 grid gap-6 md:grid-cols-3">
-        {reviews.map((r, i) => (
+        {visible.map((r, i) => (
           <Reveal as="li" key={i} delay={i * 80}>
-            <blockquote className="flex h-full flex-col border border-border bg-card p-7">
+            <blockquote
+              key={r.name}
+              className="flex h-full flex-col border border-border bg-card p-7 animate-in fade-in duration-700"
+            >
               <p className="flex-1 text-sm leading-relaxed text-foreground/80">
                 “{r.text}”
               </p>
               <footer className="mt-6 border-t border-border pt-4 text-xs text-muted-foreground">
-                <span className="font-semibold text-primary">{r.name}</span> · {r.place}{" "}
-                · {r.platform}
+                <span className="font-semibold text-primary">{r.name}</span>
+                {r.country ? ` · ${r.country}` : ""} · {r.platform}
               </footer>
             </blockquote>
           </Reveal>
