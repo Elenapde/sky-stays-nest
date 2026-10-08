@@ -150,17 +150,17 @@ export const nav = [
     label: "Alojamientos",
     items: [
       { label: "Todos", to: "/alojamientos" },
-      { label: "Sky Rooms", to: "/sky-rooms" },
-      { label: "Sky Suites", to: "/sky-suites" },
-      { label: "Edificios", to: "/edificios" },
+      { label: "Sky Rooms", to: "/alojamientos?tag=Sky%20Rooms" },
+      { label: "Sky Suites", to: "/alojamientos?tag=Sky%20Suites" },
+      { label: "Edificios", to: "/guia-de-asuncion" },
     ],
   },
   {
     label: "Ubicaciones",
     items: [
-      { label: "Villa Morra", to: "/ubicaciones/villa-morra" },
-      { label: "Ycuá Satí", to: "/ubicaciones/ycua-sati" },
-      { label: "Recoleta", to: "/ubicaciones/recoleta" },
+      { label: "Villa Morra", to: "/guia-de-asuncion" },
+      { label: "Ycuá Satí", to: "/guia-de-asuncion" },
+      { label: "Recoleta", to: "/guia-de-asuncion" },
     ],
   },
 ];

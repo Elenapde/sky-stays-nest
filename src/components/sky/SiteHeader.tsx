@@ -135,7 +135,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <LangSwitch lang={lang} className="hidden md:flex" />
-          <CtaAnchor href="#buscador" variant="nude" size="sm" className="hidden sm:inline-flex">
+          <CtaAnchor href="/#buscador" variant="nude" size="sm" className="hidden sm:inline-flex">
             Reservar
           </CtaAnchor>
           <button
@@ -188,7 +188,7 @@ export function SiteHeader() {
             </a>
           </div>
           <div className="grid gap-3">
-            <CtaAnchor href="#buscador" variant="nude" onClick={() => setOpen(false)}>
+            <CtaAnchor href="/#buscador" variant="nude" onClick={() => setOpen(false)}>
               Ver disponibilidad
             </CtaAnchor>
             <CtaAnchor

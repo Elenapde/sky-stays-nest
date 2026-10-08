@@ -179,7 +179,7 @@ export function YourTrip() {
         {journeys.map((j, i) => (
           <Reveal as="li" key={j.id} delay={i * 70} className="w-[78%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] md:w-[calc((100%-3rem)/3)]">
             <a
-              href={`/tu-viaje/${j.id}`}
+              href={j.id === "negocios" ? "/corporate-long-stay" : "/alojamientos"}
               className="group flex h-full flex-col bg-card shadow-soft transition-shadow duration-500 ease-brand hover:shadow-lift"
             >
               <div className="overflow-hidden">
@@ -288,7 +288,7 @@ export function RoomsAndSuites() {
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground italic">{c.ideal}</p>
                 <CtaAnchor
-                  href={`/${c.id}`}
+                  href={`/alojamientos?tag=${encodeURIComponent(c.name)}`}
                   variant="outline"
                   className="mt-8 self-start"
                 >
@@ -409,7 +409,7 @@ export function ExperienceSection() {
           Los servicios y amenities disponibles varían según el edificio y la propiedad
           seleccionada.
         </p>
-        <CtaAnchor href="/experiencias/amenities" variant="ghostLight">
+        <CtaAnchor href="/alojamientos" variant="ghostLight">
           Explorar experiencias
         </CtaAnchor>
       </div>
@@ -494,7 +494,7 @@ export function PetraTower() {
             Piscinas · Quinchos · Gimnasio · Restaurante · Minimarket 24 h
           </p>
           <CtaAnchor
-            href="/edificios/petra-tower"
+            href="/alojamientos?tag=Petra%20Tower"
             variant="nude"
             size="lg"
             className="mt-9"
@@ -520,7 +520,7 @@ export function Locations() {
       <ul className="mt-12 grid gap-6 sm:grid-cols-3">
         {locations.map((l, i) => (
           <Reveal as="li" key={l.id} delay={i * 80}>
-            <a href={`/ubicaciones/${l.id}`} className="group block h-full">
+            <a href="/guia-de-asuncion" className="group block h-full">
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
@@ -615,7 +615,7 @@ export function DayStay() {
             Tarifas especiales para estadías durante el día.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <CtaAnchor href="/day-stay-asuncion">Viví Petra Tower por un día</CtaAnchor>
+            <CtaAnchor href={wa("Hola, quiero reservar un Day Use en Petra Tower.")} target="_blank" rel="noreferrer">Viví Petra Tower por un día</CtaAnchor>
             <CtaAnchor
               href={wa("Hola, quiero consultar tarifas de Day Use en Petra Tower.")}
               target="_blank"
@@ -851,7 +851,7 @@ export function AsuncionGuide() {
           };
           return (
           <Reveal as="li" key={g.id} delay={i * 70}>
-            <a href={`/guia-de-asuncion/${g.id}`} className="group block h-full">
+            <a href="/guia-de-asuncion" className="group block h-full">
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot

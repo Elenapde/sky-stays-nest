@@ -56,7 +56,7 @@ export function GuideFeatured() {
       <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {guide.map((g, i) => (
           <Reveal as="li" key={g.id} delay={i * 70}>
-            <a href={`/guia-de-asuncion/${g.id}`} className="group block h-full">
+            <a href="/guia-de-asuncion#descubrir-asuncion" className="group block h-full">
               <div className="overflow-hidden">
                 <div className="transition-transform duration-[1200ms] ease-brand group-hover:scale-[1.05]">
                   <PhotoSlot
