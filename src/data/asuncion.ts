@@ -210,6 +210,7 @@ staysUrl: "/alojamientos?edificio=spirit-de-gaulle",
     mapsUrl: "https://maps.app.goo.gl/rHYWJec2KCg6aU4E6",
     lat: -25.296828,
     lng: -57.5809934,
+    image: mapBuildingSpiritMariscalJpg.url,
     staysUrl: "/alojamientos?edificio=spirit-mariscal",
   },
   {
