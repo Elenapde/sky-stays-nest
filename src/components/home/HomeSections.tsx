@@ -819,6 +819,7 @@ export function AsuncionGuide() {
         {guide.map((g, i) => {
           const srcMap: Record<string, string> = {
             "asuncion-48-horas": costaneraPhoto.url,
+            "donde-comer-villa-morra": takuareeGuidePhoto.url,
             "mejores-barrios-para-hospedarse": barriosPhoto.url,
             "asuncion-viajes-de-negocios": negociosAerialPhoto.url,
           };
