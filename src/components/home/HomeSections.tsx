@@ -1,3 +1,4 @@
+import takuareeGuidePhoto from "@/assets/guia-takuaree.png.asset.json";
 import checkin from "@/assets/sky-stays-checkin.jpg.asset.json";
 import cocina from "@/assets/sky-stays-cocina.png.asset.json";
 import coworking from "@/assets/sky-stays-coworking.png.asset.json";
