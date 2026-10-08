@@ -3,7 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { Cta } from "./ui";
 import { wa } from "@/data/sky";
 
-const quick = ["Fin de semana", "Day Use", "Negocios", "Estadía prolongada"];
+const quick = ["Fin de semana", "Day Use", "Negocios", "Long Stay"];
 const TAG_PRESETS = ["Negocios", "Estadía prolongada"];
 
 function ymd(d: Date) {
