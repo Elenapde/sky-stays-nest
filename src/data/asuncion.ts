@@ -18,7 +18,7 @@ import costaneraPhoto from "@/assets/sky-stays-costanera.jpeg.asset.json";
 import negociosAerialPhoto from "@/assets/sky-stays-negocios-aerial.png.asset.json";
 import mapBuildingAgoraJpg from "@/assets/building-agora.jpg.asset.json";
 import mapBuildingForvmMolasLopezJpg from "@/assets/building-forvm-molas-lopez.jpg.asset.json";
-import mapBuildingLifeMariscalJpg from "@/assets/building-life-mariscal.jpg.asset.json";
+import mapBuildingLifeMariscalJpg from "@/assets/building-life-mariscal-v2.jpg.asset.json";
 import mapBuildingLifeRecoletaJpg from "@/assets/building-life-recoleta.jpg.asset.json";
 import mapBuildingLifeSantaTeresaJpg from "@/assets/building-life-santa-teresa.jpg.asset.json";
 import mapBuildingPetraTowerPng from "@/assets/building-petra-tower.png.asset.json";
