@@ -262,6 +262,24 @@ function hasAllotment(a: RawListing["allotment"]) {
   return days.length === 0 || days.every((n) => Number(n) > 0);
 }
 
+/* ---------- Búsquedas con fechas guardadas 15 min (compartidas entre visitantes) ---------- */
+const SEARCH_CACHE_MS = 15 * 60 * 1000;
+
+export async function cachedSearch(params: Record<string, string | undefined>): Promise<Listing[]> {
+  const env = await currentEnv();
+  const key = `${env}|${params["checkIn"]}|${params["checkOut"]}|${params["minOccupancy"]}|${params["tags"] ?? ""}`;
+  const db = await admin();
+  const { data } = await db.from("guesty_search_cache").select("listings, fetched_at").eq("key", key).maybeSingle();
+  if (data && Date.now() - new Date(data.fetched_at).getTime() < SEARCH_CACHE_MS) return data.listings as unknown as Listing[];
+  const fresh = await fetchListings(params);
+  await db
+    .from("guesty_search_cache")
+    .upsert({ key, listings: fresh as unknown as never, fetched_at: new Date().toISOString() });
+  // Limpieza de búsquedas viejas.
+  await db.from("guesty_search_cache").delete().lt("fetched_at", new Date(Date.now() - 24 * 3600 * 1000).toISOString());
+  return fresh;
+}
+
 export async function fetchListings(params: Record<string, string | undefined> = {}) {
   const all: Listing[] = [];
   let cursor: string | undefined;
