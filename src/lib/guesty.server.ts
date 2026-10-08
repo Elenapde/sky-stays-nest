@@ -200,7 +200,8 @@ type RawListing = {
   amenities?: string[];
   prices?: { basePrice?: number; currency?: string };
   nightlyRates?: Record<string, number>;
-  allotment?: number;
+  /** Guesty lo envía como número o como cupo por día ({ "2026-12-12": 1, ... }). */
+  allotment?: number | Record<string, number>;
   picture?: { original?: string; large?: string; thumbnail?: string };
   pictures?: { original?: string; large?: string; thumbnail?: string }[];
 };
@@ -254,6 +255,13 @@ export function normalize(l: RawListing): Listing {
 
 type Page = { results: RawListing[]; pagination?: { cursor?: { next?: string | null } } };
 
+function hasAllotment(a: RawListing["allotment"]) {
+  if (a == null) return true;
+  if (typeof a === "number") return a > 0;
+  const days = Object.values(a);
+  return days.length === 0 || days.every((n) => Number(n) > 0);
+}
+
 export async function fetchListings(params: Record<string, string | undefined> = {}) {
   const all: Listing[] = [];
   let cursor: string | undefined;
@@ -262,7 +270,7 @@ export async function fetchListings(params: Record<string, string | undefined> =
     const dated = !!params["checkIn"];
     const rows = (page.results ?? []).filter(
       // Con fechas, descartamos lo que Guesty marca sin cupo o sin tarifa.
-      (l) => !dated || ((l.allotment ?? 1) > 0 && (!l.nightlyRates || Object.keys(l.nightlyRates).length > 0)),
+      (l) => !dated || (hasAllotment(l.allotment) && (!l.nightlyRates || Object.keys(l.nightlyRates).length > 0)),
     );
     all.push(...rows.filter((l) => !isGarage(l)).map(normalize));
     cursor = page.pagination?.cursor?.next ?? undefined;
