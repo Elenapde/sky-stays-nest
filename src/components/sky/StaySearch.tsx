@@ -3,7 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { Cta } from "./ui";
 import { wa } from "@/data/sky";
 
-const quick = ["Fin de semana", "Day Stay", "Negocios", "Estadía prolongada"];
+const quick = ["Fin de semana", "Day Use", "Negocios", "Estadía prolongada"];
 const TAG_PRESETS = ["Negocios", "Estadía prolongada"];
 
 function ymd(d: Date) {
@@ -29,7 +29,7 @@ export function StaySearch() {
   const [error, setError] = useState<string | null>(null);
 
   function onPreset(item: string) {
-    if (item === "Day Stay") {
+    if (item === "Day Use") {
       window.open(wa("Hola, quiero consultar por un Day Stay en Sky Stays."), "_blank", "noreferrer");
       return;
     }
