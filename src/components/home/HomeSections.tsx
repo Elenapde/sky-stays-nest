@@ -80,13 +80,13 @@ export function Hero() {
           <Reveal>
             <Kicker className="text-nude">Hospedaje temporal en Asunción</Kicker>
             <h1 className="mt-5 max-w-2xl text-3xl leading-[1.1] text-nude md:text-4xl lg:text-5xl">
-              Hospedaje temporal en Asunción.
+              Alquiler de departamentos en Asunción con servicio de hotel.
               <br />
               <span className="italic">Vivilo como si fuera tuyo.</span>
             </h1>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-nude/75">
               La comodidad de un departamento, con servicios hoteleros y atención 24/7.
-              Estadías flexibles en las mejores ubicaciones de Asunción.
+              Estadías flexibles en las mejores ubicaciones de Asunción. Una alternativa a los hoteles en Asunción, con reserva directa.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-5">
               <CtaAnchor href="#buscador" variant="nude" size="lg">
