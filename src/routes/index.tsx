@@ -21,7 +21,7 @@ import { SiteFooter } from "@/components/sky/SiteFooter";
 import { SiteHeader } from "@/components/sky/SiteHeader";
 import { WhatsAppFab } from "@/components/sky/WhatsAppFab";
 
-const title = "Sky Stays | Hospedaje temporal en Asunción con servicio hotelero";
+const title = "Alquiler de departamentos en Asunción con servicio de hotel | Sky Stays";
 const description =
   "Departamentos equipados en Asunción con servicios hoteleros, check-in digital y atención 24/7. Reservá directo tu estadía en Villa Morra, Ycuá Satí o Recoleta.";
 

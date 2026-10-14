@@ -17,7 +17,7 @@ export function CorporateHero() {
         <Reveal>
           <Kicker className="text-nude">Corporate & Long Stay</Kicker>
           <h1 className="mt-6 max-w-2xl text-3xl leading-[1.1] text-nude md:text-[3rem]">
-            Venís por trabajo. Quedate como en casa.
+            Departamentos en Asunción para empresas. Venís por trabajo, quedate como en casa.
           </h1>
           <p className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-nude/75">
             Departamentos equipados, ubicaciones estratégicas y la comodidad de

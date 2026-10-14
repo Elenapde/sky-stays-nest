@@ -109,7 +109,9 @@ export function SectionHead({
   align = "left",
   invert = false,
   className,
+  as: Tag = "h2",
 }: {
+  as?: "h1" | "h2";
   kicker?: string;
   title: ReactNode;
   lead?: ReactNode;
@@ -126,14 +128,14 @@ export function SectionHead({
       )}
     >
       {kicker ? <Kicker className={invert ? "text-nude" : ""}>{kicker}</Kicker> : null}
-      <h2
+      <Tag
         className={cn(
           "mt-5 text-3xl leading-[1.12] md:text-[2.75rem]",
           invert ? "text-nude" : "text-primary",
         )}
       >
         {title}
-      </h2>
+      </Tag>
       {lead ? (
         <p
           className={cn(

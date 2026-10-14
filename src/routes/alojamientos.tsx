@@ -13,7 +13,7 @@ import { getListings, searchListings } from "@/lib/guesty.functions";
 type Search = { checkIn?: string | undefined; checkOut?: string | undefined; guests?: number | undefined; tag?: string | undefined };
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-const title = "Alojamientos en Asunción | Sky Rooms y Sky Suites — Sky Stays";
+const title = "Alquiler de departamentos en Asunción | Sky Rooms y Sky Suites — Sky Stays";
 const description =
   "Buscá departamentos con servicio hotelero en Asunción por fecha y cantidad de huéspedes. Reservá directo con Sky Stays.";
 
@@ -64,7 +64,8 @@ function AlojamientosPage() {
           <StaySearch />
           <div className="mt-14">
             <SectionHead
-              kicker="Alojamientos"
+              as="h1"
+              kicker="Alquiler de departamentos en Asunción"
               title={hasDates ? "Disponibles para tus fechas." : "Todos nuestros alojamientos."}
             />
             {hasDates && (
