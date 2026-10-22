@@ -5,6 +5,8 @@ import { Cta, CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/
 import { wa } from '@/data/sky';
 import { riverQuery } from '@/lib/river.query';
 import type { RiverExperience as Experience } from '@/lib/river.schema';
+import originalReel from '@/assets/river-reel.mp4.asset.json';
+import compatibleReel from '@/assets/river-reel.webm.asset.json';
 
 export function RiverHomeFeature() {
   const { data } = useQuery(riverQuery);
@@ -44,7 +46,10 @@ function RiverHero({ experience }: { experience: Experience }) {
   }, [content.video]);
   return <section className="river-hero relative isolate overflow-hidden bg-carbon text-carbon-foreground">
     <img src={content.hero} alt="Yate privado Sky Stays navegando frente a Asunción al atardecer" className="absolute inset-0 -z-30 h-full w-full object-cover" fetchPriority="high" />
-    {!failed && <video ref={video} src={content.video} poster={content.hero} muted loop playsInline preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} className="absolute inset-0 -z-20 h-full w-full object-cover object-center" aria-label="Paseo real de Sky Stays On The River" />}
+    {!failed && <video key={content.video} ref={video} poster={content.hero} muted loop playsInline preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} className="absolute inset-0 -z-20 h-full w-full object-cover object-center" aria-label="Paseo real de Sky Stays On The River">
+      {content.video === originalReel.url && <source src={compatibleReel.url} type="video/webm" />}
+      <source src={content.video} />
+    </video>}
     <div className="absolute inset-0 -z-10 bg-carbon/50" />
     <div className="mx-auto flex h-full max-w-[80rem] flex-col justify-end px-6 pt-32 pb-16 md:px-10 md:pb-20">
       <p className="kicker text-nude">Experiencias · Río Paraguay</p>
