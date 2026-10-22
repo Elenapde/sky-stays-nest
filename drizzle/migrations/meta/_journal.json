@@ -57,6 +57,13 @@
       "when": 1792682540113,
       "tag": "0007_river_hero_texts",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1792692257348,
+      "tag": "0008_river_title_no_privados",
+      "breakpoints": true
     }
   ]
 }
