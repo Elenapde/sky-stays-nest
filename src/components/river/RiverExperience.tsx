@@ -1,4 +1,5 @@
-import { ArrowUpRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, Pause, Play } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { Cta, CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
 import { wa } from '@/data/sky';
