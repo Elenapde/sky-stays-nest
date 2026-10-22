@@ -28,7 +28,9 @@ export const getRiverExperience = createServerFn({ method: 'GET' }).handler(asyn
   if (!data) return null;
   const { data: offers, error: offerError } = await db.from('experience_offers').select('id, content, active, validated').eq('experience_slug', 'sky-stays-on-the-river').order('id');
   if (offerError) throw new Error('No pudimos cargar las modalidades.');
-  return { content: riverContentSchema.parse(data.content), active: data.active, offers: (offers ?? []).map(o => ({ ...o, content: riverOfferSchema.parse(o.content) })) };
+  const { data: visibility, error: visibilityError } = await db.from('experience_offer_visibility').select('id, active');
+  if (visibilityError) throw new Error('No pudimos cargar las modalidades.');
+  return { content: riverContentSchema.parse(data.content), active: data.active, hiddenOfferIds: (visibility ?? []).filter(o => !o.active).flatMap(o => o.id ? [o.id] : []), offers: (offers ?? []).map(o => ({ ...o, content: riverOfferSchema.parse(o.content) })) };
 });
 
 export const getRiverAdmin = createServerFn({ method: 'GET' }).handler(async () => {

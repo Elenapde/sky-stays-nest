@@ -84,6 +84,7 @@ export function RiverExperiencePage({ experience, preview = false }: { experienc
       <SectionHead kicker="Modalidades" title="Dos formas de vivir el río." lead="Un after office diferente o una celebración a tu medida." />
       <div className="mt-12 grid gap-8 md:grid-cols-2">
         {['business-sunset', 'private-moments'].map(id => {
+          if (experience.hiddenOfferIds?.includes(id)) return null;
           const offer = offers.find(o => o.id === id);
           if (preview && offer && !offer.active) return null;
           const name = offer?.content.name ?? (id === 'business-sunset' ? 'SKY BUSINESS SUNSET' : 'SKY PRIVATE MOMENTS');

@@ -15,6 +15,6 @@ export const riverOfferSchema = z.object({
 });
 export type RiverContent = z.infer<typeof riverContentSchema>;
 export type RiverOffer = { id: string; content: z.infer<typeof riverOfferSchema>; active: boolean; validated: boolean };
-export type RiverExperience = { content: RiverContent; active: boolean; offers: RiverOffer[] };
+export type RiverExperience = { content: RiverContent; active: boolean; offers: RiverOffer[]; hiddenOfferIds?: string[] };
 export function canPublishOffer(active: boolean, validated: boolean, experienceActive: boolean) { return active && validated && experienceActive; }
 export function canEditExperience(verifiedUserId: string | null, editorIds: string[]) { return verifiedUserId !== null && editorIds.includes(verifiedUserId); }
