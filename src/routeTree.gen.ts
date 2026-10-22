@@ -14,6 +14,7 @@ import { Route as AlojamientosRouteImport } from './routes/alojamientos'
 import { Route as CorporateLongStayRouteImport } from './routes/corporate-long-stay'
 import { Route as GuiaDeAsuncionRouteImport } from './routes/guia-de-asuncion'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ExperienciasSkyStaysOnTheRiverRouteImport } from './routes/experiencias.sky-stays-on-the-river'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,12 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienciasSkyStaysOnTheRiverRoute =
+  ExperienciasSkyStaysOnTheRiverRouteImport.update({
+    id: '/experiencias/sky-stays-on-the-river',
+    path: '/experiencias/sky-stays-on-the-river',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +54,7 @@ export interface FileRoutesByFullPath {
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/experiencias/sky-stays-on-the-river': typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +62,7 @@ export interface FileRoutesByTo {
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/experiencias/sky-stays-on-the-river': typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +71,7 @@ export interface FileRoutesById {
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/experiencias/sky-stays-on-the-river': typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +81,7 @@ export interface FileRouteTypes {
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
+    | '/experiencias/sky-stays-on-the-river'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +89,7 @@ export interface FileRouteTypes {
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
+    | '/experiencias/sky-stays-on-the-river'
   id:
     | '__root__'
     | '/'
@@ -85,6 +97,7 @@ export interface FileRouteTypes {
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
+    | '/experiencias/sky-stays-on-the-river'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +106,7 @@ export interface RootRouteChildren {
   CorporateLongStayRoute: typeof CorporateLongStayRoute
   GuiaDeAsuncionRoute: typeof GuiaDeAsuncionRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ExperienciasSkyStaysOnTheRiverRoute: typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -132,6 +146,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experiencias/sky-stays-on-the-river': {
+      id: '/experiencias/sky-stays-on-the-river'
+      path: '/experiencias/sky-stays-on-the-river'
+      fullPath: '/experiencias/sky-stays-on-the-river'
+      preLoaderRoute: typeof ExperienciasSkyStaysOnTheRiverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -141,6 +162,7 @@ const rootRouteChildren: RootRouteChildren = {
   CorporateLongStayRoute: CorporateLongStayRoute,
   GuiaDeAsuncionRoute: GuiaDeAsuncionRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ExperienciasSkyStaysOnTheRiverRoute: ExperienciasSkyStaysOnTheRiverRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

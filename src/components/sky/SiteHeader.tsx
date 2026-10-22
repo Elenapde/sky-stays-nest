@@ -129,6 +129,7 @@ export function SiteHeader() {
           <a href="/corporate-long-stay" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
             Corporate & Long Stay
           </a>
+          <RiverNav />
           <a href="/guia-de-asuncion" className="kicker px-4 py-3 text-nude/85 hover:text-nude">
             Guía de Asunción
           </a>
@@ -184,6 +185,7 @@ export function SiteHeader() {
             <a href="/corporate-long-stay" className="kicker text-nude">
               Corporate & Long Stay
             </a>
+            <RiverNav mobile />
             <a href="/guia-de-asuncion" className="kicker text-nude">
               Guía de Asunción
             </a>
