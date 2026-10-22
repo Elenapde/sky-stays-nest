@@ -50,6 +50,13 @@
       "when": 1792681471024,
       "tag": "0006_river_public_offer_visibility",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1792682540113,
+      "tag": "0007_river_hero_texts",
+      "breakpoints": true
     }
   ]
 }

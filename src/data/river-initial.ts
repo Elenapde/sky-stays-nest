@@ -4,7 +4,7 @@ import type { RiverExperience } from "@/lib/river.schema";
 export const riverInitial: RiverExperience = {
   "content": {
     "name": "El río, ahora parte de tus planes",
-    "title": "Paseos privados en yate por el río Paraguay\n",
+    "title": "Paseos privados en yate por el río Paraguay",
     "description": "Una forma diferente de disfrutar Asunción.\u00a0",
     "editorialTitle": "Asunción, desde otra perspectiva.",
     "editorialText": "El horizonte abierto. La ciudad a lo lejos. Un paseo privado para bajar el ritmo y compartir un momento diferente sobre el río Paraguay.",

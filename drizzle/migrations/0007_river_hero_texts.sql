@@ -1,0 +1,1 @@
+update public.experience_content set content = content || '{"name":"El río, ahora parte de tus planes","title":"Paseos privados en yate por el río Paraguay","description":"Una forma diferente de disfrutar Asunción."}'::jsonb;
