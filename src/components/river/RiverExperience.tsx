@@ -33,11 +33,12 @@ function RiverHero({ experience }: { experience: Experience }) {
   return <section className="river-hero relative isolate overflow-hidden bg-carbon text-carbon-foreground">
     <img src={riverCover.url} alt="Yate privado Sky Stays navegando frente a Asunción al atardecer" className="absolute inset-0 -z-30 h-full w-full object-cover" fetchPriority="high" />
     <div className="absolute inset-0 -z-10 bg-carbon/50" />
-    <div className="mx-auto flex min-h-[580px] max-w-[80rem] flex-col justify-end px-6 py-14 md:px-10 md:py-20">
-      <p className="kicker text-nude">EXPERIENCIAS · {data.content.name}</p>
-      <h2 className="mt-5 max-w-xl text-4xl leading-tight md:text-5xl">{data.content.title}</h2>
-      <p className="mt-5 max-w-lg text-sm leading-relaxed text-carbon-foreground/90">{data.content.description}</p>
-      <CtaLink to="/experiencias/sky-stays-on-the-river" variant="nude" className="mt-8 self-start">Descubrir la experiencia <ArrowUpRight size={16} /></CtaLink>
+    <div className="mx-auto flex h-full max-w-[80rem] flex-col justify-end px-6 pt-32 pb-16 md:px-10 md:pb-20">
+      <p className="kicker text-nude">Experiencias · Sky Stays On The River</p>
+      <p className="mt-6 max-w-xl font-display text-xl text-nude md:text-2xl">{content.name}</p>
+      <h1 className="mt-4 max-w-3xl text-4xl leading-[1.08] md:text-7xl">{content.title}</h1>
+      <p className="mt-3 max-w-xl text-sm leading-relaxed text-carbon-foreground/85 md:text-base">{content.description}</p>
+      <CtaAnchor href="#modalidades" variant="nude" className="mt-8 self-start">Descubrir las modalidades <ArrowUpRight size={16} /></CtaAnchor>
     </div>
   </section>;
 }
