@@ -1,5 +1,4 @@
-/// <reference types="bun" />
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, test } from 'vitest';
 import { canEditExperience, canPublishOffer, riverOfferSchema } from './river.schema';
 import { riverInitial } from '@/data/river-initial';
 
