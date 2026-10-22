@@ -6,6 +6,7 @@ export const riverModalitySchema = z.object({
   name: z.string().min(1).max(100), category: z.string().min(1).max(180),
   headline: z.string().min(1).max(200), description: z.string().min(1).max(1200),
   uses: z.array(z.string().min(1).max(100)).max(8), photo: mediaUrl,
+  included: z.array(z.string().min(1).max(200)).max(10).default([]),
 });
 export const riverContentSchema = z.object({
   name: z.string().min(1).max(120), title: z.string().min(1).max(160), description: z.string().min(1).max(800),

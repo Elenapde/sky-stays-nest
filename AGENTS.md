@@ -13,4 +13,4 @@
 - Experience administration uses verified Lovable workspace identity and a separately provisioned editor permission; never auto-grant access to the first visitor or switch the existing Guesty auth model.
 - River UI uses shared query options and distinct components for editorial content, Home promotion, and administration; lodging amenities remain separate.
 
-- River modalities render in a dedicated editorial component; public narrative lives in experience_content JSON, while commercial terms remain in validated experience_offers so editorial changes never expose draft terms.
+- River modalities render in a dedicated editorial component; narrative and explicitly approved public inclusions live in experience_content JSON, while draft prices and commercial terms remain in validated experience_offers. Public inclusions are edited separately; validated offers override them when published.
