@@ -20,7 +20,7 @@ export function RiverModalities({ experience, preview }: { experience: RiverExpe
           ...(terms.capacity ? [`Capacidad para ${terms.capacity}.`] : []),
           ...(modality.id === 'private-moments' ? [terms.schedule] : []),
           ...terms.services.split('\n').slice(1),
-        ].filter(Boolean) : [];
+        ].filter(Boolean) : modality.included;
         const message = modality.id === 'business-sunset'
           ? `Hola, quiero consultar disponibilidad para ${name} de Sky Stays On The River y organizar un encuentro corporativo.`
           : `Hola, quiero consultar disponibilidad para ${name} de Sky Stays On The River para una celebración o un momento especial.`;
@@ -34,12 +34,11 @@ export function RiverModalities({ experience, preview }: { experience: RiverExpe
             <h3 id={`${modality.id}-title`} className="mt-5 text-3xl leading-tight text-primary md:text-4xl">{modality.headline}</h3>
             <p className="mt-6 text-sm leading-7 text-muted-foreground">{modality.description}</p>
             <p className="mt-5 border-l-2 border-border-strong pl-4 text-xs leading-6 text-primary-soft">{modality.uses.join(' · ')}</p>
-            {terms && <div className="mt-7">
+            {included.length > 0 && <div className="mt-7">
               <h4 className="font-sans text-xs font-semibold uppercase tracking-normal text-primary">Incluye</h4>
               <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">{included.map((service, i) => <li key={i} className="flex gap-3"><span aria-hidden="true" className="text-primary-soft">—</span><span>{service}</span></li>)}</ul>
-              <p className="mt-6 text-xl text-primary"><span className="font-display">{terms.fromPrice ? 'Desde ' : ''}{terms.currency} {terms.price.toLocaleString('es-PY')}</span><span className="ml-2 text-xs text-muted-foreground">por experiencia.</span></p>
-              {preview && !offer?.validated && <p className="mt-3 text-sm text-destructive">Pendiente de validación comercial</p>}
             </div>}
+            {terms && <div className="mt-6"><p className="text-xl text-primary"><span className="font-display">{terms.fromPrice ? 'Desde ' : ''}{terms.currency} {terms.price.toLocaleString('es-PY')}</span><span className="ml-2 text-xs text-muted-foreground">por experiencia.</span></p>{preview && !offer?.validated && <p className="mt-3 text-sm text-destructive">Pendiente de validación comercial</p>}</div>}
             {bookable ? <CtaAnchor href={wa(message)} target="_blank" rel="noreferrer" className="mt-7 w-full sm:w-auto">Consultar disponibilidad <ArrowUpRight size={16} /></CtaAnchor> : <p className="mt-7 text-sm text-muted-foreground">No disponible por el momento.</p>}
           </div>
         </article>;
