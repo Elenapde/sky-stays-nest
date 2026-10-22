@@ -29,6 +29,13 @@
       "when": 1791502024341,
       "tag": "0003_guesty_search_cache",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792681189867,
+      "tag": "0004_river_experience_content",
+      "breakpoints": true
     }
   ]
 }
