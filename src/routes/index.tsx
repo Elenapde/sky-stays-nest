@@ -20,6 +20,7 @@ import {
 import { SiteFooter } from "@/components/sky/SiteFooter";
 import { SiteHeader } from "@/components/sky/SiteHeader";
 import { WhatsAppFab } from "@/components/sky/WhatsAppFab";
+import { RiverHomeFeature } from "@/components/river/RiverExperience";
 
 const title = "Alquiler de departamentos en Asunción con servicio de hotel | Sky Stays";
 const description =
@@ -75,6 +76,7 @@ function Index() {
         <ServicesSection />
         <Locations />
         <DayStay />
+        <RiverHomeFeature />
         <Reviews />
         <DirectBooking />
         <AsuncionGuide />

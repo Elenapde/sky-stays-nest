@@ -3,6 +3,7 @@ import logo from "@/assets/sky-stays-logo-beige.png.asset.json";
 import { nav, wa } from "@/data/sky";
 import { cn } from "@/lib/utils";
 import { CtaAnchor } from "./ui";
+import { RiverNav } from '@/components/river/RiverExperience';
 
 const languages = ["ES", "PT", "EN"];
 
