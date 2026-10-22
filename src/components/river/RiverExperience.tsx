@@ -1,12 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, Pause, Play } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { Cta, CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
+import { CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
 import { wa } from '@/data/sky';
 import { riverQuery } from '@/lib/river.query';
 import type { RiverExperience as Experience } from '@/lib/river.schema';
-import originalReel from '@/assets/river-reel.mp4.asset.json';
-import compatibleReel from '@/assets/river-reel.webm.asset.json';
+import riverCover from '@/assets/river-cover.jpg.asset.json';
 
 export function RiverHomeFeature() {
   const { data } = useQuery(riverQuery);
@@ -32,24 +30,8 @@ export function RiverNav({ mobile = false, footer = false }: { mobile?: boolean;
 
 function RiverHero({ experience }: { experience: Experience }) {
   const { content } = experience;
-  const video = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [failed, setFailed] = useState(false);
-  useEffect(() => {
-    const el = video.current;
-    if (!el) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (!reduced.matches) void el.play().catch(() => setPlaying(false));
-    const stop = () => { if (reduced.matches) el.pause(); };
-    reduced.addEventListener('change', stop);
-    return () => reduced.removeEventListener('change', stop);
-  }, [content.video]);
   return <section className="river-hero relative isolate overflow-hidden bg-carbon text-carbon-foreground">
-    <img src={content.hero} alt="Yate privado Sky Stays navegando frente a Asunción al atardecer" className="absolute inset-0 -z-30 h-full w-full object-cover" fetchPriority="high" />
-    {!failed && <video key={content.video} ref={video} poster={content.hero} muted loop playsInline preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} className="absolute inset-0 -z-20 h-full w-full object-cover object-center" aria-label="Paseo real de Sky Stays On The River">
-      {content.video === originalReel.url && <source src={compatibleReel.url} type="video/webm" />}
-      <source src={content.video} />
-    </video>}
+    <img src={riverCover.url} alt="Yate privado Sky Stays navegando frente a Asunción al atardecer" className="absolute inset-0 -z-30 h-full w-full object-cover" fetchPriority="high" />
     <div className="absolute inset-0 -z-10 bg-carbon/50" />
     <div className="mx-auto flex h-full max-w-[80rem] flex-col justify-end px-6 pt-32 pb-16 md:px-10 md:pb-20">
       <p className="kicker text-nude">Experiencias · Sky Stays On The River</p>
@@ -58,7 +40,6 @@ function RiverHero({ experience }: { experience: Experience }) {
       <p className="mt-3 max-w-xl text-sm leading-relaxed text-carbon-foreground/85 md:text-base">{content.description}</p>
       <CtaAnchor href="#modalidades" variant="nude" className="mt-8 self-start">Descubrir las modalidades <ArrowUpRight size={16} /></CtaAnchor>
     </div>
-    {!failed && <Cta variant="ghostLight" size="bare" title={playing ? 'Pausar video' : 'Reproducir video'} aria-label={playing ? 'Pausar video' : 'Reproducir video'} onClick={() => { const el = video.current; if (!el) return; if (playing) el.pause(); else void el.play().catch(() => setFailed(true)); }} className="absolute right-6 bottom-5 h-10 w-10 rounded-full">{playing ? <Pause size={16} /> : <Play size={16} />}</Cta>}
   </section>;
 }
 
