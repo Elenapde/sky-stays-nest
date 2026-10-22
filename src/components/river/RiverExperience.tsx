@@ -53,8 +53,8 @@ function RiverHero({ experience }: { experience: Experience }) {
     <div className="absolute inset-0 -z-10 bg-carbon/50" />
     <div className="mx-auto flex h-full max-w-[80rem] flex-col justify-end px-6 pt-32 pb-16 md:px-10 md:pb-20">
       <p className="kicker text-nude">Experiencias · Sky Stays On The River</p>
-      <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] md:text-7xl">{content.title}</h1>
       <p className="mt-6 max-w-xl font-display text-xl text-nude md:text-2xl">{content.name}</p>
+      <h1 className="mt-4 max-w-3xl text-4xl leading-[1.08] md:text-7xl">{content.title}</h1>
       <p className="mt-3 max-w-xl text-sm leading-relaxed text-carbon-foreground/85 md:text-base">{content.description}</p>
       <CtaAnchor href="#modalidades" variant="nude" className="mt-8 self-start">Descubrir las modalidades <ArrowUpRight size={16} /></CtaAnchor>
     </div>
