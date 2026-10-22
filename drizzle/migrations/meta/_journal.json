@@ -36,6 +36,13 @@
       "when": 1792681189867,
       "tag": "0004_river_experience_content",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792681254409,
+      "tag": "0005_river_atomic_editor_save",
+      "breakpoints": true
     }
   ]
 }

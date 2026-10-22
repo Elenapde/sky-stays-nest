@@ -187,6 +187,7 @@ export type Database = {
     }
     Functions: {
       is_experience_editor: { Args: never; Returns: boolean }
+      save_river_content: { Args: { payload: Json }; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
