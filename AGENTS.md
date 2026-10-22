@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- River experience public content and commercially validated offers are stored separately with RLS, so unvalidated prices never reach anonymous readers.
+- Experience administration uses verified Lovable workspace identity and a separately provisioned editor permission; never auto-grant access to the first visitor or switch the existing Guesty auth model.
+- River UI uses shared query options and distinct components for editorial content, Home promotion, and administration; lodging amenities remain separate.
