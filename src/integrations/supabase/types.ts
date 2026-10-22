@@ -14,6 +14,92 @@ export type Database = {
   }
   public: {
     Tables: {
+      experience_access_requests: {
+        Row: {
+          created_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      experience_content: {
+        Row: {
+          active: boolean
+          content: Json
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          content: Json
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          content?: Json
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      experience_editors: {
+        Row: {
+          created_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      experience_offers: {
+        Row: {
+          active: boolean
+          content: Json
+          experience_slug: string
+          id: string
+          updated_at: string
+          validated: boolean
+        }
+        Insert: {
+          active?: boolean
+          content: Json
+          experience_slug: string
+          id: string
+          updated_at?: string
+          validated?: boolean
+        }
+        Update: {
+          active?: boolean
+          content?: Json
+          experience_slug?: string
+          id?: string
+          updated_at?: string
+          validated?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "experience_offers_experience_slug_fkey"
+            columns: ["experience_slug"]
+            isOneToOne: false
+            referencedRelation: "experience_content"
+            referencedColumns: ["slug"]
+          },
+        ]
+      }
       guesty_listings_cache: {
         Row: {
           env: string
@@ -97,10 +183,17 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      experience_offer_visibility: {
+        Row: {
+          active: boolean | null
+          id: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      is_experience_editor: { Args: never; Returns: boolean }
+      save_river_content: { Args: { payload: Json }; Returns: undefined }
     }
     Enums: {
       [_ in never]: never

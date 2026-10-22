@@ -261,3 +261,7 @@ iframe.skiptranslate,
 .VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
 body { top: 0 !important; }
 font[style] { background: transparent !important; box-shadow: none !important; }
+
+.river-hero { height: min(850px, 88svh); min-height: 640px; }
+.river-hero h1, .river-hero h2, .river-hero p { letter-spacing: 0; }
+@media (max-width: 640px) { .river-hero { height: 88svh; min-height: 690px; } }

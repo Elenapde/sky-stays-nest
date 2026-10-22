@@ -1,6 +1,7 @@
 import logo from "@/assets/sky-stays-logo-beige.png.asset.json";
 import { nav, social, wa } from "@/data/sky";
 import { CtaAnchor } from "./ui";
+import { RiverNav } from '@/components/river/RiverExperience';
 
 export function SiteFooter() {
   return (
@@ -44,6 +45,7 @@ export function SiteFooter() {
               </ul>
             </nav>
           ))}
+          <RiverNav footer />
         </div>
       </div>
 

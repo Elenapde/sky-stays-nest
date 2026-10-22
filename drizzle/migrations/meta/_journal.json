@@ -29,6 +29,27 @@
       "when": 1791502024341,
       "tag": "0003_guesty_search_cache",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792681189867,
+      "tag": "0004_river_experience_content",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792681254409,
+      "tag": "0005_river_atomic_editor_save",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792681471024,
+      "tag": "0006_river_public_offer_visibility",
+      "breakpoints": true
     }
   ]
 }
