@@ -3,9 +3,9 @@ import type { RiverExperience } from "@/lib/river.schema";
 /** Initial commercial draft, persisted once by deployment tooling; never seeded on page load. */
 export const riverInitial: RiverExperience = {
   "content": {
-    "name": "SKY STAYS ON THE RIVER",
-    "title": "El río, ahora parte de tus planes.",
-    "description": "Descubrí una forma diferente de disfrutar Asunción. Paseos privados en yate por el río Paraguay, con capitán, gastronomía y bebidas a bordo.",
+    "name": "El río, ahora parte de tus planes",
+    "title": "Paseos privados en yate por el río Paraguay\n",
+    "description": "Una forma diferente de disfrutar Asunción.\u00a0",
     "editorialTitle": "Asunción, desde otra perspectiva.",
     "editorialText": "El horizonte abierto. La ciudad a lo lejos. Un paseo privado para bajar el ritmo y compartir un momento diferente sobre el río Paraguay.",
     "hero": "/__l5e/assets-v1/b4351375-9abc-4ddd-8066-c569f0a3c65e/river-17.jpg",
