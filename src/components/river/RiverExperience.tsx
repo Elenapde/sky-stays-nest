@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, Pause, Play } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { Cta, CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
 import { wa } from '@/data/sky';
@@ -33,18 +32,6 @@ export function RiverNav({ mobile = false, footer = false }: { mobile?: boolean;
 
 function RiverHero({ experience }: { experience: Experience }) {
   const { content } = experience;
-  const video = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [failed, setFailed] = useState(false);
-  useEffect(() => {
-    const el = video.current;
-    if (!el) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (!reduced.matches) void el.play().catch(() => setPlaying(false));
-    const stop = () => { if (reduced.matches) el.pause(); };
-    reduced.addEventListener('change', stop);
-    return () => reduced.removeEventListener('change', stop);
-  }, [content.video]);
   return <section className="river-hero relative isolate overflow-hidden bg-carbon text-carbon-foreground">
     <img src={riverCover.url} alt="Yate privado Sky Stays navegando frente a Asunción al atardecer" className="absolute inset-0 -z-30 h-full w-full object-cover" fetchPriority="high" />
     <div className="absolute inset-0 -z-10 bg-carbon/50" />
