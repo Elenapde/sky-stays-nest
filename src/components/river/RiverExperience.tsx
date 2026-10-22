@@ -5,6 +5,7 @@ import { wa } from '@/data/sky';
 import { riverQuery } from '@/lib/river.query';
 import type { RiverExperience as Experience } from '@/lib/river.schema';
 import riverCover from '@/assets/river-cover.jpg.asset.json';
+import { RiverModalities } from './RiverModalities';
 
 export function RiverHomeFeature() {
   const { data } = useQuery(riverQuery);
@@ -66,34 +67,7 @@ export function RiverExperiencePage({ experience, preview = false }: { experienc
         {content.gallery.slice(0, 2).map((photo, i) => <figure key={photo} className={i === 0 ? 'md:pt-0' : 'md:pt-16'}><img src={photo} alt={i === 0 ? 'Momentos compartidos a bordo del yate' : 'Yate Sky Stays sobre el río Paraguay'} loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="mt-4 text-sm text-muted-foreground">{i === 0 ? 'Un momento para compartir.' : 'La ciudad queda atrás. El río te espera.'}</figcaption></figure>)}
       </div>
     </Section>
-    <Section id="modalidades" tone="cream" className="scroll-mt-24 py-16 md:py-24">
-      <SectionHead kicker="Modalidades" title="Dos formas de vivir el río." lead="Un after office diferente o una celebración a tu medida." />
-      <div className="mt-12 grid gap-8 md:grid-cols-2">
-        {['business-sunset', 'private-moments'].map(id => {
-          if (experience.hiddenOfferIds?.includes(id)) return null;
-          const offer = offers.find(o => o.id === id);
-          if (preview && offer && !offer.active) return null;
-          const name = offer?.content.name ?? (id === 'business-sunset' ? 'SKY BUSINESS SUNSET' : 'SKY PRIVATE MOMENTS');
-          const photo = offer?.content.photo ?? content.gallery[id === 'business-sunset' ? 2 : 0] ?? content.hero;
-          return <article key={id} className="overflow-hidden rounded-xs bg-card">
-            <img src={photo} alt={name} loading="lazy" className="aspect-[16/10] w-full object-cover" />
-            <div className="p-6 md:p-8">
-              <p className="kicker text-primary-soft">{offer?.content.subtitle ?? (id === 'business-sunset' ? 'After office privado' : 'Parejas y celebraciones')}</p>
-              <h3 className="mt-4 text-2xl text-primary">{name}</h3>
-              {offer ? <><p className="mt-6 font-display text-3xl text-primary">{offer.content.fromPrice ? 'Desde ' : ''}{offer.content.currency} {offer.content.price.toLocaleString('es-PY')}</p>
-                <dl className="mt-6 space-y-3 border-y border-border py-5 text-sm">
-                  <div className="flex justify-between gap-4"><dt className="text-muted-foreground">Duración</dt><dd>{offer.content.duration}</dd></div>
-                  {offer.content.capacity && <div className="flex justify-between gap-4"><dt className="text-muted-foreground">Personas</dt><dd>{offer.content.capacity}</dd></div>}
-                  <div className="flex justify-between gap-4"><dt className="text-muted-foreground">Horario</dt><dd className="text-right">{offer.content.schedule}</dd></div>
-                </dl><p className="mt-5 text-sm leading-7 text-muted-foreground">{offer.content.services}</p>
-                {preview && !offer.validated && <p className="mt-4 text-sm text-destructive">Pendiente de validación comercial</p>}
-              </> : <p className="mt-5 text-sm leading-7 text-muted-foreground">Consultá con nuestro equipo las opciones para tu próximo paseo.</p>}
-              {bookable ? <CtaAnchor href={wa(`Hola, quiero consultar disponibilidad para ${name} de Sky Stays On The River.`)} target="_blank" rel="noreferrer" className="mt-7 w-full">Consultar disponibilidad <ArrowUpRight size={16} /></CtaAnchor> : <p className="mt-7 text-sm text-muted-foreground">No disponible por el momento.</p>}
-            </div>
-          </article>;
-        })}
-      </div>
-    </Section>
+    <RiverModalities experience={experience} preview={preview} />
     {content.gallery[2] && <section className="bg-carbon"><img src={content.gallery[2]} alt="El río Paraguay al atardecer desde el yate de Sky Stays" loading="lazy" className="max-h-[620px] w-full object-cover" /></section>}
     <Section tone="burgundy" className="text-center">
       <p className="kicker text-nude">Sky Stays On The River</p><h2 className="mt-5 text-3xl md:text-4xl">Tu próximo plan, sobre el río.</h2>

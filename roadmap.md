@@ -1,4 +1,5 @@
 # EXPERIENCIAS
+- [x] Rediseñar modalidades según el prompt, conservar edición y validar fotos, WhatsApp y reglas comerciales.
 - [x] Contenido editable con permisos y solicitudes de acceso.
 - [x] Fotos y video optimizados.
 - [x] Página On The River, Home y navegación.
