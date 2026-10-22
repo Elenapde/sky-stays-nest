@@ -23,3 +23,13 @@ describe('River commercial terms', () => {
   test('Lovable identity without permission cannot edit', () => expect(canEditExperience('visitor', ['editor-1'])).toBe(false));
   test('Authorized verified identity can edit', () => expect(canEditExperience('editor-1', ['editor-1'])).toBe(true));
 });
+ describe('Approved public inclusions', () => {
+  test('Business public inclusions preserve authorized duration and capacity', () => {
+    const included = riverInitial.content.modalities.find(m => m.id === 'business-sunset')?.included;
+    expect(included).toEqual(['Paseo privado en yate con capitán.', '3 horas, de 17:00 a 20:00 h.', 'Capacidad para 4 a 6 personas.', 'Servicio de traslado.', 'Bebidas y picada a bordo.']);
+  });
+  test('Private public inclusions preserve flexible schedule and do not invent capacity', () => {
+    const included = riverInitial.content.modalities.find(m => m.id === 'private-moments')?.included;
+    expect(included).toEqual(['Paseo privado en yate con capitán.', 'Duración de 2 a 4 horas.', 'Horarios flexibles, sujetos a disponibilidad.', 'Experiencia personalizada para grupos pequeños.', 'Comida y bebidas a bordo.']);
+  });
+ });
