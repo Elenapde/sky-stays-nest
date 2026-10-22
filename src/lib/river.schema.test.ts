@@ -5,10 +5,13 @@ import { riverInitial } from '@/data/river-initial';
 const business = riverInitial.offers.find(o => o.id === 'business-sunset')?.content;
 const privateMoments = riverInitial.offers.find(o => o.id === 'private-moments')?.content;
 describe('River commercial terms', () => {
-  test('Business Sunset costs USD 850', () => { const v = riverOfferSchema.parse(business); expect([v.price, v.currency, v.fromPrice]).toEqual([850, 'USD', false]); });
+  test('Business Sunset starts at USD 850', () => { const v = riverOfferSchema.parse(business); expect([v.price, v.currency, v.fromPrice]).toEqual([850, 'USD', true]); });
   test('Business Sunset lasts three hours', () => expect(riverOfferSchema.parse(business).duration).toBe('3 horas'));
   test('Business Sunset accommodates four to six', () => expect(riverOfferSchema.parse(business).capacity).toBe('4 a 6 personas'));
-  test('Business Sunset runs from 17 to 20', () => expect(riverOfferSchema.parse(business).schedule).toBe('17:00 a 20:00'));
+  test('Business Sunset runs from 17 to 20', () => expect(riverOfferSchema.parse(business).schedule).toBe('17:00 a 20:00 h'));
+  test('Business includes only the specified services', () => expect(riverOfferSchema.parse(business).services.split('\n')).toEqual(['Paseo privado en yate con capitán.', 'Servicio de traslado.', 'Bebidas y picada a bordo.']));
+  test('Private Moments flexible times depend on availability', () => expect(riverOfferSchema.parse(privateMoments).schedule).toBe('Horarios flexibles, sujetos a disponibilidad.'));
+  test('Private Moments includes only the specified services', () => expect(riverOfferSchema.parse(privateMoments).services.split('\n')).toEqual(['Paseo privado en yate con capitán.', 'Experiencia personalizada para grupos pequeños.', 'Comida y bebidas a bordo.']));
   test('Private Moments starts at USD 850', () => { const v = riverOfferSchema.parse(privateMoments); expect([v.price, v.currency, v.fromPrice]).toEqual([850, 'USD', true]); });
   test('Private Moments lasts two to four hours', () => expect(riverOfferSchema.parse(privateMoments).duration).toBe('2 a 4 horas'));
   test('Private Moments has no inferred capacity', () => expect(riverOfferSchema.parse(privateMoments).capacity).toBe(''));

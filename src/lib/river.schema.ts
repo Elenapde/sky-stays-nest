@@ -1,11 +1,18 @@
 import { z } from 'zod';
 
 const mediaUrl = z.string().refine(v => v.startsWith('/__l5e/assets-v1/') || /^https:\/\//.test(v), 'Usá una imagen o video del sitio.');
+export const riverModalitySchema = z.object({
+  id: z.enum(['business-sunset', 'private-moments']),
+  name: z.string().min(1).max(100), category: z.string().min(1).max(180),
+  headline: z.string().min(1).max(200), description: z.string().min(1).max(1200),
+  uses: z.array(z.string().min(1).max(100)).max(8), photo: mediaUrl,
+});
 export const riverContentSchema = z.object({
   name: z.string().min(1).max(120), title: z.string().min(1).max(160), description: z.string().min(1).max(800),
   editorialTitle: z.string().min(1).max(160), editorialText: z.string().min(1).max(1200),
   hero: mediaUrl, video: mediaUrl, gallery: z.array(mediaUrl).min(1).max(8),
   availability: z.enum(['consultar', 'disponible', 'no_disponible']),
+  modalities: z.array(riverModalitySchema).max(2).default([]),
 });
 export const riverOfferSchema = z.object({
   name: z.string().min(1).max(100), subtitle: z.string().min(1).max(180),
