@@ -14,6 +14,7 @@ import { Route as AlojamientosRouteImport } from './routes/alojamientos'
 import { Route as CorporateLongStayRouteImport } from './routes/corporate-long-stay'
 import { Route as GuiaDeAsuncionRouteImport } from './routes/guia-de-asuncion'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AdminExperienciasRouteImport } from './routes/admin.experiencias'
 import { Route as ExperienciasSkyStaysOnTheRiverRouteImport } from './routes/experiencias.sky-stays-on-the-river'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminExperienciasRoute = AdminExperienciasRouteImport.update({
+  id: '/admin/experiencias',
+  path: '/admin/experiencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExperienciasSkyStaysOnTheRiverRoute =
   ExperienciasSkyStaysOnTheRiverRouteImport.update({
     id: '/experiencias/sky-stays-on-the-river',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/experiencias': typeof AdminExperienciasRoute
   '/experiencias/sky-stays-on-the-river': typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 export interface FileRoutesByTo {
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/experiencias': typeof AdminExperienciasRoute
   '/experiencias/sky-stays-on-the-river': typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 export interface FileRoutesById {
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/corporate-long-stay': typeof CorporateLongStayRoute
   '/guia-de-asuncion': typeof GuiaDeAsuncionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/experiencias': typeof AdminExperienciasRoute
   '/experiencias/sky-stays-on-the-river': typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 export interface FileRouteTypes {
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
+    | '/admin/experiencias'
     | '/experiencias/sky-stays-on-the-river'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
+    | '/admin/experiencias'
     | '/experiencias/sky-stays-on-the-river'
   id:
     | '__root__'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/corporate-long-stay'
     | '/guia-de-asuncion'
     | '/sitemap.xml'
+    | '/admin/experiencias'
     | '/experiencias/sky-stays-on-the-river'
   fileRoutesById: FileRoutesById
 }
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   CorporateLongStayRoute: typeof CorporateLongStayRoute
   GuiaDeAsuncionRoute: typeof GuiaDeAsuncionRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminExperienciasRoute: typeof AdminExperienciasRoute
   ExperienciasSkyStaysOnTheRiverRoute: typeof ExperienciasSkyStaysOnTheRiverRoute
 }
 
@@ -146,6 +159,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/experiencias': {
+      id: '/admin/experiencias'
+      path: '/admin/experiencias'
+      fullPath: '/admin/experiencias'
+      preLoaderRoute: typeof AdminExperienciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/experiencias/sky-stays-on-the-river': {
       id: '/experiencias/sky-stays-on-the-river'
       path: '/experiencias/sky-stays-on-the-river'
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   CorporateLongStayRoute: CorporateLongStayRoute,
   GuiaDeAsuncionRoute: GuiaDeAsuncionRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminExperienciasRoute: AdminExperienciasRoute,
   ExperienciasSkyStaysOnTheRiverRoute: ExperienciasSkyStaysOnTheRiverRoute,
 }
 export const routeTree = rootRouteImport
