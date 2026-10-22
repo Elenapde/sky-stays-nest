@@ -1,0 +1,1 @@
+UPDATE public.experience_content SET content = jsonb_set(content, '{title}', '"Paseos por el río Paraguay"') WHERE slug = 'sky-stays-on-the-river';
