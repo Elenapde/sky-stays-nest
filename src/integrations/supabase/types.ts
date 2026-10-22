@@ -183,7 +183,13 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      experience_offer_visibility: {
+        Row: {
+          active: boolean | null
+          id: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       is_experience_editor: { Args: never; Returns: boolean }
