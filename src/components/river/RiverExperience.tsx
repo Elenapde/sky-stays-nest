@@ -1,12 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, Pause, Play } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { Cta, CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
+import { CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
 import { wa } from '@/data/sky';
 import { riverQuery } from '@/lib/river.query';
 import type { RiverExperience as Experience } from '@/lib/river.schema';
-import originalReel from '@/assets/river-reel.mp4.asset.json';
-import compatibleReel from '@/assets/river-reel.webm.asset.json';
 import riverCover from '@/assets/river-cover.jpg.asset.json';
 
 export function RiverHomeFeature() {
@@ -41,44 +38,6 @@ function RiverHero({ experience }: { experience: Experience }) {
       <h2 className="mt-5 max-w-xl text-4xl leading-tight md:text-5xl">{data.content.title}</h2>
       <p className="mt-5 max-w-lg text-sm leading-relaxed text-carbon-foreground/90">{data.content.description}</p>
       <CtaLink to="/experiencias/sky-stays-on-the-river" variant="nude" className="mt-8 self-start">Descubrir la experiencia <ArrowUpRight size={16} /></CtaLink>
-    </div>
-  </section>;
-}
-
-export function RiverNav({ mobile = false, footer = false }: { mobile?: boolean; footer?: boolean }) {
-  const { data } = useQuery(riverQuery);
-  if (!data?.active) return null;
-  if (footer) return <nav aria-label="Experiencias"><p className="kicker text-nude/45">Experiencias</p><CtaLink to="/experiencias/sky-stays-on-the-river" variant="linkLight" size="bare" className="mt-4 text-sm normal-case">Sky Stays On The River</CtaLink></nav>;
-  return <CtaLink to="/experiencias/sky-stays-on-the-river" variant="linkLight" size="bare" title="Sky Stays On The River" className={mobile ? 'kicker justify-start text-nude' : 'kicker px-3 py-3 text-nude/85'}>Experiencias</CtaLink>;
-}
-
-function RiverHero({ experience }: { experience: Experience }) {
-  const { content } = experience;
-  const video = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [failed, setFailed] = useState(false);
-  useEffect(() => {
-    const el = video.current;
-    if (!el) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (!reduced.matches) void el.play().catch(() => setPlaying(false));
-    const stop = () => { if (reduced.matches) el.pause(); };
-    reduced.addEventListener('change', stop);
-    return () => reduced.removeEventListener('change', stop);
-  }, [content.video]);
-  return <section className="river-hero relative isolate overflow-hidden bg-carbon text-carbon-foreground">
-    <img src={content.hero} alt="Yate privado Sky Stays navegando frente a Asunción al atardecer" className="absolute inset-0 -z-30 h-full w-full object-cover" fetchPriority="high" />
-    {!failed && <video key={content.video} ref={video} poster={content.hero} muted loop playsInline preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} className="absolute inset-0 -z-20 h-full w-full object-cover object-center" aria-label="Paseo real de Sky Stays On The River">
-      {content.video === originalReel.url && <source src={compatibleReel.url} type="video/webm" />}
-      <source src={content.video} />
-    </video>}
-    <div className="absolute inset-0 -z-10 bg-carbon/50" />
-    <div className="mx-auto flex h-full max-w-[80rem] flex-col justify-end px-6 pt-32 pb-16 md:px-10 md:pb-20">
-      <p className="kicker text-nude">Experiencias · Sky Stays On The River</p>
-      <p className="mt-6 max-w-xl font-display text-xl text-nude md:text-2xl">{content.name}</p>
-      <h1 className="mt-4 max-w-3xl text-4xl leading-[1.08] md:text-7xl">{content.title}</h1>
-      <p className="mt-3 max-w-xl text-sm leading-relaxed text-carbon-foreground/85 md:text-base">{content.description}</p>
-      <CtaAnchor href="#modalidades" variant="nude" className="mt-8 self-start">Descubrir las modalidades <ArrowUpRight size={16} /></CtaAnchor>
     </div>
   </section>;
 }
