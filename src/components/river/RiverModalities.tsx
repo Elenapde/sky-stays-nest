@@ -29,8 +29,8 @@ export function RiverModalities({ experience, preview }: { experience: RiverExpe
             <img src={terms?.photo ?? modality.photo} alt={modality.id === 'business-sunset' ? 'Yate privado Sky Stays navegando por el río Paraguay al atardecer' : 'Un brindis compartido a bordo del yate de Sky Stays'} loading="lazy" className="aspect-[3/4] w-full object-cover md:aspect-[4/5]" />
           </figure>
           <div className="min-w-0 [&_h3]:tracking-normal [&_p]:tracking-normal">
-            <p className="text-[11px] font-semibold uppercase leading-5 text-primary-soft">{modality.category}</p>
-            <p className="mt-4 text-sm font-semibold text-primary">{name}</p>
+            <p className="inline-block border-b-2 border-primary pb-1 text-sm font-bold uppercase leading-5 tracking-[0.12em] text-primary md:text-base">{modality.category}</p>
+            <p className="mt-4 font-display text-2xl font-semibold uppercase tracking-wide text-primary md:text-3xl">{name}</p>
             <h3 id={`${modality.id}-title`} className="mt-5 text-3xl leading-tight text-primary md:text-4xl">{modality.headline}</h3>
             <p className="mt-6 text-sm leading-7 text-muted-foreground">{modality.description}</p>
             <p className="mt-5 border-l-2 border-border-strong pl-4 text-xs leading-6 text-primary-soft">{modality.uses.join(' · ')}</p>
