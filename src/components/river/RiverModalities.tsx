@@ -1,3 +1,4 @@
+const RIVER_WA = "https://wa.me/595973770000?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20paseos%20privados%20por%20el%20r%C3%ADo%20Paraguay.%20";
 import { ArrowUpRight } from 'lucide-react';
 import { CtaAnchor, Section, SectionHead } from '@/components/sky/ui';
 import { wa } from '@/data/sky';
@@ -39,7 +40,7 @@ export function RiverModalities({ experience, preview }: { experience: RiverExpe
               <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">{included.map((service, i) => <li key={i} className="flex gap-3"><span aria-hidden="true" className="text-primary-soft">—</span><span>{service}</span></li>)}</ul>
             </div>}
             {terms && <div className="mt-6"><p className="text-xl text-primary"><span className="font-display">{terms.fromPrice ? 'Desde ' : ''}{terms.currency} {terms.price.toLocaleString('es-PY')}</span><span className="ml-2 text-xs text-muted-foreground">por experiencia.</span></p>{preview && !offer?.validated && <p className="mt-3 text-sm text-destructive">Pendiente de validación comercial</p>}</div>}
-            {bookable ? <CtaAnchor href={wa(message)} target="_blank" rel="noreferrer" className="mt-7 w-full sm:w-auto">Consultar disponibilidad <ArrowUpRight size={16} /></CtaAnchor> : <p className="mt-7 text-sm text-muted-foreground">No disponible por el momento.</p>}
+            {bookable ? <CtaAnchor href={RIVER_WA} target="_blank" rel="noreferrer" className="mt-7 w-full sm:w-auto">Consultar disponibilidad <ArrowUpRight size={16} /></CtaAnchor> : <p className="mt-7 text-sm text-muted-foreground">No disponible por el momento.</p>}
           </div>
         </article>;
       })}
