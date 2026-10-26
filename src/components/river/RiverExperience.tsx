@@ -53,8 +53,8 @@ export function RiverExperiencePage({ experience, preview = false }: { experienc
     <RiverHero experience={experience} />
     <section className="border-b border-border bg-secondary px-6 py-9 md:px-10">
       <dl className="mx-auto grid max-w-[80rem] gap-7 md:grid-cols-3">
-        <div><dt className="kicker text-primary-soft">Duración</dt><dd className="mt-3 font-display text-xl text-primary">{business || privateOffer ? [business?.content.duration, privateOffer?.content.duration].filter(Boolean).join(' · ') : 'A coordinar según modalidad'}</dd></div>
-        <div><dt className="kicker text-primary-soft">Capacidad</dt><dd className="mt-3 font-display text-xl text-primary">{business ? `${business.content.capacity} · Business Sunset` : 'Paseos privados'}</dd></div>
+        <div><dt className="kicker text-primary-soft">Duración</dt><dd className="mt-3 font-display text-xl text-primary">{business || privateOffer ? [business?.content.duration, privateOffer?.content.duration].filter(Boolean).join(' · ') : 'De 2 a 4 hs'}</dd></div>
+        <div><dt className="kicker text-primary-soft">Capacidad</dt><dd className="mt-3 font-display text-xl text-primary">{business ? `${business.content.capacity} · Business Sunset` : 'Hasta 6 personas'}</dd></div>
         <div><dt className="kicker text-primary-soft">A bordo</dt><dd className="mt-3 font-display text-xl text-primary">Capitán, gastronomía y bebidas</dd></div>
       </dl>
     </section>
