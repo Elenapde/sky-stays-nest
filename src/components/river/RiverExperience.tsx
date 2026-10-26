@@ -1,3 +1,4 @@
+const RIVER_WA = "https://wa.me/595973770000?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20paseos%20privados%20por%20el%20r%C3%ADo%20Paraguay.%20";
 import { ArrowUpRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { CtaAnchor, CtaLink, Section, SectionHead } from '@/components/sky/ui';
@@ -71,7 +72,7 @@ export function RiverExperiencePage({ experience, preview = false }: { experienc
     {content.gallery[2] && <section className="bg-carbon"><img src={content.gallery[2]} alt="El río Paraguay al atardecer desde el yate de Sky Stays" loading="lazy" className="max-h-[620px] w-full object-cover" /></section>}
     <Section tone="burgundy" className="text-center">
       <p className="kicker text-nude">Sky Stays On The River</p><h2 className="mt-5 text-3xl md:text-4xl">Tu próximo plan, sobre el río.</h2>
-      {bookable && <CtaAnchor href={wa('Hola, quiero organizar un paseo privado con Sky Stays On The River.')} target="_blank" rel="noreferrer" variant="nude" className="mt-8">Consultar por WhatsApp <ArrowUpRight size={16} /></CtaAnchor>}
+      {bookable && <CtaAnchor href={RIVER_WA} target="_blank" rel="noreferrer" variant="nude" className="mt-8">Consultar por WhatsApp <ArrowUpRight size={16} /></CtaAnchor>}
     </Section>
   </>;
 }
